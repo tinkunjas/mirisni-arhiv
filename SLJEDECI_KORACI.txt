@@ -1,0 +1,11 @@
+MIRISNI ARHIV - SUPABASE POVEZANO
+
+1. SQL postavke vec si uspjesno izvrsio - ne treba ponovno.
+2. Napravi backup trenutnog kataloga ako imas izmjene koje nisu u ovoj verziji.
+3. Raspakiraj ZIP i prenesi sav sadrzaj u GitHub repozitorij mirisni-arhiv.
+4. Nakon deploya otvori https://tinkunjas.github.io/mirisni-arhiv/ i napravi Ctrl+Shift+R.
+5. Klikni Prijava vlasnika i unesi Supabase korisnicki email i lozinku.
+6. Kad pita objaviti pocetni katalog, potvrdi samo ako je u njemu zadnja ispravna evidencija.
+7. Testiraj izmjenu kolicine i provjeri je u anonimnom prozoru.
+
+Publishable key je javna postavka. Nikada ne objavljuj service_role / secret key ili lozinku.

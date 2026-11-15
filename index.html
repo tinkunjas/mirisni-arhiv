@@ -6,20 +6,27 @@
   <meta name="theme-color" content="#0d1817">
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Moj privatni mirisni arhiv – parfemi, testeri, ocjene, cijene i lista želja.">
-  <title>Mirisni arhiv — moja kolekcija</title>
-  <link rel="stylesheet" href="css/base.css?v=testeri-desktop-20261112">
-  <link rel="stylesheet" href="css/theme.css?v=testeri-desktop-20261112">
-  <script src="js/data.js?v=testeri-desktop-20261112" defer></script>
-  <script src="js/app.js?v=testeri-desktop-20261112" defer></script>
+  <title>Mirisni arhiv — kolekcija parfema</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta name="color-scheme" content="dark">
+  <link rel="stylesheet" href="css/base.css?v=supabase-connected-20261115-v1">
+  <link rel="stylesheet" href="css/theme.css?v=supabase-connected-20261115-v1">
+  <link rel="stylesheet" href="css/atelier.css?v=supabase-connected-20261115-v1">
+  <script src="js/data.js?v=supabase-connected-20261115-v1" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="js/config.js?v=supabase-connected-20261115-v1" defer></script>
+  <script src="js/app.js?v=supabase-connected-20261115-v1" defer></script>
 </head>
 <body>
   <div class="app">
     <aside class="sidebar" aria-label="Bočna navigacija">
       <div class="mark">
-        <span class="mark-symbol">✦</span>
-        <div class="mark-text"><b>Mirisni arhiv</b><span>MOJA KOLEKCIJA</span></div>
+        <span class="mark-symbol" aria-hidden="true">M<span class="mark-slash">/</span>A</span>
+        <div class="mark-text"><b>Mirisni arhiv</b><span>PARFEMI · TESTERI · ARHIVA</span></div>
       </div>
-      <div class="navcaption">KOLEKCIJA</div>
+      <div class="navcaption">PREGLED</div>
       <nav class="nav" aria-label="Stranice kolekcije">
         <button id="navB" class="nav-btn" type="button"></button>
         <button id="navT" class="nav-btn" type="button"></button>
@@ -27,22 +34,19 @@
         <button id="navW" class="nav-btn" type="button"></button>
       </nav>
       <div class="aside-bottom">
-        <p class="mini-motto">Every scent tells a story.</p>
+        <p class="mini-motto">Kolekcija kroz vrijeme.</p>
         <div class="aside-notice">
-          <strong>Privatna kolekcija</strong><br>
-          Uređuj sve mirise, količine, cijene i ocjene.
-          Podaci se spremaju u ovom pregledniku.
+          <strong>Osobna evidencija mirisa</strong><br>
+          Stvarne bočice, testeri i mirisi koji su prošli kroz kolekciju.
+          <br><br>Podaci o notama i Fragrantica ocjenama služe za usporedbu.
           <br><br>
-          Za prijenos na drugi uređaj koristi <strong>Backup JSON</strong>.
-          <br><br>
-          Ažurirano 12. 11. 2026.
         </div>
       </div>
     </aside>
 
     <main class="main" id="main">
       <header class="toolbar">
-        <div class="breadcrumbs">ARHIV <span id="crumb"> / MOJI PARFEMI</span></div>
+        <div class="breadcrumbs">KOLEKCIJA <span id="crumb"> / MOJI PARFEMI</span></div>
         <div class="tools">
           <button id="copyBtn" class="btn simple hide-xs" type="button">Kopiraj popis</button>
           <button id="csvBtn" class="btn simple hide-xs" type="button">CSV</button>
@@ -56,14 +60,11 @@
         Spremanje je blokirano u ovom pregledniku. Preuzmi JSON backup da ne izgubiš promjene.
       </div>
 
-      <section class="hero" aria-label="Pregled arhiva">
-        <div>
-          <div id="heroKicker" class="eyebrow">MOJA POLICA</div>
-          <h1 id="heroTitle">Moja kolekcija, <i>moj potpis.</i></h1>
-          <p id="heroText">Sve moje bočice i testeri na jednom mjestu.</p>
-        </div>
-        <div class="hero-decoration" aria-hidden="true">
-          <div class="hero-bottle"><span>✦</span></div>
+      <section class="hero" aria-label="Pregled kolekcije">
+        <div class="hero-copy">
+          <div id="heroKicker" class="eyebrow">KOLEKCIJA PARFEMA</div>
+          <h1 id="heroTitle">Moji parfemi</h1>
+          <p id="heroText">Bočice koje imam, njihove preostale količine i mirisne note.</p>
         </div>
       </section>
 
@@ -72,7 +73,7 @@
       <section class="collection-section" aria-label="Mirisi">
         <header class="section-head">
           <div><h2 id="sectionTitle">Moji parfemi</h2><p id="shownCount">Prikaz</p></div>
-          <button type="button" class="btn simple" id="resetBtn" title="Vrati početne podatke">Reset</button>
+          <button type="button" class="btn simple admin-only" id="resetBtn" title="Vrati početne podatke">Reset</button>
         </header>
 
         <div class="filters">
@@ -81,19 +82,19 @@
             <input id="searchInput" type="search" aria-label="Pretraži mirise" placeholder="Pretraži brendove, parfeme ili note…">
           </label>
           <select id="familyFilter" class="filter" aria-label="Filtriraj prema notama"></select>
-          <select id="statusFilter" class="filter" aria-label="Filtriraj po statusu"></select>
           <select id="sortFilter" class="filter" aria-label="Poredaj"></select>
         </div>
+        <div class="collection-quick-view" id="offerViewBar"><button type="button" class="offer-toggle" id="offerToggle" aria-pressed="false">Dostupno za zamjenu / prodaju</button></div>
         <p class="helper" id="helperText"></p>
         <div class="cards" id="cards"></div>
       </section>
 
       <footer class="footer">
-        <div>✦ Mirisni arhiv · osobni katalog</div>
+        <div><strong>M / A</strong> · Osobni katalog parfema</div>
         <div>
-          Fragrantica ocjene upisuju se ručno ·
+          Fragrantica ocjene su informativne i mijenjaju se ·
           <a href="https://www.fragrantica.com" target="_blank" rel="noopener noreferrer">Fragrantica</a>
-          · <a href="#" id="backupFooter">Spremi backup</a>
+          <a class="admin-only" href="#" id="backupFooter">Spremi backup</a>
         </div>
       </footer>
     </main>
@@ -113,7 +114,14 @@
     </div>
   </div>
 
+  <div class="detail-overlay" id="detailOverlay" aria-hidden="true">
+    <div class="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <button class="detail-close" type="button" id="detailClose" aria-label="Zatvori detalje">×</button>
+      <div id="detailBody"></div>
+    </div>
+  </div>
   <div class="toast" id="toast" role="status"></div>
   <input type="file" id="importFile" accept=".json,application/json" hidden>
+  <script>if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(console.warn));</script>
 </body>
 </html>

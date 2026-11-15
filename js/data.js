@@ -1,5 +1,4 @@
 "use strict";
-
 const SEED_DATA = {
   "bottles": [
     {
@@ -8,15 +7,15 @@ const SEED_DATA = {
       "brand": "Jean Paul Gaultier",
       "name": "Scandal Pour Homme Absolu",
       "description": "Kesten, mirabela i kremasta sandalovina. Gust, sladak, topao i elegantan gourmand.",
-      "ml": null,
+      "ml": 140,
       "capacity": null,
       "price2": null,
       "price5": null,
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "https://www.fragrantica.com/search/?query=Scandal%20Pour%20Homme%20Absolu",
+      "frRating": 4.47,
+      "frUrl": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Scandal-Pour-Homme-Absolu-91053.html",
       "category": "Designer",
       "family": "Gourmand",
       "status": "Ne nudim",
@@ -24,7 +23,17 @@ const SEED_DATA = {
       "personalRating": null,
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b043.webp"
+      "image": "assets/bottles/b043.webp",
+      "topNotes": [
+        "Mirabela"
+      ],
+      "heartNotes": [
+        "Kesten"
+      ],
+      "baseNotes": [
+        "Sandalovina"
+      ],
+      "notesVerified": true
     },
     {
       "id": "b044",
@@ -32,14 +41,14 @@ const SEED_DATA = {
       "brand": "Jean Paul Gaultier",
       "name": "Le Male Le Parfum",
       "description": "Kardamom, lavanda, puderasti iris i vanilija. Elegantna začinska toplina.",
-      "ml": null,
+      "ml": 200,
       "capacity": null,
       "price2": 5.5,
       "price5": 11,
       "price10": 18,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
+      "frRating": 4.59,
       "frUrl": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Le-Parfum-61856.html",
       "category": "Designer",
       "family": "Začinski",
@@ -48,7 +57,20 @@ const SEED_DATA = {
       "personalRating": null,
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b044.webp"
+      "image": "assets/bottles/b044.webp",
+      "topNotes": [
+        "Kardamom"
+      ],
+      "heartNotes": [
+        "Lavanda",
+        "Iris"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Orijentalne note",
+        "Drvenaste note"
+      ],
+      "notesVerified": true
     },
     {
       "id": "b046",
@@ -56,7 +78,7 @@ const SEED_DATA = {
       "brand": "Xerjoff",
       "name": "Naxos",
       "description": "Med, duhan, lavanda, citrusi i vanilija; topao slatkasto-aromatični niche.",
-      "ml": null,
+      "ml": 140,
       "capacity": null,
       "count": 1,
       "price2": null,
@@ -65,22 +87,39 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.fragrantica.com/perfume/Xerjoff/1861-Naxos-30529.html",
+      "frRating": 4.49,
+      "frUrl": "https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Naxos-30529.html",
       "category": "Niche",
       "family": "Gourmand",
       "status": "U kolekciji",
       "review": "Potvrđeno da je opet u kolekciji.",
       "personalRating": null,
       "ownership": "owned",
-      "image": "assets/bottles/b046.webp"
+      "image": "assets/bottles/b046.webp",
+      "topNotes": [
+        "Lavanda",
+        "Bergamot",
+        "Limun"
+      ],
+      "heartNotes": [
+        "Med",
+        "Cimet",
+        "Kašmeran",
+        "Jasmin sambac"
+      ],
+      "baseNotes": [
+        "List duhana",
+        "Vanilija",
+        "Tonka"
+      ],
+      "notesVerified": true
     },
     {
       "id": "b045",
       "kind": "bottle",
       "brand": "Montblanc",
       "name": "Legend Red",
-      "description": "Crvena jabuka, krvava naranča, cedar, kadulja i drvenasta toplina; svjež, voćno-drvenasti designer.",
+      "description": "Aromatski profil: Crvena naranča, Grejp, Cedar, Muškatna kadulja, Atlas cedar, Mahagonij.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -90,15 +129,33 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.fragrantica.com/search/?query=Montblanc%20Legend%20Red",
+      "frRating": 3.76,
+      "frUrl": "https://www.fragrantica.com/perfume/Montblanc/Legend-Red-71652.html",
       "category": "Designer",
       "family": "Voćni",
-      "status": "U kolekciji",
+      "status": "Više nemam",
       "review": "",
       "personalRating": null,
-      "ownership": "owned",
-      "image": "assets/bottles/b045.webp"
+      "ownership": "past",
+      "image": "assets/extra/legend-red.webp",
+      "topNotes": [
+        "Crvena naranča",
+        "Grejp",
+        "Kardamom"
+      ],
+      "heartNotes": [
+        "Cedar",
+        "Muškatna kadulja",
+        "Borovica"
+      ],
+      "baseNotes": [
+        "Atlas cedar",
+        "Mahagonij",
+        "Tonka"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "kind": "bottle",
@@ -122,14 +179,35 @@ const SEED_DATA = {
       "id": "b001",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b001.webp"
+      "image": "assets/bottles/b001.webp",
+      "topNotes": [
+        "Kruška",
+        "Rum",
+        "Crni ribiz",
+        "Šećerna vuna",
+        "Bergamot",
+        "Neven"
+      ],
+      "heartNotes": [
+        "Začini",
+        "Breza",
+        "Božur",
+        "Turska ruža"
+      ],
+      "baseNotes": [
+        "Kašmir drvo",
+        "Ambreta",
+        "Bijeli cedar"
+      ],
+      "notesVerified": true,
+      "frVotes": 508
     },
     {
       "kind": "bottle",
       "brand": "Baruti",
       "name": "Mono No Aware",
       "description": "Zeleni matcha čaj, cvijet trešnje, cedar i puderasti mošus; umjetnički i intiman.",
-      "ml": 30,
+      "ml": 40,
       "capacity": 50,
       "price2": null,
       "price5": null,
@@ -146,14 +224,31 @@ const SEED_DATA = {
       "id": "b002",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b002.webp"
+      "image": "assets/bottles/b002.webp",
+      "topNotes": [
+        "Matcha čaj",
+        "Cvijet trešnje",
+        "Cedar",
+        "Mošus"
+      ],
+      "heartNotes": [
+        "Matcha čaj",
+        "Cedar",
+        "Cvijet trešnje",
+        "Mošus"
+      ],
+      "baseNotes": [],
+      "notesVerified": true,
+      "frVotes": 139,
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama)."
     },
     {
       "kind": "bottle",
       "brand": "Calvin Klein",
       "name": "Encounter Fresh",
       "description": "Bergamot, mojito, rum, kardamom i lavanda; svjež, malo alkoholni i aromatičan.",
-      "ml": null,
+      "ml": 20,
       "capacity": null,
       "price2": null,
       "price5": null,
@@ -170,14 +265,30 @@ const SEED_DATA = {
       "id": "b003",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b003.webp"
+      "image": "assets/bottles/b003.webp",
+      "topNotes": [
+        "Mojito",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Rum",
+        "Kardamom",
+        "Lavanda"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Pačuli",
+        "Labdanum"
+      ],
+      "notesVerified": true,
+      "frVotes": 227
     },
     {
       "kind": "bottle",
       "brand": "Gino Rossi",
       "name": "CEO Signature",
       "description": "Uredan, moderan muški miris, ali mi se nije posebno svidio.",
-      "ml": null,
+      "ml": 40,
       "capacity": null,
       "price2": null,
       "price5": null,
@@ -194,7 +305,25 @@ const SEED_DATA = {
       "id": "b004",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b004.webp"
+      "image": "assets/bottles/b004.webp",
+      "topNotes": [
+        "Limun",
+        "Elemi",
+        "Kardamom"
+      ],
+      "heartNotes": [
+        "Geranij",
+        "Lavanda",
+        "Cvijet naranče"
+      ],
+      "baseNotes": [
+        "Labdanum",
+        "Vanilija",
+        "Mošus"
+      ],
+      "notesSource": "Maloprodajni opis proizvoda; nije potvrđeno na Fragrantici",
+      "notesVerified": false,
+      "frNote": "Nije pronađeno na Fragrantici"
     },
     {
       "kind": "bottle",
@@ -203,9 +332,9 @@ const SEED_DATA = {
       "description": "Dimno drvo, tamjan i smolasti, ozbiljan karakter.",
       "ml": 80,
       "capacity": 100,
-      "price2": 2.5,
-      "price5": 5,
-      "price10": 8,
+      "price2": null,
+      "price5": null,
+      "price10": null,
       "salePrice": null,
       "saleRange": null,
       "frRating": 4.23,
@@ -218,14 +347,30 @@ const SEED_DATA = {
       "id": "b005",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b005.webp"
+      "image": "assets/bottles/b005.webp",
+      "topNotes": [
+        "Ružičasti papar",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Tamjan",
+        "Papirus",
+        "Sandalovina"
+      ],
+      "baseNotes": [
+        "Atlas cedar",
+        "Oud",
+        "Amber",
+        "Mahovina"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Xerjoff",
       "name": "Erba Pura",
       "description": "Vrlo intenzivno tropsko voće, citrusi, mošus, amber i vanilija.",
-      "ml": 50,
+      "ml": 60,
       "capacity": 100,
       "price2": 8,
       "price5": 15,
@@ -242,21 +387,35 @@ const SEED_DATA = {
       "id": "b006",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b006.webp"
+      "image": "assets/bottles/b006.webp",
+      "topNotes": [
+        "Sicilijanska naranča",
+        "Kalabrijski bergamot",
+        "Sicilijanski limun"
+      ],
+      "heartNotes": [
+        "Voće"
+      ],
+      "baseNotes": [
+        "Bijeli mošus",
+        "Madagaskarska vanilija",
+        "Amber"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Xerjoff Casamorati",
       "name": "Italica",
       "description": "Badem, mlijeko, karamel, šafran i vanilija; izraziti gurmanski miris.",
-      "ml": null,
+      "ml": 40,
       "capacity": 100,
       "price2": 7,
       "price5": 14,
       "price10": 24,
       "salePrice": null,
       "saleRange": null,
-      "frRating": 3.81,
+      "frRating": 3.8,
       "frUrl": "https://www.fragrantica.com/perfume/Xerjoff/Italica-2021--65383.html",
       "category": "Niche",
       "family": "Gourmand",
@@ -266,22 +425,37 @@ const SEED_DATA = {
       "id": "b007",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b007.webp"
+      "image": "assets/bottles/b007.webp",
+      "topNotes": [
+        "Badem",
+        "Mlijeko",
+        "Šafran"
+      ],
+      "heartNotes": [
+        "Toffee",
+        "Bourbon vanilija"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Bijeli mošus"
+      ],
+      "notesVerified": true,
+      "frVotes": 4904
     },
     {
       "kind": "bottle",
       "brand": "Oriza L. Legrand",
       "name": "Le Régent",
-      "description": "Raskošna, klasična niche kompozicija starinskog karaktera.",
-      "ml": null,
+      "description": "Aromatski profil: Benzoin, Tolu balsam, Benzoin, Vanilija, Opoponaks, Guaiac drvo.",
+      "ml": 90,
       "capacity": null,
       "price2": null,
       "price5": null,
       "price10": null,
       "salePrice": null,
       "saleRange": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.39,
+      "frUrl": "https://www.fragrantica.com/perfume/Oriza-L-Legrand/Le-Regent-62019.html",
       "category": "Niche",
       "family": "Začinski",
       "status": "Ne nudim",
@@ -290,14 +464,32 @@ const SEED_DATA = {
       "id": "b009",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b009.webp"
+      "image": "assets/bottles/b009.webp",
+      "topNotes": [
+        "Benzoin",
+        "Tolu balsam",
+        "Peru balsam"
+      ],
+      "heartNotes": [
+        "Benzoin",
+        "Vanilija",
+        "Ambra"
+      ],
+      "baseNotes": [
+        "Opoponaks",
+        "Guaiac drvo",
+        "Koža"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "kind": "bottle",
       "brand": "Acqua di Parma",
       "name": "Mandarino di Sicilia",
       "description": "Prirodna mandarina, citrusi i mediteransko bilje.",
-      "ml": null,
+      "ml": 80,
       "capacity": 100,
       "price2": 7,
       "price5": 14,
@@ -314,21 +506,37 @@ const SEED_DATA = {
       "id": "b010",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b010.webp"
+      "image": "assets/bottles/b010.webp",
+      "topNotes": [
+        "Zelena mandarina",
+        "Crvena naranča",
+        "Limun",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Petitgrain",
+        "Metvica"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Cedar",
+        "Pačuli"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Armani",
       "name": "Stronger With You Intensely",
       "description": "Karamela, amber, vanilija i drvenasti začini; sladak večernji miris.",
-      "ml": null,
+      "ml": 25,
       "capacity": 100,
       "price2": 5.5,
       "price5": 11,
       "price10": null,
       "salePrice": null,
       "saleRange": null,
-      "frRating": 4.58,
+      "frRating": 4.57,
       "frUrl": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Intensely-52802.html",
       "category": "Designer",
       "family": "Gourmand",
@@ -338,22 +546,40 @@ const SEED_DATA = {
       "id": "b011",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b011.webp"
+      "image": "assets/bottles/b011.webp",
+      "topNotes": [
+        "Ružičasti papar",
+        "Borovica",
+        "Ljubičica"
+      ],
+      "heartNotes": [
+        "Toffee",
+        "Cimet",
+        "Lavanda",
+        "Kadulja"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Amber",
+        "Tonka",
+        "Antilop"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Yves Saint Laurent",
       "name": "MYSLF",
       "description": "Svježi cvijet naranče i moderno drvo; čist, uglađen.",
-      "ml": null,
+      "ml": 70,
       "capacity": 100,
       "price2": 3.5,
       "price5": 7,
       "price10": 12,
       "salePrice": null,
       "saleRange": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.33,
+      "frUrl": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/MYSLF-Eau-de-Parfum-84094.html",
       "category": "Designer",
       "family": "Aromatični",
       "status": "U kolekciji",
@@ -362,7 +588,19 @@ const SEED_DATA = {
       "id": "b012",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b012.webp"
+      "image": "assets/bottles/b012.webp",
+      "topNotes": [
+        "Kalabrijski bergamot",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Tuniski cvijet naranče"
+      ],
+      "baseNotes": [
+        "Ambrofix",
+        "Pačuli"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
@@ -377,7 +615,7 @@ const SEED_DATA = {
       "salePrice": 80,
       "saleRange": null,
       "frRating": 4.52,
-      "frUrl": "https://www.fragrantica.com/perfume/Paco-Rabanne/Invictus-Victory-Elixir-78575.html",
+      "frUrl": "https://www.fragrantica.com/perfume/Rabanne/Invictus-Victory-Elixir-78575.html",
       "category": "Designer",
       "family": "Začinski",
       "status": "Za prodaju",
@@ -386,14 +624,28 @@ const SEED_DATA = {
       "id": "b013",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b013.webp"
+      "image": "assets/bottles/b013.webp",
+      "topNotes": [
+        "Lavanda",
+        "Kardamom",
+        "Crni papar"
+      ],
+      "heartNotes": [
+        "Tamjan",
+        "Pačuli"
+      ],
+      "baseNotes": [
+        "Mahuna vanilije",
+        "Tonka"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Teriaq Intense",
       "description": "Šafran, liker od šljive, cimet i topao amber.",
-      "ml": null,
+      "ml": 95,
       "capacity": 100,
       "price2": 3,
       "price5": 5.5,
@@ -410,14 +662,28 @@ const SEED_DATA = {
       "id": "b014",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b014.webp"
+      "image": "assets/bottles/b014.webp",
+      "topNotes": [
+        "Šafran",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Liker od šljive",
+        "Cimet"
+      ],
+      "baseNotes": [
+        "Amber",
+        "Tonka",
+        "Benzoin"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "French Avenue",
       "name": "Aether",
       "description": "Moderno zeleno-voćno drvo; svjež i pomalo mineralan.",
-      "ml": null,
+      "ml": 85,
       "capacity": 100,
       "price2": 3,
       "price5": 5.5,
@@ -434,22 +700,39 @@ const SEED_DATA = {
       "id": "b015",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b015.webp"
+      "image": "assets/bottles/b015.webp",
+      "topNotes": [
+        "Zelena jabuka",
+        "Bergamot",
+        "Mandarina"
+      ],
+      "heartNotes": [
+        "Cedar",
+        "Petitgrain",
+        "Cashmeran",
+        "Ljubičica"
+      ],
+      "baseNotes": [
+        "Hrastova mahovina",
+        "Mošus",
+        "Amberwood"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "French Avenue",
       "name": "Vulcan Feu",
       "description": "Mango, đumbir i svjež tropski začinski karakter.",
-      "ml": null,
+      "ml": 80,
       "capacity": 100,
       "price2": 3,
       "price5": 5.5,
       "price10": 9,
       "salePrice": null,
       "saleRange": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.35,
+      "frUrl": "https://www.fragrantica.com/p/105520",
       "category": "Arabski",
       "family": "Voćni",
       "status": "Moguća zamjena",
@@ -458,38 +741,76 @@ const SEED_DATA = {
       "id": "b016",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b016.webp"
+      "image": "assets/bottles/b016.webp",
+      "topNotes": [
+        "Mango",
+        "Limun",
+        "Đumbir",
+        "Rabarbara"
+      ],
+      "heartNotes": [
+        "Ružičasti papar",
+        "Jasmin",
+        "Ljubičica",
+        "Praline"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Cedar",
+        "Ambra",
+        "Mahovina"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Khadlaj",
       "name": "Island",
-      "description": "Kremast, tropski i sladak ljetni profil.",
-      "ml": 80,
+      "description": "Aromatski profil: Ananas, Iris, Kokos, Drvenaste note, Tonka, Sandalovina.",
+      "ml": 0,
       "capacity": 100,
-      "price2": 3,
-      "price5": 5.5,
-      "price10": 9,
+      "price2": null,
+      "price5": null,
+      "price10": null,
       "salePrice": null,
       "saleRange": null,
       "frRating": 4.32,
       "frUrl": "https://www.fragrantica.com/perfume/Khadlaj-Perfumes/Island-102362.html",
       "category": "Arabski",
       "family": "Tropski",
-      "status": "U kolekciji",
+      "status": "Prodano",
       "review": "",
       "personalRating": null,
       "id": "b017",
-      "ownership": "owned",
+      "ownership": "past",
       "count": 1,
-      "image": "assets/bottles/b017.webp"
+      "image": "assets/bottles/b017.webp",
+      "topNotes": [
+        "Ananas",
+        "Iris",
+        "Đumbir",
+        "Čempres"
+      ],
+      "heartNotes": [
+        "Kokos",
+        "Drvenaste note"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Sandalovina",
+        "Ambra",
+        "Ambra siva"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Vintage Radio",
       "description": "Sočna šljiva, lavanda, palo santo i kremasto drvo.",
-      "ml": null,
+      "ml": 70,
       "capacity": 100,
       "price2": 3,
       "price5": 5.5,
@@ -506,22 +827,38 @@ const SEED_DATA = {
       "id": "b018",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b018.webp"
+      "image": "assets/bottles/b018.webp",
+      "topNotes": [
+        "Lavanda",
+        "Kadulja",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Šljiva",
+        "Palo santo",
+        "Crni papar"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Oud"
+      ],
+      "notesVerified": true,
+      "frVotes": 5013
     },
     {
       "kind": "bottle",
       "brand": "Azzaro",
       "name": "Chrome Extreme",
-      "description": "Svježi morski i citrusni miris sa slankasto-ambroksanskom bazom.",
-      "ml": null,
+      "description": "Aromatski profil: Zelena mandarina, Morske note, Borovica, Kašmeran, Ambra.",
+      "ml": 30,
       "capacity": 100,
       "price2": 3,
       "price5": 6,
       "price10": null,
       "salePrice": null,
       "saleRange": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.3,
+      "frUrl": "https://www.fragrantica.com/perfume/Azzaro/Azzaro-Chrome-Extreme-59020.html",
       "category": "Designer",
       "family": "Morski",
       "status": "U kolekciji",
@@ -530,14 +867,28 @@ const SEED_DATA = {
       "id": "b019",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b019.webp"
+      "image": "assets/bottles/b019.webp",
+      "topNotes": [
+        "Zelena mandarina"
+      ],
+      "heartNotes": [
+        "Morske note",
+        "Borovica"
+      ],
+      "baseNotes": [
+        "Kašmeran",
+        "Ambra"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "kind": "bottle",
       "brand": "Montblanc",
       "name": "Explorer",
       "description": "Svježi bergamot, drvo, koža i ambroksan.",
-      "ml": null,
+      "ml": 20,
       "capacity": 100,
       "price2": 3,
       "price5": 5.5,
@@ -554,14 +905,30 @@ const SEED_DATA = {
       "id": "b020",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b020.webp"
+      "image": "assets/bottles/b020.webp",
+      "topNotes": [
+        "Bergamot",
+        "Ružičasti papar",
+        "Muškatna kadulja"
+      ],
+      "heartNotes": [
+        "Haitski vetiver",
+        "Koža"
+      ],
+      "baseNotes": [
+        "Ambroxan",
+        "Akigalawood",
+        "Pačuli",
+        "Kakao"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Missoni",
       "name": "Wave",
       "description": "Vedra morska svježina, citrusi, lavanda i drvo.",
-      "ml": null,
+      "ml": 30,
       "capacity": 100,
       "price2": 3,
       "price5": 6,
@@ -578,14 +945,32 @@ const SEED_DATA = {
       "id": "b021",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b021.webp"
+      "image": "assets/bottles/b021.webp",
+      "topNotes": [
+        "Morske note",
+        "Citrusi",
+        "Sicilijanska mandarina"
+      ],
+      "heartNotes": [
+        "Lavanda",
+        "Muškatna kadulja",
+        "Ružmarin",
+        "Pelargonija"
+      ],
+      "baseNotes": [
+        "Orhideja vanilije",
+        "Vetiver",
+        "Pačuli",
+        "Hrastova mahovina"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Versace",
       "name": "Eros EDT",
       "description": "Menta, zelena jabuka, vanilija i drvo.",
-      "ml": null,
+      "ml": 60,
       "capacity": 100,
       "price2": 3,
       "price5": 5.5,
@@ -602,21 +987,38 @@ const SEED_DATA = {
       "id": "b022",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b022.webp"
+      "image": "assets/bottles/b022.webp",
+      "topNotes": [
+        "Metvica",
+        "Zelena jabuka",
+        "Limun"
+      ],
+      "heartNotes": [
+        "Tonka",
+        "Ambroxan",
+        "Geranij"
+      ],
+      "baseNotes": [
+        "Madagaskarska vanilija",
+        "Cedar",
+        "Vetiver",
+        "Hrastova mahovina"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "French Avenue",
       "name": "Liquid Brun",
       "description": "Bogata začinska vanilija, cimet i drvenasti amber.",
-      "ml": null,
+      "ml": 80,
       "capacity": 100,
       "price2": 3,
       "price5": 5.5,
       "price10": 9,
       "salePrice": null,
       "saleRange": null,
-      "frRating": 4.43,
+      "frRating": 4.42,
       "frUrl": "https://www.fragrantica.com/perfume/fragrance-world/liquid-brun-94713.html",
       "category": "Arabski",
       "family": "Gourmand",
@@ -626,38 +1028,71 @@ const SEED_DATA = {
       "id": "b023",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b023.webp"
+      "image": "assets/bottles/b023.webp",
+      "topNotes": [
+        "Cimet",
+        "Cvijet naranče",
+        "Kardamom",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Bourbon vanilija",
+        "Elemi"
+      ],
+      "baseNotes": [
+        "Praline",
+        "Ambroksan",
+        "Mošus",
+        "Guaiac drvo"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Paris Corner",
       "name": "Rifaaqat",
-      "description": "Začini, smola, koža i meka vanilija.",
-      "ml": 75,
+      "description": "Aromatski profil: Crni papar, Elemi, Tamjan, Šafran, Vanilija, Cedar.",
+      "ml": 0,
       "capacity": null,
-      "price2": 3,
-      "price5": 5.5,
-      "price10": 9,
+      "price2": null,
+      "price5": null,
+      "price10": null,
       "salePrice": null,
       "saleRange": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.22,
+      "frUrl": "https://www.fragrantica.com/perfume/PARIS-CORNER/Rifaaqat-99060.html",
       "category": "Arabski",
       "family": "Kožnati",
-      "status": "U kolekciji",
+      "status": "Prodano",
       "review": "",
       "personalRating": null,
       "id": "b024",
-      "ownership": "owned",
+      "ownership": "past",
       "count": 1,
-      "image": "assets/bottles/b024.webp"
+      "image": "assets/bottles/b024.webp",
+      "topNotes": [
+        "Crni papar",
+        "Elemi",
+        "Ružičasti papar"
+      ],
+      "heartNotes": [
+        "Tamjan",
+        "Šafran"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Cedar"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "kind": "bottle",
       "brand": "Armaf",
       "name": "Odyssey Mandarin Sky",
       "description": "Mandarina, slatka karamela i moderan amber.",
-      "ml": 50,
+      "ml": 55,
       "capacity": 100,
       "price2": 2.5,
       "price5": 4.5,
@@ -674,14 +1109,31 @@ const SEED_DATA = {
       "id": "b025",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b025.webp"
+      "image": "assets/bottles/b025.webp",
+      "topNotes": [
+        "Mandarina",
+        "Naranča",
+        "Šafran",
+        "Kadulja"
+      ],
+      "heartNotes": [
+        "Karamela",
+        "Tonka",
+        "Neven"
+      ],
+      "baseNotes": [
+        "Ambroxan",
+        "Cedar",
+        "Vetiver"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Armaf",
       "name": "Odyssey Aoud",
       "description": "Tamna slatkasta drvena i oud kompozicija.",
-      "ml": 70,
+      "ml": 80,
       "capacity": 100,
       "price2": 2.5,
       "price5": 4.5,
@@ -698,14 +1150,29 @@ const SEED_DATA = {
       "id": "b026",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b026.webp"
+      "image": "assets/bottles/b026.webp",
+      "topNotes": [
+        "Šafran",
+        "Muškatni oraščić",
+        "Lavanda"
+      ],
+      "heartNotes": [
+        "Oud",
+        "Drvenaste note"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Ambroksan",
+        "Pačuli"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Maison Alhambra",
       "name": "The Tux",
-      "description": "Elegantni pačuli, začini, amber i suptilna vanilija.",
-      "ml": null,
+      "description": "Aromatski profil: Pačuli, Začinske note, Vanilija, Ambra, Cvjetne note.",
+      "ml": 40,
       "capacity": 100,
       "price2": 2.5,
       "price5": 4.5,
@@ -722,14 +1189,34 @@ const SEED_DATA = {
       "id": "b027",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b027.webp"
+      "image": "assets/bottles/b027.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Pačuli",
+        "Začinske note",
+        "Vanilija",
+        "Amber",
+        "Cvjetne note"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Pačuli",
+        "Začinske note",
+        "Vanilija",
+        "Ambra",
+        "Cvjetne note"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama)."
     },
     {
       "kind": "bottle",
       "brand": "Afnan",
       "name": "Turathi Blue",
       "description": "Citrusi, začini, drvo i mošus; svjež i izražajan.",
-      "ml": null,
+      "ml": 15,
       "capacity": 90,
       "price2": 2,
       "price5": 4,
@@ -746,21 +1233,35 @@ const SEED_DATA = {
       "id": "b028",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b028.webp"
+      "image": "assets/bottles/b028.webp",
+      "topNotes": [
+        "Citrusi"
+      ],
+      "heartNotes": [
+        "Drvenaste note",
+        "Amber"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Začini",
+        "Pačuli"
+      ],
+      "notesVerified": true,
+      "frVotes": 8698
     },
     {
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Ishq Al Shuyukh Silver",
-      "description": "Slatkast, topao i pomalo karameličan moderan muški miris.",
-      "ml": null,
+      "description": "Aromatski profil: Limun, Bergamot, Ananas, Crni papar, Vanilija, Amberwood.",
+      "ml": 50,
       "capacity": 100,
       "price2": 2,
       "price5": 4,
       "price10": 6,
       "salePrice": null,
       "saleRange": null,
-      "frRating": 4.42,
+      "frRating": 4.4,
       "frUrl": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Ishq-Al-Shuyukh-Silver-81099.html",
       "category": "Arabski",
       "family": "Gourmand",
@@ -770,14 +1271,31 @@ const SEED_DATA = {
       "id": "b029",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b029.webp"
+      "image": "assets/bottles/b029.webp",
+      "topNotes": [
+        "Limun",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Ananas",
+        "Crni papar"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Amberwood",
+        "Cedar",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "kind": "bottle",
       "brand": "Maison Alhambra",
       "name": "Cassius",
-      "description": "Tamni začini, amber i drvo; topliji večernji miris.",
-      "ml": 85,
+      "description": "Aromatski profil: Muškatni oraščić, Zelena jabuka, Tonka, Ruža, Pačuli, Vanilija.",
+      "ml": 70,
       "capacity": 100,
       "price2": 2,
       "price5": 4,
@@ -794,22 +1312,38 @@ const SEED_DATA = {
       "id": "b030",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b030.webp"
+      "image": "assets/bottles/b030.webp",
+      "topNotes": [
+        "Muškatni oraščić",
+        "Zelena jabuka"
+      ],
+      "heartNotes": [
+        "Tonka",
+        "Ruža"
+      ],
+      "baseNotes": [
+        "Pačuli",
+        "Vanilija"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 458
     },
     {
       "kind": "bottle",
       "brand": "Bentley",
       "name": "For Men Intense",
       "description": "Rum, tamjan, koža, cedar i tamni začini.",
-      "ml": null,
+      "ml": 90,
       "capacity": 100,
       "price2": 2,
       "price5": 4,
       "price10": 6,
       "salePrice": null,
       "saleRange": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.1,
+      "frUrl": "https://www.fragrantica.com/perfume/Bentley/Bentley-for-Men-Intense-17666.html",
       "category": "Designer",
       "family": "Kožnati",
       "status": "U kolekciji",
@@ -818,14 +1352,34 @@ const SEED_DATA = {
       "id": "b031",
       "ownership": "owned",
       "count": 1,
-      "image": ""
+      "image": "",
+      "topNotes": [
+        "Crni papar",
+        "Lovor",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Rum",
+        "Drvenaste note",
+        "Cimet",
+        "Muškatna kadulja",
+        "Geranij"
+      ],
+      "baseNotes": [
+        "Tamjan",
+        "Koža",
+        "Benzoin",
+        "Cedar",
+        "Pačuli"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Art of Arabia I",
-      "description": "Svjež čajni i citrusni profil s aromatičnom bazom.",
-      "ml": null,
+      "description": "Aromatski profil: Bergamot, Metvica, Crni čaj, Đumbir, Ambroksan, Tamjan.",
+      "ml": 60,
       "capacity": 100,
       "price2": 2,
       "price5": 4,
@@ -842,14 +1396,31 @@ const SEED_DATA = {
       "id": "b032",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b032.webp"
+      "image": "assets/bottles/b032.webp",
+      "topNotes": [
+        "Bergamot",
+        "Metvica"
+      ],
+      "heartNotes": [
+        "Crni čaj",
+        "Đumbir",
+        "Lavanda"
+      ],
+      "baseNotes": [
+        "Ambroksan",
+        "Tamjan",
+        "Cimet"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "kind": "bottle",
       "brand": "Halloween",
       "name": "Man X",
-      "description": "Kava, viski, kardamom i amber; slatkasti večernji miris.",
-      "ml": 80,
+      "description": "Aromatski profil: Kardamom, Lavanda, Kava, Viski, Tonka, Ambra.",
+      "ml": 70,
       "capacity": 100,
       "price2": 1.5,
       "price5": 3,
@@ -866,14 +1437,34 @@ const SEED_DATA = {
       "id": "b033",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b033.webp"
+      "image": "assets/bottles/b033.webp",
+      "topNotes": [
+        "Kardamom",
+        "Lavanda",
+        "Limun"
+      ],
+      "heartNotes": [
+        "Kava",
+        "Viski",
+        "Cimet",
+        "Koža",
+        "Mineralne note"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Ambra",
+        "Tamjan"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Asad",
       "description": "Vanilija, papar, duhan i začinski amber.",
-      "ml": null,
+      "ml": 80,
       "capacity": 100,
       "price2": 1.5,
       "price5": 3,
@@ -890,14 +1481,32 @@ const SEED_DATA = {
       "id": "b034",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b034.webp"
+      "image": "assets/bottles/b034.webp",
+      "topNotes": [
+        "Crni papar",
+        "Duhan",
+        "Ananas"
+      ],
+      "heartNotes": [
+        "Pačuli",
+        "Kava",
+        "Iris"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Amber",
+        "Suho drvo",
+        "Benzoin",
+        "Labdanum"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Zimaya",
       "name": "Sharaf Blend",
       "description": "Topao, sladak, cimetno-vanilijasti gourmand.",
-      "ml": null,
+      "ml": 55,
       "capacity": 100,
       "price2": 1,
       "price5": 2.5,
@@ -914,13 +1523,30 @@ const SEED_DATA = {
       "id": "b035",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b035.webp"
+      "image": "assets/bottles/b035.webp",
+      "topNotes": [
+        "Datulje",
+        "Muškatni oraščić",
+        "Šafran"
+      ],
+      "heartNotes": [
+        "Vanilija",
+        "Praline",
+        "Tuberoza"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Amberwood",
+        "Benzoin",
+        "Mošus"
+      ],
+      "notesVerified": true
     },
     {
       "kind": "bottle",
       "brand": "Nautica",
       "name": "Voyage",
-      "description": "Vodena zelena jabuka, lotos i čisti mošus.",
+      "description": "Aromatski profil: Zeleno lišće, Jabuka, Lotos, Mimoza, Mošus, Cedar.",
       "ml": 40,
       "capacity": 100,
       "price2": 1,
@@ -928,7 +1554,7 @@ const SEED_DATA = {
       "price10": 4,
       "salePrice": 10,
       "saleRange": null,
-      "frRating": 3.89,
+      "frRating": 3.9,
       "frUrl": "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html",
       "category": "Designer",
       "family": "Morski",
@@ -938,13 +1564,31 @@ const SEED_DATA = {
       "id": "b036",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b036.webp"
+      "image": "assets/bottles/b036.webp",
+      "topNotes": [
+        "Zeleno lišće",
+        "Jabuka"
+      ],
+      "heartNotes": [
+        "Lotos",
+        "Mimoza"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Cedar",
+        "Hrastova mahovina",
+        "Ambra"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 19552
     },
     {
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Hayaati",
-      "description": "Slatkast aromatični miris s voćnim početkom i toplom bazom.",
+      "description": "Aromatski profil: Jabuka, Bergamot, Cimet, Drvenaste note, Mošus, Vanilija.",
       "ml": 75,
       "capacity": 100,
       "price2": 1,
@@ -962,13 +1606,29 @@ const SEED_DATA = {
       "id": "b039",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b039.webp"
+      "image": "assets/bottles/b039.webp",
+      "topNotes": [
+        "Jabuka",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Cimet",
+        "Drvenaste note"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Vanilija"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 2394
     },
     {
       "kind": "bottle",
       "brand": "Zimaya",
       "name": "Taraf Black",
-      "description": "Topao i slatkast amber s drvenom bazom.",
+      "description": "Aromatski profil: Oud, Šafran, Šećer, Ambra, Tonka, Bijeli mošus.",
       "ml": 80,
       "capacity": 100,
       "price2": 1,
@@ -976,8 +1636,8 @@ const SEED_DATA = {
       "price10": 4,
       "salePrice": 10,
       "saleRange": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.9,
+      "frUrl": "https://www.fragrantica.com/perfume/Zimaya/Taraf-Black-92583.html",
       "category": "Arabski",
       "family": "Začinski",
       "status": "Za prodaju",
@@ -986,13 +1646,32 @@ const SEED_DATA = {
       "id": "b040",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b040.webp"
+      "image": "assets/bottles/b040.webp",
+      "topNotes": [
+        "Oud",
+        "Šafran",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Šećer",
+        "Ambra",
+        "Ruža"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Bijeli mošus",
+        "Hrastova mahovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 155
     },
     {
       "kind": "bottle",
       "brand": "Maison Alhambra",
       "name": "Fortnight",
-      "description": "Inspiriran klasičnim Fahrenheit profilom; kožasto-ljubičasti karakter.",
+      "description": "Aromatski profil: Cvijet muškatnog oraščića, Mandarina, List ljubičice, Muškatni oraščić, Koža, Vetiver.",
       "ml": 98,
       "capacity": 100,
       "price2": 1,
@@ -1010,13 +1689,45 @@ const SEED_DATA = {
       "id": "b041",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b041.webp"
+      "image": "assets/bottles/b041.webp",
+      "topNotes": [
+        "Cvijet muškatnog oraščića",
+        "Mandarina",
+        "Kamilica",
+        "Lavanda",
+        "Cedar",
+        "Limun",
+        "Glog",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "List ljubičice",
+        "Muškatni oraščić",
+        "Cedar",
+        "Klinčić",
+        "Sandalovina",
+        "Orlovi nokti",
+        "Jasmin",
+        "Đurđica"
+      ],
+      "baseNotes": [
+        "Koža",
+        "Vetiver",
+        "Pačuli",
+        "Mošus",
+        "Ambra",
+        "Tonka"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 207
     },
     {
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Fire On Ice",
-      "description": "Voćni konjak, malina i gurmanska toplina.",
+      "description": "Aromatski profil: Konjak, Malina, Karamela, Latice ruže, Hrast, Smirna.",
       "ml": 70,
       "capacity": 100,
       "price2": 2.5,
@@ -1034,14 +1745,33 @@ const SEED_DATA = {
       "id": "b042",
       "ownership": "owned",
       "count": 1,
-      "image": "assets/bottles/b042.webp"
+      "image": "assets/bottles/b042.webp",
+      "topNotes": [
+        "Konjak",
+        "Malina",
+        "Cimet"
+      ],
+      "heartNotes": [
+        "Karamela",
+        "Latice ruže",
+        "Mahovina"
+      ],
+      "baseNotes": [
+        "Hrast",
+        "Smirna",
+        "Cedar",
+        "Ambroksan"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h001",
       "kind": "bottle",
       "brand": "Jean Paul Gaultier",
       "name": "Le Male EDT",
-      "description": "",
+      "description": "Aromatski profil: Lavanda, Metvica, Cimet, Cvijet naranče, Vanilija, Tonka.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1050,22 +1780,44 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 3.99,
+      "frUrl": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-430.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/le-male-edt.webp",
+      "topNotes": [
+        "Lavanda",
+        "Metvica",
+        "Kardamom",
+        "Bergamot",
+        "Pelin"
+      ],
+      "heartNotes": [
+        "Cimet",
+        "Cvijet naranče",
+        "Kim"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Tonka",
+        "Ambra",
+        "Sandalovina",
+        "Cedar"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h002",
       "kind": "bottle",
       "brand": "Jean Paul Gaultier",
       "name": "Le Male Elixir",
-      "description": "",
+      "description": "Aromatski profil: Lavanda, Metvica, Vanilija, Benzoin, Med, Tonka.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1074,22 +1826,38 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.5,
+      "frUrl": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/le-male-elixir.webp",
+      "topNotes": [
+        "Lavanda",
+        "Metvica"
+      ],
+      "heartNotes": [
+        "Vanilija",
+        "Benzoin"
+      ],
+      "baseNotes": [
+        "Med",
+        "Tonka",
+        "Duhan"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h003",
       "kind": "bottle",
       "brand": "Lalique",
       "name": "Encre Noire À L’Extrême",
-      "description": "",
+      "description": "Mirisni profil još nije detaljno opisan. Otvori Fragrantica profil za dodatne informacije.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1098,22 +1866,39 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.21,
+      "frUrl": "https://www.fragrantica.com/perfume/Lalique/Encre-Noire-A-L-Extreme-32356.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/encre-noire---l-extr-me.webp",
+      "topNotes": [
+        "Čempres",
+        "Elemi smola",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Haićanski vetiver",
+        "Vetiver",
+        "Tamjan",
+        "Iris"
+      ],
+      "baseNotes": [
+        "Benzoin",
+        "Sandalovina",
+        "Pačuli"
+      ],
+      "notesVerified": true
     },
     {
       "id": "h004",
       "kind": "bottle",
       "brand": "Hugo Boss",
       "name": "Bottled Night",
-      "description": "",
+      "description": "Aromatski profil: Lavanda, Breza, Ljubičica, Drvenaste note, Mošus.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1122,22 +1907,37 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 3.92,
+      "frUrl": "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/bottled-night.webp",
+      "topNotes": [
+        "Lavanda",
+        "Breza"
+      ],
+      "heartNotes": [
+        "Ljubičica"
+      ],
+      "baseNotes": [
+        "Drvenaste note",
+        "Mošus"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 4783
     },
     {
       "id": "h005",
       "kind": "bottle",
       "brand": "Issey Miyake",
       "name": "L’Eau d’Issey Pour Homme",
-      "description": "",
+      "description": "Aromatski profil: Yuzu, Limun, Plavi lotos, Đurđica, Vetiver, Mošus.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1146,22 +1946,55 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.17,
+      "frUrl": "https://www.fragrantica.com/perfume/Issey-Miyake/L-Eau-d-Issey-Pour-Homme-721.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/l-eau-d-issey-pour-homme.webp",
+      "topNotes": [
+        "Yuzu",
+        "Limun",
+        "Bergamot",
+        "Limunska verbena",
+        "Mandarina",
+        "Čempres",
+        "Calone",
+        "Korijander",
+        "Kadulja",
+        "Estragon"
+      ],
+      "heartNotes": [
+        "Plavi lotos",
+        "Đurđica",
+        "Muškatni oraščić",
+        "Geranij",
+        "Šafran",
+        "Cimet",
+        "Rezeda"
+      ],
+      "baseNotes": [
+        "Vetiver",
+        "Mošus",
+        "Cedar",
+        "Sandalovina",
+        "Ambra",
+        "Duhan"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frNote": "Piramida djelomično potvrđena – provjeriti na Fragrantici."
     },
     {
       "id": "h006",
       "kind": "bottle",
       "brand": "Khadlaj",
       "name": "Shiyaaka For Men",
-      "description": "",
+      "description": "Aromatski profil: Ružmarin, Petitgrain, Neroli, Iris, Cedar, Vetiver.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1170,22 +2003,40 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.24,
+      "frUrl": "https://www.fragrantica.com/perfume/Khadlaj-Perfumes/Shiyaaka-For-Men-86143.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/shiyaaka-for-men.webp",
+      "topNotes": [
+        "Ružmarin",
+        "Petitgrain",
+        "Papar"
+      ],
+      "heartNotes": [
+        "Neroli",
+        "Iris",
+        "Jasmin"
+      ],
+      "baseNotes": [
+        "Cedar",
+        "Vetiver",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h007",
       "kind": "bottle",
       "brand": "Khadlaj",
       "name": "Shiyaaka Snow",
-      "description": "",
+      "description": "Aromatski profil: Bergamot, Mandarina, Ružičasti papar, Muškatni oraščić, Kardamom, Vetiver.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1194,46 +2045,38 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 3.93,
+      "frUrl": "https://www.fragrantica.com/perfume/Khadlaj-Perfumes/Shiyaaka-Snow-119252.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
-    },
-    {
-      "id": "h008",
-      "kind": "bottle",
-      "brand": "Acqua di Parma",
-      "name": "Mandorlo di Sicilia",
-      "description": "",
-      "ml": null,
-      "capacity": null,
-      "count": 1,
-      "price2": null,
-      "price5": null,
-      "price10": null,
-      "salePrice": null,
-      "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
-      "category": "Ostalo",
-      "family": "Nepoznato",
-      "status": "Imao",
-      "review": "Više nije u kolekciji.",
-      "personalRating": null,
-      "ownership": "past",
-      "image": ""
+      "image": "assets/extra/shiyaaka-snow.webp",
+      "topNotes": [
+        "Bergamot",
+        "Mandarina"
+      ],
+      "heartNotes": [
+        "Ružičasti papar",
+        "Muškatni oraščić",
+        "Neroli"
+      ],
+      "baseNotes": [
+        "Kardamom",
+        "Vetiver"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h010",
       "kind": "bottle",
       "brand": "Armaf",
       "name": "Club de Nuit Sillage",
-      "description": "",
+      "description": "Aromatski profil: Bergamot, Limun, Ruža, Iris, Ambroksan, Mošus.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1242,22 +2085,44 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 3.91,
+      "frUrl": "https://www.fragrantica.com/perfume/Armaf/Club-de-Nuit-Sillage-64105.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/club-de-nuit-sillage.webp",
+      "topNotes": [
+        "Bergamot",
+        "Limun",
+        "Limeta",
+        "Crni ribiz",
+        "List ljubičice",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Ruža",
+        "Iris",
+        "Jasmin"
+      ],
+      "baseNotes": [
+        "Ambroksan",
+        "Mošus",
+        "Sandalovina",
+        "Cedar"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h011",
       "kind": "bottle",
       "brand": "Givenchy",
       "name": "Gentleman EDT",
-      "description": "",
+      "description": "Aromatski profil: Kruška, Kardamom, Iris, Lavanda, Koža, Crna vanilija.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1266,22 +2131,41 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 3.92,
+      "frUrl": "https://www.fragrantica.com/perfume/Givenchy/Gentleman-2017-46040.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/gentleman-edt.webp",
+      "topNotes": [
+        "Kruška",
+        "Kardamom",
+        "Ananas"
+      ],
+      "heartNotes": [
+        "Iris",
+        "Lavanda",
+        "Geranij"
+      ],
+      "baseNotes": [
+        "Koža",
+        "Crna vanilija",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 3274
     },
     {
       "id": "h012",
       "kind": "bottle",
       "brand": "Gisada",
       "name": "Ambassador",
-      "description": "",
+      "description": "Aromatski profil: Zelena mandarina, Jabuka, Mango, Lavanda, Vanilija, Ambra.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1290,22 +2174,45 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.29,
+      "frUrl": "https://www.fragrantica.com/perfume/Gisada/Ambassador-Men-58226.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/ambassador.webp",
+      "topNotes": [
+        "Zelena mandarina",
+        "Jabuka",
+        "Kardamom",
+        "Ljubičica"
+      ],
+      "heartNotes": [
+        "Mango",
+        "Lavanda",
+        "Crni papar",
+        "Pačuli",
+        "Božur"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Ambra",
+        "Tikovina",
+        "Vetiver",
+        "Mahovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h013",
       "kind": "bottle",
       "brand": "Viktor&Rolf",
       "name": "Spicebomb Extreme",
-      "description": "",
+      "description": "Aromatski profil: Vanilija, Duhan, Cimet, Kim, Burbon viski, Šafran.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1314,22 +2221,44 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.48,
+      "frUrl": "https://www.fragrantica.com/perfume/Viktor-Rolf/Spicebomb-Extreme-30499.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/spicebomb-extreme.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Vanilija",
+        "Duhan",
+        "Cimet",
+        "Kumin",
+        "Bourbon viski",
+        "Šafran"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Vanilija",
+        "Duhan",
+        "Cimet",
+        "Kim",
+        "Burbon viski",
+        "Šafran"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama)."
     },
     {
       "id": "h014",
       "kind": "bottle",
       "brand": "Afnan",
       "name": "Turathi Electric",
-      "description": "",
+      "description": "Aromatski profil: Kruška, Ružičasti grejp, Cvijet naranče, Jabuka, Mošus, Ambra.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1338,22 +2267,41 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.06,
+      "frUrl": "https://www.fragrantica.com/perfume/Afnan/Turathi-Electric-108244.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/turathi-electric.webp",
+      "topNotes": [
+        "Kruška",
+        "Ružičasti grejp",
+        "Mandarina",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Cvijet naranče",
+        "Jabuka",
+        "Cedar"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Ambra",
+        "Vanilija"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h015",
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Fakhar Black",
-      "description": "",
+      "description": "Mirisni profil još nije detaljno opisan. Otvori Fragrantica profil za dodatne informacije.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1362,22 +2310,40 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.19,
+      "frUrl": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Fakhar-Black-70465.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/fakhar.webp",
+      "topNotes": [
+        "Jabuka",
+        "Bergamot",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Lavanda",
+        "Kadulja",
+        "Bobice borovice",
+        "Geranij"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Cedar",
+        "Amberwood",
+        "Vetiver"
+      ],
+      "notesVerified": true
     },
     {
       "id": "h016",
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Eternal Oud",
-      "description": "",
+      "description": "Aromatski profil: Šljiva, Grejp, Heliotrop, Orhideja, Ambra, Benzoin.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1386,23 +2352,42 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.07,
+      "frUrl": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Eternal-Oud-78155.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/eternal-oud.webp",
+      "topNotes": [
+        "Šljiva",
+        "Grejp"
+      ],
+      "heartNotes": [
+        "Heliotrop",
+        "Orhideja"
+      ],
+      "baseNotes": [
+        "Ambra",
+        "Benzoin",
+        "Vanilija",
+        "Labdanum",
+        "Tonka",
+        "Oud"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h017",
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Dynasty",
-      "description": "",
-      "ml": null,
+      "description": "Aromatski profil: Bergamot, Đumbir, Rooibos čaj, Brušena koža, Cedar, Kašmeran.",
+      "ml": 35,
       "capacity": null,
       "count": 1,
       "price2": null,
@@ -1410,22 +2395,41 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.24,
+      "frUrl": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Dynasty-112859.html",
       "category": "Ostalo",
       "family": "Nepoznato",
-      "status": "Imao",
-      "review": "Više nije u kolekciji.",
+      "status": "U kolekciji",
+      "review": "Više nije u kolekciji. Stanje je procjena: 30–40 ml.",
       "personalRating": null,
-      "ownership": "past",
-      "image": ""
+      "ownership": "owned",
+      "image": "assets/extra/dynasty.webp",
+      "topNotes": [
+        "Bergamot",
+        "Đumbir",
+        "Muškatna kadulja",
+        "Malina",
+        "Muškatni oraščić"
+      ],
+      "heartNotes": [
+        "Rooibos čaj",
+        "Brušena koža"
+      ],
+      "baseNotes": [
+        "Cedar",
+        "Kašmeran",
+        "Amberwood"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h018",
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Najdia Intense",
-      "description": "",
+      "description": "Aromatski profil: Ananas, Jabuka, Morske note, Lavanda, Sandalovina, Tonka.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1434,22 +2438,42 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.28,
+      "frUrl": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Najdia-Intense-100128.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/najdia-intense.webp",
+      "topNotes": [
+        "Ananas",
+        "Jabuka",
+        "Metvica",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Morske note",
+        "Lavanda",
+        "Geranij"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Tonka",
+        "Mošus",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h019",
       "kind": "bottle",
       "brand": "Lattafa",
       "name": "Ramz Silver",
-      "description": "",
+      "description": "Aromatski profil: Kruška, Lavanda, Kardamom, Kadulja, Vanilija, Ambra.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1458,22 +2482,41 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.3,
+      "frUrl": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Ramz-Lattafa-Silver-71868.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/ramz-silver.webp",
+      "topNotes": [
+        "Kruška",
+        "Lavanda",
+        "Bergamot",
+        "Metvica"
+      ],
+      "heartNotes": [
+        "Kardamom",
+        "Kadulja"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Ambra",
+        "Mošus",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h020",
       "kind": "bottle",
       "brand": "Armaf",
       "name": "Odyssey Aqua Edition",
-      "description": "",
+      "description": "Aromatski profil: Naranča, Grejp, Metvica, Lavanda, Ambroksan, Čempres.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1482,46 +2525,39 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.32,
+      "frUrl": "https://www.fragrantica.com/perfume/Armaf/Odyssey-Aqua-Edition-83134.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
-    },
-    {
-      "id": "h021",
-      "kind": "bottle",
-      "brand": "Al Haramain",
-      "name": "Amber Oud Tobacco Edition",
-      "description": "",
-      "ml": null,
-      "capacity": null,
-      "count": 1,
-      "price2": null,
-      "price5": null,
-      "price10": null,
-      "salePrice": null,
-      "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
-      "category": "Ostalo",
-      "family": "Nepoznato",
-      "status": "Imao",
-      "review": "Više nije u kolekciji.",
-      "personalRating": null,
-      "ownership": "past",
-      "image": ""
+      "image": "assets/extra/odyssey-aqua-edition-arhiva.webp",
+      "topNotes": [
+        "Naranča",
+        "Grejp",
+        "Pelin"
+      ],
+      "heartNotes": [
+        "Metvica",
+        "Lavanda"
+      ],
+      "baseNotes": [
+        "Ambroksan",
+        "Čempres",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h022",
       "kind": "bottle",
       "brand": "Jean Paul Gaultier",
       "name": "Le Beau Narcisse",
-      "description": "",
+      "description": "Aromatski profil: Bergamot, Kokos, Mošus, Cvijet naranče, Vanilija, Tonka.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1530,22 +2566,38 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 3.77,
+      "frUrl": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Beau-Narcisse-122215.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/le-beau-narcisse.webp",
+      "topNotes": [
+        "Bergamot",
+        "Kokos"
+      ],
+      "heartNotes": [
+        "Mošus",
+        "Cvijet naranče"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Tonka",
+        "Vetiver"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     },
     {
       "id": "h023",
       "kind": "bottle",
       "brand": "Louis Vuitton",
       "name": "Symphony",
-      "description": "",
+      "description": "Aromatski profil: Bergamot, Grejp, Đumbir.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -1554,15 +2606,118 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "saleRange": "",
-      "frRating": null,
-      "frUrl": "",
+      "frRating": 4.39,
+      "frUrl": "https://www.fragrantica.com/perfume/Louis-Vuitton/Symphony-68357.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Imao",
       "review": "Više nije u kolekciji.",
       "personalRating": null,
       "ownership": "past",
-      "image": ""
+      "image": "assets/extra/symphony.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Bergamot",
+        "Grejp",
+        "Đumbir"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Bergamot",
+        "Grejp",
+        "Đumbir"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 3203,
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama)."
+    },
+    {
+      "id": "b047",
+      "kind": "bottle",
+      "brand": "Hugo Boss",
+      "name": "Boss Bottled EDT",
+      "description": "Klasični voćno-začinski miris s jabukom, cimetom, vanilijom i drvenastom bazom.",
+      "ml": 30,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "frRating": 4.08,
+      "frUrl": "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-383.html",
+      "category": "Designer",
+      "family": "Začinski",
+      "status": "U kolekciji",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/bottles/b047.webp",
+      "topNotes": [
+        "Jabuka",
+        "Šljiva",
+        "Bergamot",
+        "Limun",
+        "Hrastova mahovina",
+        "Geranij"
+      ],
+      "heartNotes": [
+        "Cimet",
+        "Mahagonij",
+        "Karanfil"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Sandalovina",
+        "Cedar",
+        "Vetiver",
+        "Maslina"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
+    },
+    {
+      "id": "b048",
+      "kind": "bottle",
+      "brand": "Calvin Klein",
+      "name": "CK Everyone EDT",
+      "description": "Lagani uniseks citrusno-vodeni miris s narančom, đumbirom, čajem i mekim mošusom.",
+      "ml": 30,
+      "capacity": null,
+      "count": 1,
+      "price2": 1,
+      "price5": 2.5,
+      "price10": 4,
+      "salePrice": null,
+      "saleRange": "",
+      "frRating": 3.76,
+      "frUrl": "https://www.fragrantica.com/perfume/Calvin-Klein/CK-Everyone-Eau-de-Toilette-59021.html",
+      "category": "Designer",
+      "family": "Citrusni",
+      "status": "U kolekciji",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/bottles/b048.webp",
+      "topNotes": [
+        "Ulje naranče",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Vodene note",
+        "Čaj"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Cedar",
+        "Amber",
+        "Pačuli"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14"
     }
   ],
   "testers": [
@@ -1570,7 +2725,7 @@ const SEED_DATA = {
       "kind": "tester",
       "brand": "Maison Margiela Replica",
       "name": "When the Rain Stops",
-      "description": "Kiša koja prolazi, svježa ruža, bor i zemljani mošus.",
+      "description": "Aromatski profil: Zelene note, Bergamot, Vodene note, Kišne note, Bor, Mahovina.",
       "ml": 10,
       "capacity": null,
       "count": 1,
@@ -1588,18 +2743,39 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t001",
       "ownership": "owned",
-      "image": "assets/testers/t001.webp"
+      "image": "assets/testers/t001.webp",
+      "topNotes": [
+        "Zelene note",
+        "Bergamot",
+        "Ružičasti papar"
+      ],
+      "heartNotes": [
+        "Vodene note",
+        "Kišne note",
+        "Turska ruža",
+        "Jasmin"
+      ],
+      "baseNotes": [
+        "Bor",
+        "Mahovina",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Marc Gebauer",
       "name": "Sunsetecho",
-      "description": "Vedri citrusi, vanilija i mekan, uglađen karakter.",
-      "ml": null,
+      "description": "Aromatski profil: Grejp, Mandarina, Neroli, Ružičasti papar, Labdanum, Cedar.",
+      "ml": 5,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.9,
+      "frUrl": "https://www.fragrantica.com/perfume/Marc-Gebauer/Sunset-Echo-114236.html",
       "category": "Niche",
       "family": "Citrusni",
       "status": "Sviđa mi se",
@@ -1612,18 +2788,40 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t002",
       "ownership": "owned",
-      "image": "assets/testers/t002.webp"
+      "image": "assets/testers/t002.webp",
+      "topNotes": [
+        "Grejp",
+        "Mandarina",
+        "Naranča",
+        "Kardamom"
+      ],
+      "heartNotes": [
+        "Neroli",
+        "Ružičasti papar",
+        "Papar",
+        "Timur"
+      ],
+      "baseNotes": [
+        "Labdanum",
+        "Cedar",
+        "Vanilija"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Marc Gebauer",
       "name": "Raspberry Dictator",
-      "description": "Malina, začini i intenzivnija kožasta baza.",
-      "ml": null,
+      "description": "Aromatski profil: Malina, Balzamične note, Iris, Crni papar, Koža, Stiraks.",
+      "ml": 5,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.57,
+      "frUrl": "https://www.fragrantica.com/perfume/Marc-Gebauer/Raspberry-Dictator-113737.html",
       "category": "Niche",
       "family": "Voćni",
       "status": "Za isprobati",
@@ -1636,18 +2834,41 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t003",
       "ownership": "owned",
-      "image": "assets/testers/t003.webp"
+      "image": "assets/testers/t003.webp",
+      "topNotes": [
+        "Malina",
+        "Balzamične note",
+        "Mandarina",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Iris",
+        "Crni papar",
+        "Tamjan"
+      ],
+      "baseNotes": [
+        "Koža",
+        "Stiraks",
+        "Mošus",
+        "Vetiver",
+        "Ambra"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Marc Gebauer",
       "name": "Cocoon",
-      "description": "Mekan, čist, mineralno-drvenasti profil.",
-      "ml": null,
+      "description": "Aromatski profil: Elemi, Grejp, Sol, Ambroksan, Sandalovina, Kašmeran.",
+      "ml": 5,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3,
+      "frUrl": "https://www.fragrantica.com/perfume/Marc-Gebauer/Cocoon-136851.html",
       "category": "Niche",
       "family": "Drvenasti",
       "status": "Za isprobati",
@@ -1660,18 +2881,37 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t004",
       "ownership": "owned",
-      "image": "assets/testers/t004.webp"
+      "image": "assets/testers/t004.webp",
+      "topNotes": [
+        "Elemi",
+        "Grejp",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Sol",
+        "Ambroksan",
+        "Iris"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Kašmeran"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Argos",
       "name": "Bacio Immortale",
-      "description": "Malina, koža i izražen egzotičan karakter.",
+      "description": "Aromatski profil: Malina, Limun, Koža, Ljubičica, Koža, Breza.",
       "ml": 0.5,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4,
+      "frUrl": "https://www.fragrantica.com/perfume/Argos/Argos-Bacio-Immortale-60782.html",
       "category": "Niche",
       "family": "Kožnati",
       "status": "Ne sviđa mi se",
@@ -1684,13 +2924,37 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t005",
       "ownership": "owned",
-      "image": "assets/testers/t005.webp"
+      "image": "assets/testers/t005.webp",
+      "topNotes": [
+        "Malina",
+        "Limun",
+        "Bergamot",
+        "Papar"
+      ],
+      "heartNotes": [
+        "Koža",
+        "Ljubičica",
+        "Jasmin",
+        "Ružičasti papar"
+      ],
+      "baseNotes": [
+        "Koža",
+        "Breza",
+        "Oud",
+        "Vanilija",
+        "Mošus"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Guerlain",
       "name": "Oud Nude",
-      "description": "Malina, badem, mekši oud i kremasta vanilija.",
+      "description": "Aromatski profil: Malina, Oud, Badem, Burbon vanilija, Sandalovina, Ruža.",
       "ml": 1,
       "capacity": null,
       "count": 1,
@@ -1708,13 +2972,39 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t006",
       "ownership": "owned",
-      "image": "assets/testers/t006.webp"
+      "image": "assets/testers/t006.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Oud",
+        "Malina",
+        "Badem",
+        "Bourbon vanilija",
+        "Sandalovina",
+        "Ruža",
+        "Atlaski cedar"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Malina",
+        "Oud",
+        "Badem",
+        "Burbon vanilija",
+        "Sandalovina",
+        "Ruža",
+        "Atlas cedar"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Nasomatto",
       "name": "Baraonda",
-      "description": "Viski, ruža, drvo i mošus; bogat alkoholni profil.",
+      "description": "Aromatski profil: Viski, Drvenaste note, Ambreta, Ruža, Ambroksan, Mošus.",
       "ml": 0.7,
       "capacity": null,
       "count": 1,
@@ -1732,13 +3022,37 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t007",
       "ownership": "owned",
-      "image": "assets/testers/t007.webp"
+      "image": "assets/testers/t007.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Viski",
+        "Drvenaste note",
+        "Ambreta",
+        "Ruža",
+        "Ambroxan",
+        "Mošus"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Viski",
+        "Drvenaste note",
+        "Ambreta",
+        "Ruža",
+        "Ambroksan",
+        "Mošus"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Nasomatto",
       "name": "Fantomas",
-      "description": "Dinja, guma, plastika, dim i sintetička toplina.",
+      "description": "Aromatski profil: Dinja, Plastika, Guma, Slatke note, Dim, Barut.",
       "ml": 0.7,
       "capacity": null,
       "count": 1,
@@ -1756,13 +3070,47 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t008",
       "ownership": "owned",
-      "image": "assets/testers/t008.webp"
+      "image": "assets/testers/t008.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Dinja",
+        "Plastika",
+        "Guma",
+        "Slatke note",
+        "Dim",
+        "Barut",
+        "Karamela",
+        "Tropsko voće",
+        "Zemljane note",
+        "Cashmeran",
+        "Pačuli"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Dinja",
+        "Plastika",
+        "Guma",
+        "Slatke note",
+        "Dim",
+        "Barut",
+        "Karamela",
+        "Tropsko voće",
+        "Zemljane note",
+        "Kašmeran",
+        "Pačuli"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Nasomatto",
       "name": "Pardon",
-      "description": "Tamna čokolada, cimet, tonka, oud i sandalovina.",
+      "description": "Aromatski profil: Magnolija, Cvjetne note, Tamna čokolada, Tonka, Oud, Sandalovina.",
       "ml": 0.7,
       "capacity": null,
       "count": 1,
@@ -1780,13 +3128,31 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t009",
       "ownership": "owned",
-      "image": "assets/testers/t009.webp"
+      "image": "assets/testers/t009.webp",
+      "topNotes": [
+        "Magnolija",
+        "Cvjetne note"
+      ],
+      "heartNotes": [
+        "Tamna čokolada",
+        "Tonka",
+        "Cimet"
+      ],
+      "baseNotes": [
+        "Oud",
+        "Sandalovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Nasomatto",
       "name": "Absinth",
-      "description": "Biljni, zelen, zemljan i aromatično-gorak miris.",
+      "description": "Aromatski profil: Pelin, Zelene note, Vetiver.",
       "ml": 0.7,
       "capacity": null,
       "count": 1,
@@ -1804,13 +3170,31 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t010",
       "ownership": "owned",
-      "image": "assets/testers/t010.webp"
+      "image": "assets/testers/t010.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Pelin",
+        "Zelene note",
+        "Vetiver"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Pelin",
+        "Zelene note",
+        "Vetiver"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Xerjoff",
       "name": "Torino21",
-      "description": "Menta, limun, bosiljak, timijan i svjež mošus.",
+      "description": "Aromatski profil: Metvica, Limun, Crni ribiz, Ružmarin, Mošus, Verbena.",
       "ml": 2,
       "capacity": null,
       "count": 1,
@@ -1828,13 +3212,34 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t011",
       "ownership": "owned",
-      "image": "assets/testers/t011.webp"
+      "image": "assets/testers/t011.webp",
+      "topNotes": [
+        "Metvica",
+        "Limun",
+        "Bosiljak",
+        "Timijan"
+      ],
+      "heartNotes": [
+        "Crni ribiz",
+        "Ružmarin",
+        "Lavanda",
+        "Jasmin"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Verbena"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Acqua di Parma",
       "name": "Buongiorno",
-      "description": "Limun, bosiljak i zeleni mediteranski jutarnji profil.",
+      "description": "Aromatski profil: Metvica, Bosiljak, List mandarine, Divlja lavanda, Bijeli mošus, Cedar.",
       "ml": 5,
       "capacity": null,
       "count": 1,
@@ -1852,18 +3257,39 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t012",
       "ownership": "owned",
-      "image": "assets/testers/t012.webp"
+      "image": "assets/testers/t012.webp",
+      "topNotes": [
+        "Metvica",
+        "Bosiljak",
+        "Limun",
+        "Petitgrain",
+        "Ružmarin"
+      ],
+      "heartNotes": [
+        "List mandarine",
+        "Divlja lavanda"
+      ],
+      "baseNotes": [
+        "Bijeli mošus",
+        "Cedar",
+        "Ambra"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Antonio Visconti",
       "name": "Extrait de Cédrat",
-      "description": "Svježi citrusni akord s izraženim cedratom.",
+      "description": "Aromatski profil: Bergamot, Mandarina, Virginijski cedar, Iris, Cedar, Hrastova mahovina.",
       "ml": 9,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.86,
+      "frUrl": "https://www.fragrantica.com/perfume/Antonio-Visconti/Extrait-de-Cedrat-11213.html",
       "category": "Niche",
       "family": "Citrusni",
       "status": "Za isprobati",
@@ -1876,18 +3302,42 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t013",
       "ownership": "owned",
-      "image": "assets/testers/t013.webp"
+      "image": "assets/testers/t013.webp",
+      "topNotes": [
+        "Bergamot",
+        "Mandarina",
+        "Cedar",
+        "Bosiljak"
+      ],
+      "heartNotes": [
+        "Virginijski cedar",
+        "Iris",
+        "Litsea cubeba",
+        "Pačuli"
+      ],
+      "baseNotes": [
+        "Cedar",
+        "Hrastova mahovina",
+        "Timijan",
+        "Sandalovina",
+        "Oud"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Mind Games",
       "name": "Kingside",
-      "description": "Pistacija, rum i kremasta slatkoća.",
+      "description": "Aromatski profil: Pistacija, Kardamom, Lješnjak, Rum, Bademovo mlijeko, Peru balsam.",
       "ml": 2,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.29,
+      "frUrl": "https://www.fragrantica.com/perfume/Mind-Games/Kingside-110509.html",
       "category": "Niche",
       "family": "Gourmand",
       "status": "Za isprobati",
@@ -1900,13 +3350,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t014",
       "ownership": "owned",
-      "image": "assets/testers/t014.webp"
+      "image": "assets/testers/t014.webp",
+      "topNotes": [
+        "Pistacija",
+        "Kardamom",
+        "Grejp"
+      ],
+      "heartNotes": [
+        "Lješnjak",
+        "Rum",
+        "Božur"
+      ],
+      "baseNotes": [
+        "Bademovo mlijeko",
+        "Peru balsam",
+        "Tonka"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Theodoros Kalotinis",
       "name": "Coffee Addict",
-      "description": "Pržena kava, čokolada, karamela i vanilija.",
+      "description": "Aromatski profil: Kava, Karamela, Vanilija, Kakao.",
       "ml": 1.4,
       "capacity": null,
       "count": 1,
@@ -1924,13 +3394,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t015",
       "ownership": "owned",
-      "image": "assets/testers/t015.webp"
+      "image": "assets/testers/t015.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Kava",
+        "Kakao",
+        "Vanilija",
+        "Karamela"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Kava",
+        "Karamela",
+        "Vanilija",
+        "Kakao"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Atelier Cologne",
       "name": "Oolang Infini",
-      "description": "Čaj, citrusi i svjež, mekani drvenasti finiš.",
+      "description": "Aromatski profil: Bergamot, Neroli, Čaj, Jasmin, Guaiac drvo, Vetiver.",
       "ml": 3,
       "capacity": null,
       "count": 1,
@@ -1948,14 +3438,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t016",
       "ownership": "owned",
-      "image": "assets/testers/t016.webp"
+      "image": "assets/testers/t016.webp",
+      "topNotes": [
+        "Bergamot",
+        "Neroli"
+      ],
+      "heartNotes": [
+        "Čaj",
+        "Jasmin",
+        "Koža"
+      ],
+      "baseNotes": [
+        "Guaiac drvo",
+        "Vetiver",
+        "Cvijet duhana"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Creed",
       "name": "Royal Oud",
-      "description": "Elegantni cedar, citrus, ružičasti papar i odmjereni oud.",
-      "ml": null,
+      "description": "Aromatski profil: Ružičasti papar, Limun, Cedar, Anđelika, Sandalovina, Oud.",
+      "ml": 2,
       "capacity": null,
       "count": 1,
       "frRating": 4.35,
@@ -1972,14 +3481,34 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t017",
       "ownership": "owned",
-      "image": "assets/testers/t017.webp"
+      "image": "assets/testers/t017.webp",
+      "topNotes": [
+        "Ružičasti papar",
+        "Limun",
+        "Sicilijanski bergamot"
+      ],
+      "heartNotes": [
+        "Cedar",
+        "Anđelika",
+        "Galbanum"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Oud",
+        "Mošus"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Louis Vuitton",
       "name": "Les Sables Roses",
-      "description": "Ruža, oud i topla, suha orijentalna baza.",
-      "ml": null,
+      "description": "Aromatski profil: Ruža, Bugarska ruža, Oud, Šafran, Ambra siva, Crni papar.",
+      "ml": 2,
       "capacity": null,
       "count": 1,
       "frRating": 4.36,
@@ -1996,21 +3525,45 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t018",
       "ownership": "owned",
-      "image": "assets/testers/t018.webp"
+      "image": "assets/testers/t018.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Ruža (centifolia)",
+        "Bugarska ruža",
+        "Oud",
+        "Šafran",
+        "Ambra (ambergris)",
+        "Crni papar"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Ruža",
+        "Bugarska ruža",
+        "Oud",
+        "Šafran",
+        "Ambra siva",
+        "Crni papar"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Guerlain",
       "name": "Tobacco Honey",
-      "description": "Med, duhan, klinčić, vanilija i sandalovina.",
-      "ml": null,
+      "description": "Aromatski profil: Med, Klinčić, Duhan, Vanilija, Oud, Sandalovina.",
+      "ml": 0,
       "capacity": null,
       "count": 1,
       "frRating": 4.14,
       "frUrl": "https://www.fragrantica.com/perfume/Guerlain/Tobacco-Honey-84518.html",
       "category": "Niche",
       "family": "Gourmand",
-      "status": "Za isprobati",
+      "status": "Potrošeno",
       "review": "",
       "personalRating": null,
       "price2": null,
@@ -2019,19 +3572,39 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": null,
       "id": "t019",
-      "ownership": "owned",
-      "image": "assets/testers/t019.webp"
+      "ownership": "past",
+      "image": "assets/testers/t019.webp",
+      "topNotes": [
+        "Med",
+        "Klinčić",
+        "Anis"
+      ],
+      "heartNotes": [
+        "Duhan",
+        "Vanilija",
+        "Tonka",
+        "Sezam"
+      ],
+      "baseNotes": [
+        "Oud",
+        "Sandalovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Giorgio Armani",
       "name": "Acqua di Giò EDP Intense",
-      "description": "Morski, citrusni i aromatičan miris; točnu verziju treba potvrditi.",
-      "ml": null,
+      "description": "Aromatski profil: Zelena jabuka, Kalabrijski bergamot, Morske note, Muškatna kadulja, Drvenaste note, Ambra.",
+      "ml": 2,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.91,
+      "frUrl": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-Eau-de-Parfum-Intense-122311.html",
       "category": "Designer",
       "family": "Morski",
       "status": "Za isprobati",
@@ -2044,18 +3617,35 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t020",
       "ownership": "owned",
-      "image": "assets/testers/t020.webp"
+      "image": "assets/testers/t020.webp",
+      "topNotes": [
+        "Zelena jabuka",
+        "Kalabrijski bergamot"
+      ],
+      "heartNotes": [
+        "Morske note",
+        "Muškatna kadulja"
+      ],
+      "baseNotes": [
+        "Drvenaste note",
+        "Ambra"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Birkholz",
       "name": "Corsica",
-      "description": "Mediteranski ljetni karakter.",
-      "ml": null,
+      "description": "Aromatski profil: List ljubičice, Limeta, Morska sol, Lavanda, Mošus, Mahovina.",
+      "ml": 0.5,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.12,
+      "frUrl": "https://www.fragrantica.com/perfume/Birkholz/Corsica-Baiser-de-la-Mer-91116.html",
       "category": "Niche",
       "family": "Svježi",
       "status": "Za isprobati",
@@ -2068,21 +3658,43 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t021",
       "ownership": "owned",
-      "image": "assets/testers/t021.webp"
+      "image": "assets/testers/t021.webp",
+      "topNotes": [
+        "List ljubičice",
+        "Limeta",
+        "Bergamot",
+        "Metvica"
+      ],
+      "heartNotes": [
+        "Morska sol",
+        "Lavanda",
+        "Ružmarin",
+        "Šljiva"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Mahovina",
+        "Sandalovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Xerjoff",
       "name": "Alexandria II",
-      "description": "Lavanda, cimet, drvo, oud i topla vanilija.",
-      "ml": null,
+      "description": "Aromatski profil: Palisander, Lavanda, Ruža, Cedar, Oud, Sandalovina.",
+      "ml": 0,
       "capacity": null,
       "count": 1,
       "frRating": 4.24,
       "frUrl": "https://www.fragrantica.com/perfume/Xerjoff/Alexandria-II-17786.html",
       "category": "Niche",
       "family": "Drvenasti",
-      "status": "Za isprobati",
+      "status": "Prodano",
       "review": "",
       "personalRating": null,
       "price2": null,
@@ -2091,15 +3703,38 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": null,
       "id": "t022",
-      "ownership": "owned",
-      "image": "assets/testers/t022.webp"
+      "ownership": "past",
+      "image": "assets/testers/t022.webp",
+      "topNotes": [
+        "Palisander",
+        "Lavanda",
+        "Cimet",
+        "Jabuka"
+      ],
+      "heartNotes": [
+        "Ruža",
+        "Cedar",
+        "Đurđica"
+      ],
+      "baseNotes": [
+        "Oud",
+        "Sandalovina",
+        "Ambra",
+        "Vanilija",
+        "Mošus"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Essential Parfums",
       "name": "Bois Impérial Extrait",
-      "description": "Papar, cedar, borova smola i moderne drvenaste note.",
-      "ml": null,
+      "description": "Aromatski profil: Ružičasti papar, Crni papar, Ruža, Jelov balzam, Atlas cedar.",
+      "ml": 0.5,
       "capacity": null,
       "count": 1,
       "frRating": 4.28,
@@ -2116,21 +3751,39 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t023",
       "ownership": "owned",
-      "image": "assets/testers/t023.webp"
+      "image": "assets/testers/t023.webp",
+      "topNotes": [
+        "Ružičasti papar",
+        "Crni papar"
+      ],
+      "heartNotes": [
+        "Ruža"
+      ],
+      "baseNotes": [
+        "Jelov balzam",
+        "Atlas cedar",
+        "Labdanum"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 1283,
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Atelier Cologne",
       "name": "Tobacco Nuit",
-      "description": "Suhi duhan i tamnija začinska toplina.",
-      "ml": null,
+      "description": "Aromatski profil: Kim, Korijander, Cvijet duhana, Tamjan, Tonka, Cedar.",
+      "ml": 0,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.08,
+      "frUrl": "https://www.fragrantica.com/perfume/Atelier-Cologne/Tobacco-Nuit-35381.html",
       "category": "Niche",
       "family": "Začinski",
-      "status": "Za isprobati",
+      "status": "Prodano",
       "review": "Fin za mirisati, ali ga ne bih nosio.",
       "personalRating": null,
       "price2": null,
@@ -2139,15 +3792,35 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": null,
       "id": "t024",
-      "ownership": "owned",
-      "image": "assets/testers/t024.webp"
+      "ownership": "past",
+      "image": "assets/testers/t024.webp",
+      "topNotes": [
+        "Kim",
+        "Korijander",
+        "Klementina"
+      ],
+      "heartNotes": [
+        "Cvijet duhana",
+        "Tamjan",
+        "Labdanum"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Cedar",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "L’Orchestre Parfum",
       "name": "Thé Darbouka",
-      "description": "Topli začini, kakao i zaobljen orijentalni karakter.",
-      "ml": null,
+      "description": "Aromatski profil: Bergamot, Kakao, Začinske note, Smilje, Stiraks, Oud.",
+      "ml": 0.5,
       "capacity": null,
       "count": 1,
       "frRating": 3.91,
@@ -2164,14 +3837,31 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t025",
       "ownership": "owned",
-      "image": "assets/testers/t025.webp"
+      "image": "assets/testers/t025.webp",
+      "topNotes": [
+        "Bergamot",
+        "Kakao"
+      ],
+      "heartNotes": [
+        "Začinske note",
+        "Smilje"
+      ],
+      "baseNotes": [
+        "Stiraks",
+        "Oud"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Marc-Antoine Barrois",
       "name": "Ganymede",
-      "description": "Metalno-mineralna svježina, mandarina, šafran i antilop.",
-      "ml": null,
+      "description": "Aromatski profil: Šafran, Talijanska mandarina, Kineski osmantus, Smilje, Mineralne note, Brušena koža.",
+      "ml": 1,
       "capacity": null,
       "count": 1,
       "frRating": 4.03,
@@ -2188,14 +3878,36 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t026",
       "ownership": "owned",
-      "image": "assets/testers/t026.webp"
+      "image": "assets/testers/t026.webp",
+      "topNotes": [
+        "Šafran",
+        "Talijanska mandarina"
+      ],
+      "heartNotes": [
+        "Kineski osmantus",
+        "Smilje",
+        "List ljubičice"
+      ],
+      "baseNotes": [
+        "Mineralne note",
+        "Brušena koža",
+        "Akigalawood",
+        "Mošus",
+        "Cedar",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Diptyque",
       "name": "L’Eau Papier",
-      "description": "Meki bijeli mošus, riža, papir i drvo.",
-      "ml": null,
+      "description": "Aromatski profil: Mošus, Bijeli mošus, Sezam, Mimoza, Drvenaste note.",
+      "ml": 1,
       "capacity": null,
       "count": 1,
       "frRating": 4.16,
@@ -2212,13 +3924,35 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t027",
       "ownership": "owned",
-      "image": "assets/testers/t027.webp"
+      "image": "assets/testers/t027.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Mošus",
+        "Bijeli mošus",
+        "Sezam",
+        "Mimoza",
+        "Drvenaste note"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Mošus",
+        "Bijeli mošus",
+        "Sezam",
+        "Mimoza",
+        "Drvenaste note"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Hypnotizing Fire",
-      "description": "Klinčić, papar, ruža, praline i smolasta vanilija.",
+      "description": "Aromatski profil: Piment, Klinčić, Pačuli, Bugarska ruža, Vanilija, Opoponaks.",
       "ml": 1.5,
       "capacity": null,
       "count": 2,
@@ -2236,13 +3970,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t028",
       "ownership": "owned",
-      "image": "assets/testers/t028.webp"
+      "image": "assets/testers/t028.webp",
+      "topNotes": [
+        "Piment",
+        "Klinčić",
+        "Papar"
+      ],
+      "heartNotes": [
+        "Pačuli",
+        "Bugarska ruža",
+        "Praline"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Opoponaks",
+        "Benzoin"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Magnetic Wood",
-      "description": "Bergamot, osmantus, iris, sandalovina i cedar.",
+      "description": "Aromatski profil: Bergamot, Osmantus, Mimoza, Morski narcis, Sandalovina, Cedar.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2260,13 +4014,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t029",
       "ownership": "owned",
-      "image": "assets/testers/t029.webp"
+      "image": "assets/testers/t029.webp",
+      "topNotes": [
+        "Bergamot",
+        "Osmantus",
+        "Zelena mandarina"
+      ],
+      "heartNotes": [
+        "Mimoza",
+        "Morski narcis",
+        "Iris"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Cedar",
+        "Guaiac drvo"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Guiding Water",
-      "description": "Voda, lubenica, lotos, bijelo cvijeće i mošus.",
+      "description": "Aromatski profil: Ozonske note, Lubenica, Lotos, Ciklama, Ljiljan, Bijeli mošus.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2284,13 +4058,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t030",
       "ownership": "owned",
-      "image": "assets/testers/t030.webp"
+      "image": "assets/testers/t030.webp",
+      "topNotes": [
+        "Ozonske note",
+        "Lubenica",
+        "Vodene note"
+      ],
+      "heartNotes": [
+        "Lotos",
+        "Ciklama",
+        "Jasmin"
+      ],
+      "baseNotes": [
+        "Ljiljan",
+        "Bijeli mošus",
+        "Bijeli papar"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Metal Flower",
-      "description": "Aldehidi, ruža, metalni cvijet i mošus.",
+      "description": "Aromatski profil: Aldehidi, Ružin oksid, Svibanjska ruža, Bugarska ruža, Bijeli mošus, Pačuli.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2308,13 +4102,32 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t031",
       "ownership": "owned",
-      "image": "assets/testers/t031.webp"
+      "image": "assets/testers/t031.webp",
+      "topNotes": [
+        "Aldehidi",
+        "Ružin oksid",
+        "Cvijet naranče"
+      ],
+      "heartNotes": [
+        "Svibanjska ruža",
+        "Bugarska ruža",
+        "Ylang-ylang"
+      ],
+      "baseNotes": [
+        "Bijeli mošus",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Royal Earth",
-      "description": "Puderasti iris, mrkva, sandalovina i vetiver (EDP pretpostavljen).",
+      "description": "Aromatski profil: Sjemenke mrkve, Anđelika, Iris, Heliotrop, Sandalovina, Tonka.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2332,13 +4145,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t032",
       "ownership": "owned",
-      "image": "assets/testers/t032.webp"
+      "image": "assets/testers/t032.webp",
+      "topNotes": [
+        "Sjemenke mrkve",
+        "Anđelika",
+        "Ambreta"
+      ],
+      "heartNotes": [
+        "Iris",
+        "Heliotrop",
+        "Neroli"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Tonka",
+        "Vetiver"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Velvet Fire",
-      "description": "Kadulja, čempres, šafran, duhan, oud i tonka.",
+      "description": "Aromatski profil: Muškatna kadulja, Čempres, Duhan, Šafran, Oud, Tonka.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2356,13 +4189,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t033",
       "ownership": "owned",
-      "image": "assets/testers/t033.webp"
+      "image": "assets/testers/t033.webp",
+      "topNotes": [
+        "Muškatna kadulja",
+        "Čempres",
+        "Mirta"
+      ],
+      "heartNotes": [
+        "Duhan",
+        "Šafran",
+        "Neroli"
+      ],
+      "baseNotes": [
+        "Oud",
+        "Tonka",
+        "Labdanum"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Golden Wood",
-      "description": "Mandarina, pčelinji vosak, kruška, drvo i tonka.",
+      "description": "Aromatski profil: Mandarina, Gorka naranča, Pčelinji vosak, Guaiac drvo, Tonka, Hrast.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2380,13 +4233,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t034",
       "ownership": "owned",
-      "image": "assets/testers/t034.webp"
+      "image": "assets/testers/t034.webp",
+      "topNotes": [
+        "Mandarina",
+        "Gorka naranča",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Pčelinji vosak",
+        "Guaiac drvo",
+        "Kruška"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Hrast",
+        "Kabreuva"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Sacred Water",
-      "description": "Đumbir, citron, alge, magnolija i ambergris.",
+      "description": "Aromatski profil: Đumbir, Citron, Morske alge, Magnolija, Ambra siva, Cedar.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2404,13 +4277,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t035",
       "ownership": "owned",
-      "image": "assets/testers/t035.webp"
+      "image": "assets/testers/t035.webp",
+      "topNotes": [
+        "Đumbir",
+        "Citron",
+        "Mandarina"
+      ],
+      "heartNotes": [
+        "Morske alge",
+        "Magnolija",
+        "Cvijet naranče"
+      ],
+      "baseNotes": [
+        "Ambra siva",
+        "Cedar",
+        "Amiris"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Matrix Metal",
-      "description": "Hladni metalni tonovi, čajni i mineralni dojam.",
+      "description": "Aromatski profil: Metalne note, Muškatni oraščić, Bijeli čaj, Ciklama, Sekvoja, Bijeli mošus.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2428,13 +4321,33 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t036",
       "ownership": "owned",
-      "image": "assets/testers/t036.webp"
+      "image": "assets/testers/t036.webp",
+      "topNotes": [
+        "Metalne note",
+        "Muškatni oraščić",
+        "Kardamom"
+      ],
+      "heartNotes": [
+        "Bijeli čaj",
+        "Ciklama",
+        "Vetiver"
+      ],
+      "baseNotes": [
+        "Sekvoja",
+        "Bijeli mošus",
+        "Sandalovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "The Harmonist",
       "name": "Desired Earth",
-      "description": "Smole, tolu balzam, iris, vetiver i vanilija.",
+      "description": "Aromatski profil: Smilje, Elemi, Tolu balsam, Crveni cedar, Vetiver, Iris.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
@@ -2452,18 +4365,38 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t037",
       "ownership": "owned",
-      "image": "assets/testers/t037.webp"
+      "image": "assets/testers/t037.webp",
+      "topNotes": [
+        "Smilje",
+        "Elemi",
+        "Katran od kleke"
+      ],
+      "heartNotes": [
+        "Tolu balsam",
+        "Crveni cedar",
+        "Smirna"
+      ],
+      "baseNotes": [
+        "Vetiver",
+        "Iris",
+        "Vanilija"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Jean Paul Gaultier",
       "name": "La Belle Rosea",
-      "description": "Voćno-cvjetni ženski miris iz La Belle linije.",
+      "description": "Aromatski profil: Vodene note, Bergamot, Božur, Ruža, Vanilija, Mošus.",
       "ml": 10,
       "capacity": null,
       "count": 2,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.55,
+      "frUrl": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/La-Belle-Rosea-122214.html",
       "category": "Designer",
       "family": "Cvjetni",
       "status": "Za isprobati",
@@ -2476,18 +4409,37 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t038",
       "ownership": "owned",
-      "image": "assets/testers/t038.webp"
+      "image": "assets/testers/t038.webp",
+      "topNotes": [
+        "Vodene note",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Božur",
+        "Ruža",
+        "Ljubičica"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Mošus",
+        "Cedar"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": 18,
+      "samplePriceNote": "Tvornički uzorak / originalno pakiranje"
     },
     {
       "kind": "tester",
       "brand": "Louis Vuitton",
       "name": "Fantasmagory",
-      "description": "Luksuzan, rijedak miris; provjeriti pojedinačnu varijantu.",
+      "description": "Aromatski profil: Đumbir, Anis, Badem, Cvjetne note, Vanilija, Koža.",
       "ml": 2,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.95,
+      "frUrl": "https://www.fragrantica.com/perfume/Louis-Vuitton/Fantasmagory-116625.html",
       "category": "Luxury",
       "family": "Začinski",
       "status": "Za isprobati",
@@ -2500,18 +4452,36 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t039",
       "ownership": "owned",
-      "image": "assets/testers/t039.webp"
+      "image": "assets/testers/t039.webp",
+      "topNotes": [
+        "Đumbir",
+        "Anis"
+      ],
+      "heartNotes": [
+        "Badem",
+        "Cvjetne note"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Koža"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 473,
+      "samplePrice": 15,
+      "samplePriceNote": "Tvornički uzorak / originalno pakiranje"
     },
     {
       "kind": "tester",
       "brand": "Montale",
       "name": "Arabians Tonka",
-      "description": "Oud, ruža, saffron, tonka i snažan amber.",
+      "description": "Aromatski profil: Šafran, Bergamot, Oud, Bugarska ruža, Tonka, Šećerna trska.",
       "ml": 7,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.21,
+      "frUrl": "https://www.fragrantica.com/perfume/Montale/Arabians-Tonka-57384.html",
       "category": "Niche",
       "family": "Začinski",
       "status": "Za isprobati",
@@ -2524,18 +4494,38 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t040",
       "ownership": "owned",
-      "image": "assets/testers/t040.webp"
+      "image": "assets/testers/t040.webp",
+      "topNotes": [
+        "Šafran",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Oud",
+        "Bugarska ruža"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Šećerna trska",
+        "Ambra",
+        "Bijeli mošus",
+        "Hrastova mahovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Chopard",
       "name": "Miel d’Arabie",
-      "description": "Med, smolaste i orijentalne note.",
+      "description": "Aromatski profil: Začini, Med, Nar, Čaj.",
       "ml": 3.5,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.04,
+      "frUrl": "https://www.fragrantica.com/perfume/Chopard/Miel-d-Arabie-48433.html",
       "category": "Luxury",
       "family": "Gourmand",
       "status": "Za isprobati",
@@ -2548,18 +4538,38 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t041",
       "ownership": "owned",
-      "image": "assets/testers/t041.webp"
+      "image": "assets/testers/t041.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Začini",
+        "Med",
+        "Nar",
+        "Čaj"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Začini",
+        "Med",
+        "Nar",
+        "Čaj"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Gisada",
       "name": "Titanium",
-      "description": "Moderan muški, drvenasto-začinski miris.",
+      "description": "Aromatski profil: Kardamom, Kadulja, Lavanda, Sandalovina, Vanilija, Tonka.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.05,
+      "frUrl": "https://www.fragrantica.com/perfume/Gisada/Titanium-91044.html",
       "category": "Designer",
       "family": "Aromatični",
       "status": "Za isprobati",
@@ -2572,7 +4582,32 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t042",
       "ownership": "owned",
-      "image": "assets/testers/t042.webp"
+      "image": "assets/testers/t042.webp",
+      "topNotes": [
+        "Kardamom",
+        "Kadulja",
+        "Ružičasti papar",
+        "Pelin"
+      ],
+      "heartNotes": [
+        "Lavanda",
+        "Sandalovina",
+        "Cimet",
+        "Koža",
+        "Cedar"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Tonka",
+        "Iris",
+        "Pačuli",
+        "Jelov balzam"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": 3.5,
+      "samplePriceNote": "Tvornički uzorak / originalno pakiranje"
     },
     {
       "kind": "tester",
@@ -2596,18 +4631,22 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t043",
       "ownership": "owned",
-      "image": "assets/testers/t043.webp"
+      "image": "assets/testers/t043.webp",
+      "notesVerified": false,
+      "frNote": "Na Fragrantici postoji samo Gisada 'Royal' (2021) – nisam mogao potvrditi da je to isti parfem",
+      "samplePrice": 3.5,
+      "samplePriceNote": "Tvornički uzorak / originalno pakiranje"
     },
     {
       "kind": "tester",
       "brand": "Gisada",
       "name": "Ambassador Intense",
-      "description": "Voćno-začinska koncentriranija kompozicija.",
+      "description": "Aromatski profil: Sladić, Kardamom, Malina, Karamela, Tonka, Vanilija.",
       "ml": 1.5,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.28,
+      "frUrl": "https://www.fragrantica.com/perfume/Gisada/Ambassador-Intense-76636.html",
       "category": "Designer",
       "family": "Voćni",
       "status": "Za isprobati",
@@ -2620,18 +4659,59 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t044",
       "ownership": "owned",
-      "image": "assets/testers/t044.webp"
+      "image": "assets/testers/t044.webp",
+      "topNotes": [
+        "Sladić",
+        "Kardamom",
+        "Muškatni oraščić",
+        "Lavanda",
+        "Tamjan",
+        "Ružičasti papar",
+        "Elemi",
+        "Bergamot",
+        "Đumbir",
+        "Mandarina",
+        "Ozonske note"
+      ],
+      "heartNotes": [
+        "Malina",
+        "Karamela",
+        "Cimet",
+        "Klinčić",
+        "Geranij",
+        "Jasmin",
+        "Orhideja",
+        "Heliotrop",
+        "Frezija"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Vanilija",
+        "Ambra",
+        "Kašmeran",
+        "Pačuli",
+        "Koža",
+        "Vetiver",
+        "Mošus",
+        "Labdanum",
+        "Hrastova mahovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": 3.5,
+      "samplePriceNote": "Tvornički uzorak / originalno pakiranje"
     },
     {
       "kind": "tester",
       "brand": "Giorgio Armani",
       "name": "Acqua di Giò",
-      "description": "Morska, citrusna i aromatična klasika; varijanta mini uzorka.",
+      "description": "Aromatski profil: Limeta, Limun, Morske note, Jasmin, Bijeli mošus, Cedar.",
       "ml": 1.2,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.13,
+      "frUrl": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-410.html",
       "category": "Designer",
       "family": "Morski",
       "status": "Za isprobati",
@@ -2644,18 +4724,54 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t045",
       "ownership": "owned",
-      "image": "assets/testers/t045.webp"
+      "image": "assets/testers/t045.webp",
+      "topNotes": [
+        "Limeta",
+        "Limun",
+        "Bergamot",
+        "Jasmin",
+        "Naranča",
+        "Mandarina",
+        "Neroli"
+      ],
+      "heartNotes": [
+        "Morske note",
+        "Jasmin",
+        "Calone",
+        "Ružmarin",
+        "Breskva",
+        "Frezija",
+        "Zumbul",
+        "Ciklama",
+        "Ljubičica",
+        "Korijander",
+        "Ruža",
+        "Muškatni oraščić",
+        "Rezeda"
+      ],
+      "baseNotes": [
+        "Bijeli mošus",
+        "Cedar",
+        "Hrastova mahovina",
+        "Pačuli",
+        "Ambra"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": 2.5,
+      "samplePriceNote": "Tvornički uzorak / originalno pakiranje"
     },
     {
       "kind": "tester",
       "brand": "Novellista",
       "name": "Citrus Affair",
-      "description": "Svježi i vedri citrusni profil.",
+      "description": "Aromatski profil: Limun, Bergamot, Đumbir, Jasmin, Mošus, Sandalovina.",
       "ml": 1.2,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.89,
+      "frUrl": "https://www.fragrantica.com/perfume/Novellista/Citrus-Affair-99623.html",
       "category": "Designer",
       "family": "Citrusni",
       "status": "Za isprobati",
@@ -2668,18 +4784,38 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t046",
       "ownership": "owned",
-      "image": "assets/testers/t046.webp"
+      "image": "assets/testers/t046.webp",
+      "topNotes": [
+        "Limun",
+        "Bergamot",
+        "Mandarina",
+        "Grejp"
+      ],
+      "heartNotes": [
+        "Đumbir",
+        "Jasmin",
+        "Ruža"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Sandalovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": 2,
+      "samplePriceNote": "Tvornički uzorak / originalno pakiranje"
     },
     {
       "kind": "tester",
       "brand": "Acqua di Parma",
       "name": "Fico di Amalfi",
-      "description": "Smokva, grejp, limun i zeleno mediteransko bilje.",
+      "description": "Aromatski profil: Grejp, Bergamot, Nektar smokve, Jasmin, Stablo smokve, Cedar.",
       "ml": 2,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.32,
+      "frUrl": "https://www.fragrantica.com/perfume/Acqua-di-Parma/Acqua-di-Parma-Blu-Mediterraneo-Fico-di-Amalfi-1687.html",
       "category": "Luxury",
       "family": "Voćni",
       "status": "Za isprobati",
@@ -2692,18 +4828,39 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t047",
       "ownership": "owned",
-      "image": "assets/testers/t047.webp"
+      "image": "assets/testers/t047.webp",
+      "topNotes": [
+        "Grejp",
+        "Bergamot",
+        "Citron",
+        "Limun"
+      ],
+      "heartNotes": [
+        "Nektar smokve",
+        "Jasmin",
+        "Ružičasti papar"
+      ],
+      "baseNotes": [
+        "Stablo smokve",
+        "Cedar",
+        "Benzoin"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Prada",
       "name": "Paradigme",
-      "description": "Moderna aromatično-drvenasta kompozicija.",
+      "description": "Aromatski profil: Kalabrijski bergamot, Mošus, Burbon geranij, Ružičasti geranij, Benzoin, Peru balsam.",
       "ml": 1,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.02,
+      "frUrl": "https://www.fragrantica.com/perfume/Prada/Paradigme-110661.html",
       "category": "Designer",
       "family": "Aromatični",
       "status": "Za isprobati",
@@ -2716,18 +4873,36 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t048",
       "ownership": "owned",
-      "image": "assets/testers/t048.webp"
+      "image": "assets/testers/t048.webp",
+      "topNotes": [
+        "Kalabrijski bergamot",
+        "Mošus"
+      ],
+      "heartNotes": [
+        "Burbon geranij",
+        "Ružičasti geranij"
+      ],
+      "baseNotes": [
+        "Benzoin",
+        "Peru balsam",
+        "Guaiac drvo"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Carolina Herrera",
       "name": "Bad Boy Cobalt Elixir",
-      "description": "Snažna aromatična i začinska kompozicija.",
+      "description": "Aromatski profil: Crni papar, Kadulja, Tartuf, Drvenaste note, Vanilija, Tamjan.",
       "ml": 1,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.04,
+      "frUrl": "https://www.fragrantica.com/perfume/Carolina-Herrera/Bad-Boy-Cobalt-Elixir-89374.html",
       "category": "Designer",
       "family": "Začinski",
       "status": "Za isprobati",
@@ -2740,18 +4915,35 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t050",
       "ownership": "owned",
-      "image": "assets/testers/t050.webp"
+      "image": "assets/testers/t050.webp",
+      "topNotes": [
+        "Crni papar",
+        "Kadulja"
+      ],
+      "heartNotes": [
+        "Tartuf",
+        "Drvenaste note"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Tamjan"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
-      "brand": "—",
+      "brand": "Giorgio Armani",
       "name": "I Will",
-      "description": "Ime brenda još nije potvrđeno; dopuniti nakon identifikacije.",
+      "description": "Aromatski profil: Kardamom, Bergamot, Lavanda, List ljubičice, Vanilija, Koža.",
       "ml": 1,
       "capacity": null,
       "count": 1,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 3.69,
+      "frUrl": "https://www.fragrantica.com/perfume/Giorgio-Armani/I-Will-138759.html",
       "category": "Ostalo",
       "family": "Nepoznato",
       "status": "Za isprobati",
@@ -2764,13 +4956,34 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t051",
       "ownership": "owned",
-      "image": "assets/testers/t051.webp"
+      "image": "assets/testers/t051.webp",
+      "topNotes": [
+        "Kardamom",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Lavanda",
+        "List ljubičice",
+        "Kadulja"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Koža",
+        "Drvenaste note",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frNote": "Brend nije poznat – bez brenda ne mogu pouzdano pronaći parfem na Fragrantici",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "kind": "tester",
       "brand": "Oriza L. Legrand",
       "name": "Relique d’Amour",
-      "description": "Ljiljan, vlažno kamenje, tamjan i hladni crkveni tonovi.",
+      "description": "Aromatski profil: Zeleno lišće, Terebint, Papar, Bijeli ljiljan, Papar, Hrastova mahovina.",
       "ml": 2,
       "capacity": null,
       "count": 4,
@@ -2788,7 +5001,32 @@ const SEED_DATA = {
       "saleRange": null,
       "id": "t052",
       "ownership": "owned",
-      "image": "assets/testers/t052.webp"
+      "image": "assets/testers/t052.webp",
+      "topNotes": [
+        "Zeleno lišće",
+        "Terebint"
+      ],
+      "heartNotes": [
+        "Papar",
+        "Bijeli ljiljan",
+        "Tamjan",
+        "Elemi",
+        "Smirna",
+        "Lan"
+      ],
+      "baseNotes": [
+        "Papar",
+        "Hrastova mahovina",
+        "Drvenaste note",
+        "Mošus",
+        "Svijetlo drvo",
+        "Vosak"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "id": "t054",
@@ -2796,7 +5034,7 @@ const SEED_DATA = {
       "brand": "Lattafa",
       "name": "Fakhar Black",
       "description": "Aromatično-cvjetni, jabuka, đumbir, lavanda i tonka; moderan čist miris.",
-      "ml": null,
+      "ml": 10,
       "capacity": null,
       "count": 1,
       "price2": null,
@@ -2805,23 +5043,43 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.google.com/search?q=site%3Afragrantica.com%2Fperfume%2F+Lattafa+Fakhar+Black",
+      "frRating": 4.19,
+      "frUrl": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Fakhar-Black-70465.html",
       "category": "Arabski",
       "family": "Aromatični",
       "status": "Za isprobati",
       "review": "",
       "personalRating": null,
       "ownership": "owned",
-      "image": ""
+      "image": "assets/extra/fakhar.webp",
+      "topNotes": [
+        "Jabuka",
+        "Bergamot",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Lavanda",
+        "Kadulja",
+        "Bobice borovice",
+        "Geranij"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Cedar",
+        "Amberwood",
+        "Vetiver"
+      ],
+      "notesVerified": true,
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "id": "t055",
       "kind": "tester",
       "brand": "Lattafa",
       "name": "Najdia Intense",
-      "description": "Svjež, sladak i aromatičan; sportski, citrusno-drvenasti smjer.",
-      "ml": null,
+      "description": "Aromatski profil: Ananas, Jabuka, Morske note, Lavanda, Sandalovina, Tonka.",
+      "ml": 15,
       "capacity": null,
       "count": 1,
       "price2": null,
@@ -2830,22 +5088,44 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.google.com/search?q=site%3Afragrantica.com%2Fperfume%2F+Lattafa+Najdia+Intense",
+      "frRating": 4.28,
+      "frUrl": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Najdia-Intense-100128.html",
       "category": "Arabski",
       "family": "Svježi",
       "status": "Za isprobati",
       "review": "",
       "personalRating": null,
       "ownership": "owned",
-      "image": ""
+      "image": "assets/extra/najdia-intense.webp",
+      "topNotes": [
+        "Ananas",
+        "Jabuka",
+        "Metvica",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Morske note",
+        "Lavanda",
+        "Geranij"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Tonka",
+        "Mošus",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "id": "t056",
       "kind": "tester",
       "brand": "Oriza L. Legrand",
       "name": "Villa Lympia",
-      "description": "Klasičan mediteranski, cvjetno-aromatičan niche; elegantan i karakterističan.",
+      "description": "Aromatski profil: Morska voda, Borove iglice, Morska sol, Mimoza, Smilje, Morske alge.",
       "ml": 6,
       "capacity": null,
       "count": 1,
@@ -2855,22 +5135,40 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.google.com/search?q=site%3Afragrantica.com%2Fperfume%2F+Oriza+L.+Legrand+Villa+Lympia",
+      "frRating": 4.07,
+      "frUrl": "https://www.fragrantica.com/perfume/Oriza-L-Legrand/Villa-Lympia-38159.html",
       "category": "Niche",
       "family": "Cvjetni",
       "status": "Za isprobati",
       "review": "",
       "personalRating": null,
       "ownership": "owned",
-      "image": ""
+      "image": "assets/extra/villa-lympia.webp",
+      "topNotes": [
+        "Morska voda",
+        "Borove iglice"
+      ],
+      "heartNotes": [
+        "Morska sol",
+        "Mimoza",
+        "Morske alge"
+      ],
+      "baseNotes": [
+        "Smilje",
+        "Morske alge"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "id": "t057",
       "kind": "tester",
       "brand": "Hugo Boss",
       "name": "The Scent",
-      "description": "Đumbir, maninka, lavanda i topla koža; zavodljiv designer. Flanker treba potvrditi.",
+      "description": "Aromatski profil: Đumbir, Mandarina, Maninka, Lavanda, Koža, Drvenaste note.",
       "ml": 7,
       "capacity": null,
       "count": 1,
@@ -2880,15 +5178,33 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.google.com/search?q=site%3Afragrantica.com%2Fperfume%2F+Hugo+Boss+The+Scent",
+      "frRating": 3.77,
+      "frUrl": "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html",
       "category": "Designer",
       "family": "Začinski",
       "status": "Za isprobati",
       "review": "",
       "personalRating": null,
       "ownership": "owned",
-      "image": ""
+      "image": "assets/extra/the-scent.webp",
+      "topNotes": [
+        "Đumbir",
+        "Mandarina",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Maninka",
+        "Lavanda"
+      ],
+      "baseNotes": [
+        "Koža",
+        "Drvenaste note"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "id": "t058",
@@ -2905,23 +5221,40 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.google.com/search?q=site%3Afragrantica.com%2Fperfume%2F+Tom+Ford+Tobacco+Vanille",
+      "frRating": 4.17,
+      "frUrl": "https://www.fragrantica.com/perfume/Tom-Ford/Private-Blend-Tobacco-Vanille-1825.html",
       "category": "Luxury",
       "family": "Gourmand",
       "status": "Za isprobati",
       "review": "",
       "personalRating": null,
       "ownership": "owned",
-      "image": ""
+      "image": "assets/extra/tobacco-vanille.webp",
+      "topNotes": [
+        "List duhana",
+        "Začini"
+      ],
+      "heartNotes": [
+        "Vanilija",
+        "Kakao",
+        "Tonka",
+        "Cvijet duhana"
+      ],
+      "baseNotes": [
+        "Suho voće",
+        "Drvenaste note"
+      ],
+      "notesVerified": true,
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "id": "t059",
       "kind": "tester",
       "brand": "Armaf",
       "name": "Odyssey Aqua Edition",
-      "description": "Aromatičan i svjež s citrusima, lavandom i vodenastim karakterom.",
-      "ml": null,
+      "description": "Aromatski profil: Naranča, Grejp, Metvica, Lavanda, Ambroksan, Čempres.",
+      "ml": 3,
       "capacity": null,
       "count": 1,
       "price2": null,
@@ -2930,15 +5263,34 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.google.com/search?q=site%3Afragrantica.com%2Fperfume%2F+Armaf+Odyssey+Aqua+Edition",
+      "frRating": 4.32,
+      "frUrl": "https://www.fragrantica.com/perfume/Armaf/Odyssey-Aqua-Edition-83134.html",
       "category": "Arabski",
       "family": "Svježi",
       "status": "Za isprobati",
       "review": "",
       "personalRating": null,
       "ownership": "owned",
-      "image": ""
+      "image": "assets/extra/odyssey-aqua-edition.webp",
+      "topNotes": [
+        "Naranča",
+        "Grejp",
+        "Pelin"
+      ],
+      "heartNotes": [
+        "Metvica",
+        "Lavanda"
+      ],
+      "baseNotes": [
+        "Ambroksan",
+        "Čempres",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     },
     {
       "id": "t060",
@@ -2946,6 +5298,50 @@ const SEED_DATA = {
       "brand": "Lalique",
       "name": "Encre Noire À L’Extrême",
       "description": "Tamni vetiver, čempres, tamjan i zemljano drvo; ozbiljan i suh.",
+      "ml": 3,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 4.21,
+      "frUrl": "https://www.fragrantica.com/perfume/Lalique/Encre-Noire-A-L-Extreme-32356.html",
+      "category": "Designer",
+      "family": "Drvenasti",
+      "status": "Za isprobati",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/encre-noire---l-extr-me.webp",
+      "topNotes": [
+        "Čempres",
+        "Elemi smola",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Haićanski vetiver",
+        "Vetiver",
+        "Tamjan",
+        "Iris"
+      ],
+      "baseNotes": [
+        "Benzoin",
+        "Sandalovina",
+        "Pačuli"
+      ],
+      "notesVerified": true,
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t061",
+      "kind": "tester",
+      "brand": "Montblanc",
+      "name": "Legend Red",
+      "description": "Aromatski profil: Crvena naranča, Grejp, Cedar, Muškatna kadulja, Atlas cedar, Mahagonij.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -2955,15 +5351,406 @@ const SEED_DATA = {
       "salePrice": null,
       "saleRange": "",
       "targetPrice": null,
-      "frRating": null,
-      "frUrl": "https://www.google.com/search?q=site%3Afragrantica.com%2Fperfume%2F+Lalique+Encre+Noire+À+L’Extrême",
+      "frRating": 3.76,
+      "frUrl": "https://www.fragrantica.com/perfume/Montblanc/Legend-Red-71652.html",
+      "category": "Designer",
+      "family": "Voćni",
+      "status": "Za isprobati",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/legend-red.webp",
+      "topNotes": [
+        "Crvena naranča",
+        "Grejp",
+        "Kardamom"
+      ],
+      "heartNotes": [
+        "Cedar",
+        "Muškatna kadulja",
+        "Borovica"
+      ],
+      "baseNotes": [
+        "Atlas cedar",
+        "Mahagonij",
+        "Tonka"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t062",
+      "kind": "tester",
+      "brand": "Jean Paul Gaultier",
+      "name": "Le Male Elixir",
+      "description": "Aromatski profil: Lavanda, Metvica, Vanilija, Benzoin, Med, Tonka.",
+      "ml": 10,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 4.5,
+      "frUrl": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html",
+      "category": "Designer",
+      "family": "Gourmand",
+      "status": "Za isprobati",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/le-male-elixir.webp",
+      "topNotes": [
+        "Lavanda",
+        "Metvica"
+      ],
+      "heartNotes": [
+        "Vanilija",
+        "Benzoin"
+      ],
+      "baseNotes": [
+        "Med",
+        "Tonka",
+        "Duhan"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t063",
+      "kind": "tester",
+      "brand": "Khadlaj",
+      "name": "Shiyaaka For Men",
+      "description": "Aromatski profil: Ružmarin, Petitgrain, Neroli, Iris, Cedar, Vetiver.",
+      "ml": 10,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 4.24,
+      "frUrl": "https://www.fragrantica.com/perfume/Khadlaj-Perfumes/Shiyaaka-For-Men-86143.html",
+      "category": "Arabski",
+      "family": "Aromatični",
+      "status": "Za isprobati",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/shiyaaka-for-men.webp",
+      "topNotes": [
+        "Ružmarin",
+        "Petitgrain",
+        "Papar"
+      ],
+      "heartNotes": [
+        "Neroli",
+        "Iris",
+        "Jasmin"
+      ],
+      "baseNotes": [
+        "Cedar",
+        "Vetiver",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t064",
+      "kind": "tester",
+      "brand": "Khadlaj",
+      "name": "Shiyaaka Snow",
+      "description": "Aromatski profil: Bergamot, Mandarina, Ružičasti papar, Muškatni oraščić, Kardamom, Vetiver.",
+      "ml": 10,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 3.93,
+      "frUrl": "https://www.fragrantica.com/perfume/Khadlaj-Perfumes/Shiyaaka-Snow-119252.html",
+      "category": "Arabski",
+      "family": "Svježi",
+      "status": "Za isprobati",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/shiyaaka-snow.webp",
+      "topNotes": [
+        "Bergamot",
+        "Mandarina"
+      ],
+      "heartNotes": [
+        "Ružičasti papar",
+        "Muškatni oraščić",
+        "Neroli"
+      ],
+      "baseNotes": [
+        "Kardamom",
+        "Vetiver"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t065",
+      "kind": "tester",
+      "brand": "Armaf",
+      "name": "Club de Nuit Sillage",
+      "description": "Aromatski profil: Bergamot, Limun, Ruža, Iris, Ambroksan, Mošus.",
+      "ml": 10,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 3.91,
+      "frUrl": "https://www.fragrantica.com/perfume/Armaf/Club-de-Nuit-Sillage-64105.html",
+      "category": "Arabski",
+      "family": "Mošusni",
+      "status": "Za isprobati",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/club-de-nuit-sillage.webp",
+      "topNotes": [
+        "Bergamot",
+        "Limun",
+        "Limeta",
+        "Crni ribiz",
+        "List ljubičice",
+        "Đumbir"
+      ],
+      "heartNotes": [
+        "Ruža",
+        "Iris",
+        "Jasmin"
+      ],
+      "baseNotes": [
+        "Ambroksan",
+        "Mošus",
+        "Sandalovina",
+        "Cedar"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t066",
+      "kind": "tester",
+      "brand": "Givenchy",
+      "name": "Gentleman EDT",
+      "description": "Aromatski profil: Kruška, Kardamom, Iris, Lavanda, Koža, Crna vanilija.",
+      "ml": 10,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 3.92,
+      "frUrl": "https://www.fragrantica.com/perfume/Givenchy/Gentleman-2017-46040.html",
       "category": "Designer",
       "family": "Drvenasti",
       "status": "Za isprobati",
       "review": "",
       "personalRating": null,
       "ownership": "owned",
-      "image": ""
+      "image": "assets/extra/gentleman-edt.webp",
+      "topNotes": [
+        "Kruška",
+        "Kardamom",
+        "Ananas"
+      ],
+      "heartNotes": [
+        "Iris",
+        "Lavanda",
+        "Geranij"
+      ],
+      "baseNotes": [
+        "Koža",
+        "Crna vanilija",
+        "Pačuli"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "frVotes": 3274,
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t067",
+      "kind": "tester",
+      "brand": "Gisada",
+      "name": "Ambassador",
+      "description": "Aromatski profil: Zelena mandarina, Jabuka, Mango, Lavanda, Vanilija, Ambra.",
+      "ml": 10,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 4.29,
+      "frUrl": "https://www.fragrantica.com/perfume/Gisada/Ambassador-Men-58226.html",
+      "category": "Designer",
+      "family": "Aromatični",
+      "status": "Za isprobati",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/ambassador.webp",
+      "topNotes": [
+        "Zelena mandarina",
+        "Jabuka",
+        "Kardamom",
+        "Ljubičica"
+      ],
+      "heartNotes": [
+        "Mango",
+        "Lavanda",
+        "Crni papar",
+        "Pačuli",
+        "Božur"
+      ],
+      "baseNotes": [
+        "Vanilija",
+        "Ambra",
+        "Tikovina",
+        "Vetiver",
+        "Mahovina"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t068",
+      "kind": "tester",
+      "brand": "Viktor&Rolf",
+      "name": "Spicebomb Extreme",
+      "description": "Aromatski profil: Vanilija, Duhan, Cimet, Kim, Burbon viski, Šafran.",
+      "ml": 10,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 4.48,
+      "frUrl": "https://www.fragrantica.com/perfume/Viktor-Rolf/Spicebomb-Extreme-30499.html",
+      "category": "Designer",
+      "family": "Začinski",
+      "status": "Za isprobati",
+      "review": "",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/spicebomb-extreme.webp",
+      "topNotes": [],
+      "heartNotes": [
+        "Vanilija",
+        "Duhan",
+        "Cimet",
+        "Kumin",
+        "Bourbon viski",
+        "Šafran"
+      ],
+      "baseNotes": [],
+      "flatNotes": [
+        "Vanilija",
+        "Duhan",
+        "Cimet",
+        "Kim",
+        "Burbon viski",
+        "Šafran"
+      ],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "notesFlat": true,
+      "frNote": "Fragrantica navodi note bez piramide (popis je u srednjim notama).",
+      "samplePrice": null,
+      "samplePriceNote": ""
+    },
+    {
+      "id": "t069",
+      "kind": "tester",
+      "brand": "Afnan",
+      "name": "Turathi Electric",
+      "description": "Aromatski profil: Kruška, Ružičasti grejp, Cvijet naranče, Jabuka, Mošus, Ambra.",
+      "ml": 7.5,
+      "capacity": null,
+      "count": 1,
+      "price2": null,
+      "price5": null,
+      "price10": null,
+      "salePrice": null,
+      "saleRange": "",
+      "targetPrice": null,
+      "frRating": 4.06,
+      "frUrl": "https://www.fragrantica.com/perfume/Afnan/Turathi-Electric-108244.html",
+      "category": "Arabski",
+      "family": "Voćni",
+      "status": "Za isprobati",
+      "review": "Procijenjena količina 5–10 ml.",
+      "personalRating": null,
+      "ownership": "owned",
+      "image": "assets/extra/turathi-electric.webp",
+      "topNotes": [
+        "Kruška",
+        "Ružičasti grejp",
+        "Mandarina",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Cvijet naranče",
+        "Jabuka",
+        "Cedar"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Ambra",
+        "Vanilija"
+      ],
+      "flatNotes": [],
+      "notesVerified": true,
+      "frSourceChecked": "2026-11-14",
+      "samplePrice": null,
+      "samplePriceNote": ""
     }
   ]
 };

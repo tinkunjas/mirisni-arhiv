@@ -299,3 +299,55 @@ body {
   .art.has-image { display: flex; align-items: center; justify-content: center; background: #eeeae3; }
   .art.has-image .perfume-image { width: 100%; height: 100%; max-width: 100%; max-height: 100%; min-width: 0; min-height: 0; object-fit: contain; object-position: center; padding: 20px; flex: 0 0 auto; }
 }
+
+
+/* Mirisni arhiv PRO — editorial desktop layout */
+.viewer-mode .admin-only,
+.viewer-mode #addBtn,
+.viewer-mode #importBtn,
+.viewer-mode #exportBtn,
+.viewer-mode #backupFooter {display:none!important}
+.viewer-mode .tools {opacity:.88}
+:root {--mint:#c3dfcf;--gold:#e3c99a;--bg:#0b1112;--surface:#142020}
+body {background:radial-gradient(circle at 90% -10%,#213731 0%,#0b1112 44%);letter-spacing:.008em}
+.sidebar {border-right:1px solid rgba(198,226,209,.13)}
+.mark-text b {letter-spacing:-.6px}
+.nav-btn {transition:background .22s ease,color .22s ease,transform .22s ease}
+.nav-btn:hover {transform:translateX(3px)}
+.hero {background:radial-gradient(ellipse at 88% 45%,rgba(181,219,184,.17),transparent 48%),linear-gradient(125deg,#284439,#182e2b 57%,#11221f);border:1px solid rgba(190,225,194,.21)}
+.hero h1 {letter-spacing:-1.9px}
+.hero p {max-width:530px}
+.stat {transition:border-color .2s ease,transform .2s ease}
+.stat:hover {border-color:#638374;transform:translateY(-2px)}
+.cards {align-items:stretch}
+.card {display:flex;flex-direction:column;min-width:0;overflow:hidden;transition:transform .23s ease,box-shadow .23s ease,border-color .23s ease}
+.card-content {display:flex;flex-direction:column;flex:1}
+.card-desc {line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.info-footer {margin-top:auto}
+.art {display:flex;align-items:center;justify-content:center;isolation:isolate}
+.art.has-image {background:radial-gradient(ellipse at 45% 40%,#fcfaf4,#e5e8e1)}
+.perfume-image {display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;box-sizing:border-box;padding:22px 24px;filter:drop-shadow(0 15px 16px rgba(21,38,30,.18))}
+.notes-panel {margin:0 0 14px;border:1px solid rgba(202,222,208,.13);border-radius:10px;padding:9px 11px;color:#bccdc2;font-size:11px}
+.notes-panel summary {cursor:pointer;color:#e4d5b6;font-weight:700;letter-spacing:.02em}
+.notes-panel p {margin-top:7px;line-height:1.6}
+.notes-panel p b {color:#dce8df}
+@media (min-width:1450px) {.cards {grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.art {height:260px}.main {padding-left:46px;padding-right:46px}}
+@media (min-width:901px) and (max-width:1449px) {.cards {grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.art {height:245px}}
+@media (max-width:650px) {.hero h1{letter-spacing:-1px}.art{height:205px}.perfume-image{padding:15px}.cards{gap:12px}}
+@media (prefers-reduced-motion: reduce) {.card,.nav-btn,.stat {transition:none!important;transform:none!important}}
+
+/* Fragrance profile finishing touches */
+.cards {align-items:stretch}
+.card {display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.card-content {display:flex;flex-direction:column;flex:1}
+.card-desc {height:auto;min-height:0;line-height:1.75;max-width:65ch}
+.card-content .ratings {margin-top:auto}
+.art {isolation:isolate}
+.art.has-image {display:flex;align-items:center;justify-content:center}
+.art.has-image .perfume-image {width:100%;height:100%;object-fit:contain;object-position:center;min-width:0;min-height:0;padding:20px}
+.notes-panel {margin:12px 0 18px;padding:14px 15px;background:rgba(9,19,17,.26);border-color:rgba(189,219,197,.2)}
+.notes-panel summary {list-style-position:inside;line-height:1.5;cursor:pointer}
+.notes-panel p {margin:8px 0 0;line-height:1.65}
+.notes-panel p b {color:#e0dbca}
+@media(min-width:1450px){.art.has-image .perfume-image{padding:19px}}
+@media(max-width:650px){.art.has-image .perfume-image{padding:13px}.notes-panel{padding:10px}}
