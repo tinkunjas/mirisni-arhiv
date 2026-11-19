@@ -6,18 +6,18 @@
   <meta name="theme-color" content="#0d1817">
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Moj privatni mirisni arhiv – parfemi, testeri, ocjene, cijene i lista želja.">
-  <title>Mirisni arhiv — kolekcija parfema</title>
+  <title>Mirisni arhiv</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <meta name="color-scheme" content="dark">
-  <link rel="stylesheet" href="css/base.css?v=v20261119-finish-3">
-  <link rel="stylesheet" href="css/theme.css?v=v20261119-finish-3">
-  <link rel="stylesheet" href="css/atelier.css?v=v20261119-finish-3">
-  <script src="js/data.js?v=v20261119-finish-3" defer></script>
+  <link rel="stylesheet" href="css/base.css?v=v20261119-clean-v4">
+  <link rel="stylesheet" href="css/theme.css?v=v20261119-clean-v4">
+  <link rel="stylesheet" href="css/atelier.css?v=v20261119-clean-v4">
+  <script src="js/data.js?v=v20261119-clean-v4" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
-  <script src="js/config.js?v=v20261119-finish-3" defer></script>
-  <script src="js/app.js?v=v20261119-finish-3" defer></script>
+  <script src="js/config.js?v=v20261119-clean-v4" defer></script>
+  <script src="js/app.js?v=v20261119-clean-v4" defer></script>
 </head>
 <body>
   <div class="app">
@@ -60,16 +60,6 @@
         Spremanje je blokirano u ovom pregledniku. Preuzmi JSON backup da ne izgubiš promjene.
       </div>
 
-      <section class="hero" aria-label="Pregled kolekcije">
-        <div class="hero-copy">
-          <div id="heroKicker" class="eyebrow">KOLEKCIJA PARFEMA</div>
-          <h1 id="heroTitle">Moji parfemi</h1>
-          <p id="heroText">Bočice koje imam, njihove preostale količine i mirisne note.</p>
-        </div>
-      </section>
-
-      <section class="stats" id="stats" aria-label="Statistika kolekcije"></section>
-
       <section class="collection-section" aria-label="Mirisi">
         <header class="section-head">
           <div><h2 id="sectionTitle">Moji parfemi</h2><p id="shownCount">Prikaz</p></div>
@@ -81,11 +71,10 @@
             <span id="searchIcon"></span>
             <input id="searchInput" type="search" aria-label="Pretraži mirise" placeholder="Pretraži brendove, parfeme ili note…">
           </label>
-          <select id="familyFilter" class="filter" aria-label="Filtriraj prema notama"></select>
           <select id="sortFilter" class="filter" aria-label="Poredaj"></select>
         </div>
         <div class="collection-quick-view" id="offerViewBar"><button type="button" class="offer-toggle" id="offerToggle" aria-pressed="false">Dostupno za zamjenu / prodaju</button><button type="button" id="copyOffersBtn" class="offer-toggle offer-copy" title="Kopiraj popis parfema za WhatsApp ili Facebook">Kopiraj popis za WhatsApp</button></div>
-        <p class="helper" id="helperText"></p>
+
         <div class="cards" id="cards"></div>
       </section>
 

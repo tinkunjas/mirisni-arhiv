@@ -35,7 +35,7 @@ let remoteVersion = null;
 let ownerCheckInProgress = false;
 let catalog = clone(initial), tab = tabFromHash(), search = '', filterFamily = '', sortBy = 'default', toastTimeout = null;
 let offersOnly = false;
-let visibleLimit = 18;
+
 let searchDebounce = null;
 function saleStatus(item) {
   if (item.kind !== 'bottle' || item.ownership !== 'owned') return '';
@@ -62,7 +62,7 @@ function setAutomaticTrade(item, oldItem = null) {
 function normalizeSearch(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('hr').trim();
 }
-function resetPageSize() {visibleLimit = 18;}
+function resetPageSize() {}
 
 function escapeHtml(v) {return String(v ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));}
 function fmt(n) {return Number(n).toLocaleString('hr-HR', {maximumFractionDigits: 2});}
@@ -85,7 +85,7 @@ function mergeCatalog(input, previous = false) {
 
     for (const item of input[key]) {
       if (!item || typeof item !== 'object' || typeof item.id !== 'string') continue;
-      if (seen.has(item.id) || deleted.has(item.id) || ['t049', 't053', 'h009', 'b008', 'b037', 'b038'].includes(item.id)) continue;
+      if (seen.has(item.id) || deleted.has(item.id) || ['t049', 't053', 'h009', 'b008', 'b037', 'b038', 't051', 't040', 't023', 't015', 't006'].includes(item.id)) continue;
       seen.add(item.id);
 
       const seed = defaults.get(item.id) || {};
@@ -153,7 +153,7 @@ function render() {
   const ownedB = catalog.bottles.filter(x => x.ownership === 'owned').length, ownedT = catalog.testers.filter(x => x.ownership === 'owned').length;
   const past = all().filter(x => x.ownership === 'past').length, wish = all().filter(x => x.ownership === 'wish').length;
   for (const [id, val] of Object.entries({bcount: ownedB, tcount: ownedT, hcount: past, wcount: wish})) document.getElementById(id).textContent = val;
-  document.querySelector('#stats').innerHTML = statData().map(([label, note, sub]) => `<div class="stat"><div class="slabel">${escapeHtml(label)}</div><div class="snumber">${escapeHtml(note)}</div><div class="ssub">${escapeHtml(sub)}</div></div>`).join('');
+  document.querySelector('#stats') && (document.querySelector('#stats').innerHTML = statData().map(([label, note, sub]) => `<div class="stat"><div class="slabel">${escapeHtml(label)}</div><div class="snumber">${escapeHtml(note)}</div><div class="ssub">${escapeHtml(sub)}</div></div>`).join(''));
   renderCards();
 }
 function compareOptionalNumbers(a, b, direction) {
@@ -181,7 +181,7 @@ function renderCards() {
   document.querySelector('#shownCount').textContent = `${data.length} od ${active().length} mirisa u ovom dijelu kolekcije`;
   const el = document.querySelector('#cards');
   if (!data.length) {el.innerHTML = '<div class="empty"><b>Nema mirisa za ove filtre.</b><span>Probaj drugi naziv, notu ili mirisnu skupinu.</span><button type="button" class="btn" id="emptyReset">Prikaži sve</button></div>'; el.querySelector('#emptyReset').addEventListener('click',resetFilters); return;}
-  el.innerHTML = data.slice(0, visibleLimit).map((i, ix) => {
+  el.innerHTML = data.map((i, ix) => {
     const isBottle = i.kind === 'bottle', src = safeUrl(i.image), rating = isAdmin && i.personalRating != null ? fmt(i.personalRating) : 'Nije upisana', fRating = i.frRating == null ? '—' : fmt(i.frRating), price = suggested(i);
     const isOwned = i.ownership === 'owned', offerStatus = saleStatus(i), offer = `<div class="info-footer">${offerStatus ? `<span class="availability-tag">${escapeHtml(offerStatus)}</span>` : ''}<button class="editlink admin-only" type="button" data-edit="${escapeHtml(i.id)}">${ICONS.edit} Uredi</button></div>`;
     const hasPrices = isBottle && isOwned && [i.price2,i.price5,i.price10].some(v=>v!=null);
@@ -198,8 +198,6 @@ function renderCards() {
    ${i.kind === 'tester' ? `<button class="editlink admin-only" type="button" data-rate="${escapeHtml(i.id)}">Ocijeni 0–10</button>` : '<span class="sub" style="font-size:10px;color:#80968a">Spremi promjenu</span>'}</div>
    </div></article>`;
   }).join('');
-  if(data.length > visibleLimit) el.insertAdjacentHTML('beforeend', `<div class="load-more-wrap"><button id="loadMore" class="btn" type="button">Prikaži još ${Math.min(18, data.length - visibleLimit)} parfema</button><small>${visibleLimit} od ${data.length}</small></div>`);
-  el.querySelector('#loadMore')?.addEventListener('click', () => {visibleLimit += 18; renderCards();});
   el.querySelectorAll('[data-detail]').forEach(btn => btn.addEventListener('click', () => openDetails(btn.dataset.detail)));
   el.querySelectorAll('[data-edit],[data-rate]').forEach(btn => btn.addEventListener('click', () => openEdit(btn.dataset.edit || btn.dataset.rate)));
   el.querySelectorAll('[data-move]').forEach(sel => sel.addEventListener('change', () => moveItem(sel.dataset.move, sel.value)));
@@ -286,7 +284,7 @@ function openSharedPerfume() {
 function resetFilters() {
   search = ''; filterFamily = ''; sortBy = 'default'; offersOnly = false; resetPageSize(); updateOfferToggle();
   document.querySelector('#searchInput').value = '';
-  document.querySelector('#familyFilter').value = '';
+
   document.querySelector('#sortFilter').value = 'default';
   renderCards();
 }
@@ -309,12 +307,12 @@ async function moveItem(id, newOwnership) {
 function switchTab(next, updateHash = true) {
   if (!tabInfo[next]) return; tab = next; const info = tabInfo[tab]; if (updateHash && location.hash !== '#' + info.hash) history.replaceState(null, '', '#' + info.hash);
   for (const [k, v] of Object.entries(tabInfo)) document.getElementById(v.nav).classList.toggle('active', k === tab);
-  document.querySelector('#heroKicker').textContent = info.kicker;
-  document.querySelector('#heroTitle').innerHTML = info.hero;
-  document.querySelector('#heroText').textContent = info.desc;
+
+
+
   document.querySelector('#sectionTitle').textContent = info.heading;
   document.querySelector('#crumb').textContent = ' / ' + info.heading.toUpperCase();
-  document.querySelector('#helperText').textContent = info.helper;
+
   if (tab !== 'bottles') offersOnly = false; resetPageSize();
   updateOfferToggle();
   resetFilters(); render();
@@ -418,10 +416,10 @@ function init() {
   document.querySelector('#exportBtn').innerHTML = ICONS.download + '<span>Backup JSON</span>';
   document.querySelector('#importBtn').innerHTML = ICONS.import + '<span>Uvezi</span>';
   document.querySelector('#searchIcon').innerHTML = ICONS.search;
-  document.querySelector('#familyFilter').innerHTML = options(families, 'Sve skupine');
+
   document.querySelector('#sortFilter').innerHTML = '<option value="default">Početni redoslijed</option><option value="name-asc">Naziv A–Z</option><option value="name-desc">Naziv Z–A</option><option value="fr-desc">Fragrantica ↓</option><option value="fr-asc">Fragrantica ↑</option><option value="personal-desc">Moja ocjena ↓</option><option value="personal-asc">Moja ocjena ↑</option><option value="ml-desc">Količina ↓</option><option value="ml-asc">Količina ↑</option>';
   document.querySelector('#searchInput').addEventListener('input', ev => {const value = normalizeSearch(ev.target.value); clearTimeout(searchDebounce); searchDebounce = setTimeout(() => {search=value; resetPageSize(); renderCards();}, 160);});
-  document.querySelector('#familyFilter').addEventListener('change', ev => {filterFamily = ev.target.value; resetPageSize(); renderCards();});
+
   document.querySelector('#sortFilter').addEventListener('change', ev => {sortBy = ev.target.value; resetPageSize(); renderCards();});
   document.querySelector('#offerToggle').addEventListener('click', () => {offersOnly = !offersOnly; resetPageSize(); updateOfferToggle(); renderCards();});
   document.querySelector('#detailClose').addEventListener('click', closeDetails);
