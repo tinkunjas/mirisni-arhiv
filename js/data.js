@@ -1332,50 +1332,6 @@ const SEED_DATA = {
     },
     {
       "kind": "bottle",
-      "brand": "Bentley",
-      "name": "For Men Intense",
-      "description": "Rum, tamjan, koža, cedar i tamni začini.",
-      "ml": 90,
-      "capacity": 100,
-      "price2": 2,
-      "price5": 4,
-      "price10": 6,
-      "salePrice": null,
-      "saleRange": null,
-      "frRating": 4.1,
-      "frUrl": "https://www.fragrantica.com/perfume/Bentley/Bentley-for-Men-Intense-17666.html",
-      "category": "Designer",
-      "family": "Kožnati",
-      "status": "U kolekciji",
-      "review": "",
-      "personalRating": null,
-      "id": "b031",
-      "ownership": "owned",
-      "count": 1,
-      "image": "",
-      "topNotes": [
-        "Crni papar",
-        "Lovor",
-        "Bergamot"
-      ],
-      "heartNotes": [
-        "Rum",
-        "Drvenaste note",
-        "Cimet",
-        "Muškatna kadulja",
-        "Geranij"
-      ],
-      "baseNotes": [
-        "Tamjan",
-        "Koža",
-        "Benzoin",
-        "Cedar",
-        "Pačuli"
-      ],
-      "notesVerified": true
-    },
-    {
-      "kind": "bottle",
       "brand": "Lattafa",
       "name": "Art of Arabia I",
       "description": "Aromatski profil: Bergamot, Metvica, Crni čaj, Đumbir, Ambroksan, Tamjan.",
@@ -2718,6 +2674,41 @@ const SEED_DATA = {
       ],
       "notesVerified": true,
       "frSourceChecked": "2026-11-14"
+    },
+    {
+      "brand": "Mancera",
+      "name": "Cedrat Boise",
+      "kind": "bottle",
+      "ml": 15,
+      "category": "Niche",
+      "family": "Citrusni",
+      "description": "Svježi citrusi i crni ribiz prelaze u voćno-drvenastu bazu s kožom, mošusom i vanilijom.",
+      "frRating": 4.09,
+      "frUrl": "https://www.fragrantica.com/perfume/Mancera/Cedrat-Boise-15211.html",
+      "topNotes": [
+        "Sicilijanski limun",
+        "Bergamot",
+        "Crni ribiz",
+        "Začinske note"
+      ],
+      "heartNotes": [
+        "Voćne note",
+        "List pačulija",
+        "Vodeni jasmin"
+      ],
+      "baseNotes": [
+        "Cedar",
+        "Koža",
+        "Sandalovina",
+        "Vanilija",
+        "Bijeli mošus",
+        "Mahovina"
+      ],
+      "image": "assets/new-testers/t070.webp",
+      "id": "b047",
+      "capacity": null,
+      "ownership": "owned",
+      "status": "U kolekciji"
     }
   ],
   "testers": [
@@ -5528,37 +5519,11 @@ const SEED_DATA = {
       "samplePriceNote": ""
     },
     {
-      "id": "t070",
-      "kind": "tester",
-      "brand": "Mancera",
-      "name": "Cedrat Boise",
-      "description": "",
-      "ml": 15,
-      "capacity": null,
-      "count": 1,
-      "price2": null,
-      "price5": null,
-      "price10": null,
-      "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
-      "category": "Tester",
-      "family": "Citrusni",
-      "status": "U kolekciji",
-      "ownership": "owned",
-      "personalRating": null,
-      "review": "",
-      "image": "",
-      "topNotes": [],
-      "heartNotes": [],
-      "baseNotes": []
-    },
-    {
       "id": "t071",
       "kind": "tester",
-      "brand": "Pacific Aura",
+      "brand": "Rayhaan",
       "name": "Pacific Aura",
-      "description": "",
+      "description": "Živahni citrusi, metvica i crni ribiz uz aromatično bilje te toplu ambroksansku bazu.",
       "ml": 5,
       "capacity": null,
       "count": 1,
@@ -5566,25 +5531,41 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.28,
+      "frUrl": "https://www.fragrantica.com/perfume/Rayhaan/Pacific-Aura-109709.html",
       "category": "Tester",
-      "family": "Svježi",
+      "family": "Citrusni",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
-      "topNotes": [],
-      "heartNotes": [],
-      "baseNotes": []
+      "image": "assets/new-testers/t071.webp",
+      "topNotes": [
+        "Mandarina",
+        "Metvica",
+        "Citron",
+        "Bergamot",
+        "Crni ribiz",
+        "Korijander"
+      ],
+      "heartNotes": [
+        "Bosiljak",
+        "Mrkva",
+        "Ruža"
+      ],
+      "baseNotes": [
+        "Smokva",
+        "Ambroxan",
+        "Amber"
+      ],
+      "notesVerified": true
     },
     {
       "id": "t072",
       "kind": "tester",
       "brand": "Sospiro",
       "name": "Vibrato",
-      "description": "",
+      "description": "Sjajni grejp i bergamot s jasminom i magnolijom; u srcu đumbir, u bazi čisti mošus i cedar.",
       "ml": 5,
       "capacity": null,
       "count": 1,
@@ -5592,25 +5573,41 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.53,
+      "frUrl": "https://www.fragrantica.com/perfume/Sospiro-Perfumes/Vibrato-75930.html",
       "category": "Tester",
       "family": "Citrusni",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
-      "topNotes": [],
-      "heartNotes": [],
-      "baseNotes": []
+      "image": "assets/new-testers/t072.webp",
+      "topNotes": [
+        "Grejp",
+        "Bergamot",
+        "Jasmin",
+        "Magnolija"
+      ],
+      "heartNotes": [
+        "Đumbir",
+        "Biljne note",
+        "Puderaste note"
+      ],
+      "baseNotes": [
+        "Mošus",
+        "Cedar",
+        "Amber",
+        "Pačuli",
+        "Korijen irisa"
+      ],
+      "notesVerified": true
     },
     {
       "id": "t073",
       "kind": "tester",
       "brand": "Argos",
       "name": "Fall of Phaeton",
-      "description": "",
+      "description": "Začinski citrusni početak s đumbirom i kardamomom, smolastim srcem te kožom i tonkom u bazi.",
       "ml": 4,
       "capacity": null,
       "count": 1,
@@ -5618,25 +5615,41 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.37,
+      "frUrl": "https://www.fragrantica.com/perfume/Argos/Fall-of-Phaeton-96868.html",
       "category": "Tester",
       "family": "Začinski",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
-      "topNotes": [],
-      "heartNotes": [],
-      "baseNotes": []
+      "image": "assets/new-testers/t073.webp",
+      "topNotes": [
+        "Đumbir",
+        "Kardamom",
+        "Bergamot",
+        "Limun",
+        "Ružičasti papar"
+      ],
+      "heartNotes": [
+        "Labdanum",
+        "Lavanda",
+        "Oud"
+      ],
+      "baseNotes": [
+        "Koža",
+        "Tonka",
+        "Vanilija",
+        "Mošus"
+      ],
+      "notesVerified": true
     },
     {
       "id": "t074",
       "kind": "tester",
       "brand": "Al Haramain",
       "name": "Amber Oud",
-      "description": "",
+      "description": "Topli amberno-drvenasti miris iz linije Amber Oud; točnu podverziju potrebno je potvrditi za preciznu piramidu.",
       "ml": 2,
       "capacity": null,
       "count": 1,
@@ -5645,24 +5658,25 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "frRating": null,
-      "frUrl": null,
+      "frUrl": "https://www.fragrantica.com/search/?query=Al%20Haramain%20Amber%20Oud",
       "category": "Tester",
       "family": "Drvenasti",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
+      "image": "assets/new-testers/t074.webp",
       "topNotes": [],
       "heartNotes": [],
-      "baseNotes": []
+      "baseNotes": [],
+      "notesVerified": false
     },
     {
       "id": "t075",
       "kind": "tester",
       "brand": "Initio",
       "name": "Side Effect",
-      "description": "",
+      "description": "Bogat i intenzivan začinsko-alkoholni miris s rumom, duhanom, cimetom i sandalovinom.",
       "ml": 2,
       "capacity": null,
       "count": 1,
@@ -5670,25 +5684,34 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.32,
+      "frUrl": "https://www.fragrantica.com/perfume/Initio-Parfums-Prives/Side-Effect-42260.html",
       "category": "Tester",
       "family": "Začinski",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
+      "image": "assets/new-testers/t075.webp",
       "topNotes": [],
       "heartNotes": [],
-      "baseNotes": []
+      "baseNotes": [],
+      "flatNotes": [
+        "Rum",
+        "Duhan",
+        "Cimet",
+        "Šafran",
+        "Sandalovina",
+        "Hedione"
+      ],
+      "notesVerified": true
     },
     {
       "id": "t076",
       "kind": "tester",
       "brand": "Mancera",
       "name": "Tonka Cola",
-      "description": "",
+      "description": "Trešnja, cimet i limun spajaju se s prepoznatljivom cola notom, tonkom i vanilijom.",
       "ml": 4,
       "capacity": null,
       "count": 1,
@@ -5696,25 +5719,40 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.03,
+      "frUrl": "https://www.fragrantica.com/perfume/Mancera/Tonka-Cola-76893.html",
       "category": "Tester",
       "family": "Gourmand",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
-      "topNotes": [],
-      "heartNotes": [],
-      "baseNotes": []
+      "image": "assets/new-testers/t076.webp",
+      "topNotes": [
+        "Cimet",
+        "Trešnja",
+        "Sicilijanski limun",
+        "Muškatni oraščić"
+      ],
+      "heartNotes": [
+        "Coca-Cola",
+        "List pačulija",
+        "Cvijet naranče"
+      ],
+      "baseNotes": [
+        "Tonka",
+        "Vanilija",
+        "Benzoin",
+        "Labdanum"
+      ],
+      "notesVerified": true
     },
     {
       "id": "t077",
       "kind": "tester",
       "brand": "Xerjoff",
       "name": "40 Knots",
-      "description": "",
+      "description": "Morska sol, zelene note, voda i cedar u elegantnom slankasto-drvenastom mirisu.",
       "ml": 4,
       "capacity": null,
       "count": 1,
@@ -5722,25 +5760,33 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.25,
+      "frUrl": "https://www.fragrantica.com/perfume/Xerjoff/40-Knots-16445.html",
       "category": "Tester",
       "family": "Morski",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
+      "image": "assets/new-testers/t077.webp",
       "topNotes": [],
       "heartNotes": [],
-      "baseNotes": []
+      "baseNotes": [],
+      "flatNotes": [
+        "Drvenaste note",
+        "Cedar",
+        "Sol",
+        "Morska voda",
+        "Zelene note"
+      ],
+      "notesVerified": true
     },
     {
       "id": "t078",
       "kind": "tester",
       "brand": "Xerjoff",
       "name": "Ouverture",
-      "description": "",
+      "description": "List smokve, naranča i magnolija otvaraju topao cvjetno-začinski miris sa sandalovinom.",
       "ml": 4,
       "capacity": null,
       "count": 1,
@@ -5748,25 +5794,41 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.16,
+      "frUrl": "https://www.fragrantica.com/perfume/Xerjoff/Ouverture-55164.html",
       "category": "Tester",
       "family": "Cvjetni",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
-      "topNotes": [],
-      "heartNotes": [],
-      "baseNotes": []
+      "image": "assets/new-testers/t078.webp",
+      "topNotes": [
+        "List smokve",
+        "Naranča",
+        "Magnolija"
+      ],
+      "heartNotes": [
+        "Cimet",
+        "Ylang-ylang",
+        "Indijski jasmin",
+        "Bugarska ruža"
+      ],
+      "baseNotes": [
+        "Sandalovina",
+        "Amber",
+        "Vanilija",
+        "Kašmirsko drvo",
+        "Tamjan"
+      ],
+      "notesVerified": true
     },
     {
       "id": "t079",
       "kind": "tester",
-      "brand": "Roja",
+      "brand": "Roja Dove",
       "name": "Sweetie Aoud",
-      "description": "",
+      "description": "Bogata slatko-drvenasta kompozicija s gurmanskim dojmom slastičarnice, oudom i tamjanom.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -5774,25 +5836,26 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.29,
+      "frUrl": "https://www.fragrantica.com/perfume/Roja-Dove/Sweetie-Aoud-31493.html",
       "category": "Tester",
       "family": "Gourmand",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
+      "image": "assets/new-testers/t079.webp",
       "topNotes": [],
       "heartNotes": [],
-      "baseNotes": []
+      "baseNotes": [],
+      "notesVerified": true
     },
     {
       "id": "t080",
       "kind": "tester",
       "brand": "Valentino",
-      "name": "Overdose",
-      "description": "",
+      "name": "Born in Roma Extradose Uomo",
+      "description": "Intenzivna začinska otvaranja, divlja lavanda i tople drvenaste note.",
       "ml": null,
       "capacity": null,
       "count": 1,
@@ -5801,24 +5864,31 @@ const SEED_DATA = {
       "price10": null,
       "salePrice": null,
       "frRating": null,
-      "frUrl": null,
+      "frUrl": "https://www.fragrantica.com/perfume/Valentino/Born-in-Roma-Extradose-Uomo-101383.html",
       "category": "Tester",
-      "family": "Nepoznato",
+      "family": "Začinski",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
-      "topNotes": [],
-      "heartNotes": [],
-      "baseNotes": []
+      "image": "assets/new-testers/t080.webp",
+      "topNotes": [
+        "Začinske note"
+      ],
+      "heartNotes": [
+        "Divlja lavanda"
+      ],
+      "baseNotes": [
+        "Drvenaste note"
+      ],
+      "notesVerified": true
     },
     {
       "id": "t081",
       "kind": "tester",
       "brand": "Azzaro",
-      "name": "Forever Wanted",
-      "description": "",
+      "name": "Forever Wanted Elixir",
+      "description": "Malina i zelena mandarina uz kardamom i lavandu, s toplom kožnato-drvenastom bazom.",
       "ml": 1,
       "capacity": null,
       "count": 1,
@@ -5826,18 +5896,35 @@ const SEED_DATA = {
       "price5": null,
       "price10": null,
       "salePrice": null,
-      "frRating": null,
-      "frUrl": null,
+      "frRating": 4.22,
+      "frUrl": "https://www.fragrantica.com/perfume/Azzaro/Forever-Wanted-Elixir-102882.html",
       "category": "Tester",
-      "family": "Začinski",
+      "family": "Voćni",
       "status": "U kolekciji",
       "ownership": "owned",
       "personalRating": null,
       "review": "",
-      "image": "",
-      "topNotes": [],
-      "heartNotes": [],
-      "baseNotes": []
+      "image": "assets/new-testers/t081.webp",
+      "topNotes": [
+        "Malina",
+        "Zelena mandarina",
+        "Bergamot"
+      ],
+      "heartNotes": [
+        "Kardamom",
+        "Lavanda",
+        "Muškatna kadulja"
+      ],
+      "baseNotes": [
+        "Koža",
+        "Wolfwood",
+        "Vetiver"
+      ],
+      "notesVerified": true
     }
+  ],
+  "deletedIds": [
+    "b031",
+    "t070"
   ]
 };

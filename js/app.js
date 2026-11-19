@@ -25,7 +25,7 @@ const tabInfo = {
 const familyColors = {'Voćni': '214,145,126', 'Gourmand': '218,170,103', 'Drvenasti': '136,169,134', 'Mošusni': '159,164,194', 'Svježi': '117,178,184', 'Citrusni': '203,185,108', 'Začinski': '180,124,101', 'Morski': '109,173,193', 'Kožnati': '176,128,96', 'Aromatični': '147,174,132', 'Cvjetni': '196,151,165', 'Eksperimentalni': '159,130,170', 'Mineralni': '138,163,169', 'Zeleni': '136,179,132', 'Puderasti': '189,178,164', 'Tropski': '203,161,105', 'Čajni': '146,175,144', 'Nepoznato': '145,160,158'};
 const statuses = ['U kolekciji', 'Za zamjenu', 'Za prodaju'];
 const families = Object.keys(familyColors);
-const UPDATED_RECORDS = new Set(["b001", "b002", "b003", "b004", "b005", "b006", "b007", "b009", "b010", "b011", "b012", "b013", "b014", "b015", "b016", "b017", "b018", "b019", "b020", "b021", "b022", "b023", "b024", "b025", "b026", "b027", "b028", "b029", "b030", "b031", "b032", "b033", "b034", "b035", "b036", "b039", "b040", "b041", "b042", "b043", "b044", "b045", "b046", "h017", "t002", "t003", "t004", "t017", "t018", "t019", "t020", "t021", "t022", "t023", "t024", "t025", "t026", "t027", "t054", "t055", "t059", "t060"]);
+const UPDATED_RECORDS = new Set(["b001", "b002", "b003", "b004", "b005", "b006", "b007", "b009", "b010", "b011", "b012", "b013", "b014", "b015", "b016", "b017", "b018", "b019", "b020", "b021", "b022", "b023", "b024", "b025", "b026", "b027", "b028", "b029", "b030", "b032", "b033", "b034", "b035", "b036", "b039", "b040", "b041", "b042", "b043", "b044", "b045", "b046", "h017", "t002", "t003", "t004", "t017", "t018", "t019", "t020", "t021", "t022", "t023", "t024", "t025", "t026", "t027", "t054", "t055", "t059", "t060"]);
 const initial = structuredClone(SEED_DATA);
 initial.deletedIds = [];
 let isAdmin = false;
@@ -85,7 +85,7 @@ function mergeCatalog(input, previous = false) {
 
     for (const item of input[key]) {
       if (!item || typeof item !== 'object' || typeof item.id !== 'string') continue;
-      if (seen.has(item.id) || deleted.has(item.id) || ['t049', 't053', 'h009', 'b008', 'b037', 'b038', 't051', 't040', 't023', 't015', 't006'].includes(item.id)) continue;
+      if (seen.has(item.id) || deleted.has(item.id) || ['t049', 't053', 'h009', 'b008', 'b037', 'b038', 'b031', 't070', 't051', 't040', 't023', 't015', 't006'].includes(item.id)) continue;
       seen.add(item.id);
 
       const seed = defaults.get(item.id) || {};
@@ -183,7 +183,7 @@ function renderCards() {
   if (!data.length) {el.innerHTML = '<div class="empty"><b>Nema mirisa za ove filtre.</b><span>Probaj drugi naziv, notu ili mirisnu skupinu.</span><button type="button" class="btn" id="emptyReset">Prikaži sve</button></div>'; el.querySelector('#emptyReset').addEventListener('click',resetFilters); return;}
   el.innerHTML = data.map((i, ix) => {
     const isBottle = i.kind === 'bottle', src = safeUrl(i.image), rating = isAdmin && i.personalRating != null ? fmt(i.personalRating) : 'Nije upisana', fRating = i.frRating == null ? '—' : fmt(i.frRating), price = suggested(i);
-    const isOwned = i.ownership === 'owned', offerStatus = saleStatus(i), offer = `<div class="info-footer">${offerStatus ? `<span class="availability-tag">${escapeHtml(offerStatus)}</span>` : ''}<button class="editlink admin-only" type="button" data-edit="${escapeHtml(i.id)}">${ICONS.edit} Uredi</button></div>`;
+    const isOwned = i.ownership === 'owned', offerStatus = saleStatus(i), offer = `<div class="info-footer">${offerStatus ? `<span class="availability-tag">${escapeHtml(offerStatus)}</span>` : ''}<button class="editlink admin-only" type="button" data-edit="${escapeHtml(i.id)}">${ICONS.edit} Uredi</button><button class="editlink admin-only" type="button" data-delete="${escapeHtml(i.id)}">Obriši</button></div>`;
     const hasPrices = isBottle && isOwned && [i.price2,i.price5,i.price10].some(v=>v!=null);
     const prices = hasPrices ? `<div class="meta decant-prices">${i.price2!=null ? `<span class="pill dim">2 ml · ${euro(i.price2)}</span>` : ''}${i.price5!=null ? `<span class="pill dim">5 ml · ${euro(i.price5)}</span>` : ''}${i.price10!=null ? `<span class="pill dim">10 ml · ${euro(i.price10)}</span>` : ''}</div>` : (i.kind==='tester' && isOwned && i.samplePrice!=null ? `<div class="meta decant-prices"><span class="pill dim">Tvornički uzorak · ${euro(i.samplePrice)}</span></div>` : '');
     return `<article class="card" style="--rgb:${familyColors[i.family] || '155,160,155'}">
@@ -201,6 +201,7 @@ function renderCards() {
   el.querySelectorAll('[data-detail]').forEach(btn => btn.addEventListener('click', () => openDetails(btn.dataset.detail)));
   el.querySelectorAll('[data-edit],[data-rate]').forEach(btn => btn.addEventListener('click', () => openEdit(btn.dataset.edit || btn.dataset.rate)));
   el.querySelectorAll('[data-move]').forEach(sel => sel.addEventListener('change', () => moveItem(sel.dataset.move, sel.value)));
+  el.querySelectorAll('[data-delete]').forEach(btn => btn.addEventListener('click', () => {const item = all().find(x=>x.id===btn.dataset.delete);if(item) void deleteItem(item);}));
 }
 
 function updateOfferToggle() {
@@ -393,7 +394,7 @@ function openEdit(id) {
   document.querySelector('#overlay').classList.add('open'); document.querySelector('#overlay').setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
   form.querySelector('[name="brand"]').focus();
 }
-async function deleteItem(item) { if (!isAdmin) return;if (!confirm('Trajno izbrisati ' + item.brand + ' ' + item.name + '? Ako ga želiš samo maknuti iz kolekcije, odaberi „Imao”.')) return; const k = item.kind === 'bottle' ? 'bottles' : 'testers'; catalog[k] = catalog[k].filter(x => x.id !== item.id); catalog.deletedIds = [...new Set([...(catalog.deletedIds || []), item.id])]; if (await persist()) {render(); closeModal(); toast('Miris izbrisan');} else {await refreshCatalog(); render();} }
+async function deleteItem(item) { if (!isAdmin) return;if (!confirm('Trajno izbrisati ' + item.brand + ' ' + item.name + '? Ako ga želiš samo maknuti iz kolekcije, odaberi „Arhiva”.')) return; const k = item.kind === 'bottle' ? 'bottles' : 'testers'; catalog[k] = catalog[k].filter(x => x.id !== item.id); catalog.deletedIds = [...new Set([...(catalog.deletedIds || []), item.id])]; if (await persist()) {render(); closeModal(); toast('Miris izbrisan');} else {await refreshCatalog(); render();} }
 function downloadFile(name, text, mime) {const blob = new Blob([text], {type: mime}), url = URL.createObjectURL(blob), a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 3500);}
 function exportBackup() {downloadFile('moj-mirisni-arhiv-backup-v4.json', JSON.stringify({...catalog, version: 4, exportedAt: new Date().toISOString()}, null, 2), 'application/json'); toast('Backup preuzet');}
 function exportCSV() {
