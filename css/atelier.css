@@ -146,3 +146,7 @@ body{background:#0c1513;background-image:radial-gradient(ellipse 70% 33% at 85% 
 .collection-quick-view{gap:9px;flex-wrap:wrap}
 .offer-copy{white-space:normal;line-height:1.35}
 @media(max-width:650px){.collection-quick-view{display:grid;grid-template-columns:1fr;gap:8px}.offer-toggle{width:100%}}
+
+.inventory-summary{margin-top:5px!important;color:#b0c8b7!important;font-size:12px!important;letter-spacing:0!important}
+.collection-quick-view .offer-copy{min-width:76px;max-width:110px;padding-inline:17px}
+.availability-tag{white-space:normal}

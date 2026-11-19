@@ -1,4 +1,4 @@
-const CACHE='mirisni-arhiv-pwa-20261119-clean-v4';
+const CACHE='mirisni-arhiv-pwa-20261119-final-clean-01';
 const SHELL=['./','./index.html','./manifest.webmanifest','./css/base.css','./css/theme.css','./css/atelier.css','./js/data.js','./js/app.js','./js/config.js','./assets/icon-192.png','./assets/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(SHELL.map(p=>c.add(p)))));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('mirisni-arhiv-pwa-')&&k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()]));});

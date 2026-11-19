@@ -23,7 +23,7 @@ const tabInfo = {
   wish: {nav: 'navW', hash: 'zelim', heading: 'Lista želja', kicker: 'ZA ISPROBATI I NABAVITI', hero: 'Lista želja', desc: 'Parfemi koje želim isprobati ili dodati kolekciji.', helper: 'Na listi želja možeš upisati ciljani budžet. Kad nešto nabaviš, jednim klikom prebaci u „Imam”.'}
 };
 const familyColors = {'Voćni': '214,145,126', 'Gourmand': '218,170,103', 'Drvenasti': '136,169,134', 'Mošusni': '159,164,194', 'Svježi': '117,178,184', 'Citrusni': '203,185,108', 'Začinski': '180,124,101', 'Morski': '109,173,193', 'Kožnati': '176,128,96', 'Aromatični': '147,174,132', 'Cvjetni': '196,151,165', 'Eksperimentalni': '159,130,170', 'Mineralni': '138,163,169', 'Zeleni': '136,179,132', 'Puderasti': '189,178,164', 'Tropski': '203,161,105', 'Čajni': '146,175,144', 'Nepoznato': '145,160,158'};
-const statuses = ['U kolekciji', 'Za zamjenu', 'Za prodaju'];
+const statuses = ['U kolekciji', 'Prodaja/zamjena'];
 const families = Object.keys(familyColors);
 const UPDATED_RECORDS = new Set(["b001", "b002", "b003", "b004", "b005", "b006", "b007", "b009", "b010", "b011", "b012", "b013", "b014", "b015", "b016", "b017", "b018", "b019", "b020", "b021", "b022", "b023", "b024", "b025", "b026", "b027", "b028", "b029", "b030", "b032", "b033", "b034", "b035", "b036", "b039", "b040", "b041", "b042", "b043", "b044", "b045", "b046", "h017", "t002", "t003", "t004", "t017", "t018", "t019", "t020", "t021", "t022", "t023", "t024", "t025", "t026", "t027", "t054", "t055", "t059", "t060"]);
 const initial = structuredClone(SEED_DATA);
@@ -39,23 +39,16 @@ let offersOnly = false;
 let searchDebounce = null;
 function saleStatus(item) {
   if (item.kind !== 'bottle' || item.ownership !== 'owned') return '';
-  if (item.status === 'Za prodaju') return 'Za prodaju';
-  if (item.status === 'Za zamjenu' || item.status === 'Moguća zamjena') return 'Za zamjenu';
-  return '';
+  return ['Za prodaju', 'Za zamjenu', 'Moguća zamjena', 'Prodaja/zamjena'].includes(item.status) ? 'Prodaja/zamjena' : '';
 }
 function setAutomaticTrade(item, oldItem = null) {
   if (item.kind !== 'bottle' || item.ownership !== 'owned') return;
-  if (item.status === 'Za prodaju') {
-    item.autoTrade = false;
-    return;
-  }
-  if (item.personalRating != null && Number(item.personalRating) <= 7) {
-    item.status = 'Za zamjenu';
+  const current = Number(item.personalRating);
+  if (item.personalRating != null && Number.isFinite(current) && current <= 7) {
+    item.status = 'Prodaja/zamjena';
     item.autoTrade = true;
-  } else if (oldItem?.autoTrade && item.status === 'Za zamjenu') {
+  } else if (oldItem?.autoTrade && ['Prodaja/zamjena','Za zamjenu'].includes(item.status)) {
     item.status = 'U kolekciji';
-    item.autoTrade = false;
-  } else {
     item.autoTrade = false;
   }
 }
@@ -179,6 +172,14 @@ function renderCards() {
   };
   if (sorters[sortBy]) data.sort(sorters[sortBy]);
   document.querySelector('#shownCount').textContent = `${data.length} od ${active().length} mirisa u ovom dijelu kolekcije`;
+  const summary = document.getElementById('inventorySummary');
+  if (summary) {
+    const rows = active();
+    const known = rows.filter(x => Number.isFinite(Number(x.ml)) && x.ml != null);
+    const total = known.reduce((sum,x) => sum + Number(x.ml) * (x.kind === 'tester' ? (Number(x.count) || 1) : 1),0);
+    summary.textContent = `${rows.length} mirisa · ${fmt(total)} ml (${fmt(total/1000)} L) ukupno poznate količine`;
+  }
+
   const el = document.querySelector('#cards');
   if (!data.length) {el.innerHTML = '<div class="empty"><b>Nema mirisa za ove filtre.</b><span>Probaj drugi naziv, notu ili mirisnu skupinu.</span><button type="button" class="btn" id="emptyReset">Prikaži sve</button></div>'; el.querySelector('#emptyReset').addEventListener('click',resetFilters); return;}
   el.innerHTML = data.map((i, ix) => {
@@ -210,7 +211,7 @@ function updateOfferToggle() {
   if (!bar || !btn) return;
   bar.hidden = tab !== 'bottles';
   btn.setAttribute('aria-pressed', String(offersOnly));
-  btn.textContent = offersOnly ? 'Prikaži sve parfeme' : 'Dostupno za zamjenu / prodaju';
+  btn.textContent = offersOnly ? 'Prikaži sve parfeme' : 'Prodaja/zamjena';
 }
 let currentDetailId = null;
 function openDetails(id) {
@@ -349,7 +350,7 @@ function openEdit(id) {
   <div class="field wide"><label>Vlasništvo</label><select name="ownership">${ownershipChoices(item.ownership)}</select></div>
   <div class="field"><label>${isBottle ? 'Preostalo ml' : 'Količina po testeru (ml)'}</label><input name="ml" inputmode="decimal" type="number" min="0" step="0.1" value="${item.ml ?? ''}" placeholder="Ostavi prazno ako ne znaš"></div>
   <div class="field"><label>${isBottle ? 'Veličina bočice (ml)' : 'Broj istih testera'}</label><input name="${isBottle ? 'capacity' : 'count'}" inputmode="decimal" type="number" min="${isBottle ? '0' : '1'}" step="1" value="${isBottle ? (item.capacity ?? '') : (item.count || 1)}"></div>
-  ${isBottle ? `<div class="field wide"><label>Dostupnost parfema</label><select name="status">${optionTags(statuses, statuses.includes(item.status) ? item.status : 'U kolekciji')}</select><small>Ocjena do 7/10 automatski postavlja „Za zamjenu”, osim ako ručno odabereš „Za prodaju”.</small></div>` : `<input type="hidden" name="status" value="${escapeHtml(item.status || '')}">`}
+  ${isBottle ? `<div class="field wide"><label>Dostupnost parfema</label><select name="status">${optionTags(statuses, saleStatus(item) ? 'Prodaja/zamjena' : 'U kolekciji')}</select><small>Ocjena 7/10 ili manje automatski označava parfem za prodaju/zamjenu.</small></div>` : `<input type="hidden" name="status" value="${escapeHtml(item.status || '')}">`}
   <div class="modal-section"><h3>Fotografija</h3><small>Slike iz tvog ZIP-a već su povezane</small></div>
   <div class="field wide photo-uploader"><label>Odaberi vlastitu fotografiju (automatski se smanji za brže učitavanje)</label><input type="file" id="photoFile" accept="image/png,image/jpeg,image/webp" aria-label="Dodaj fotografiju"><img id="editPreview" class="photo-preview" alt="Pregled fotografije" ${chosenImage ? `src="${escapeHtml(chosenImage)}"` : ''} style="${chosenImage ? '' : 'display:none'}"><button id="removePhoto" type="button" class="btn simple">Ukloni fotografiju</button></div>
   <div class="field wide"><label>URL ili relativna putanja do slike</label><input name="image" value="${escapeHtml(chosenImage.startsWith('data:') ? '' : chosenImage)}" placeholder="https://… ili assets/bottles/b043.webp"><div class="note">Za kasniji hosting preporučene su putanje unutar mape assets/. Slike koje ručno dodaš kroz ovaj obrazac spremaju se samo u tvoj preglednik i JSON backup.</div></div>
