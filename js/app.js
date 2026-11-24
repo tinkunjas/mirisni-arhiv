@@ -521,16 +521,49 @@ function setAdminMode(value) {
   }
   document.body.classList.toggle('viewer-mode',!isAdmin);
   const b=document.querySelector('#adminAccess');
-  if(b) b.textContent=isAdmin ? 'Odjava' : 'Prijava vlasnika';
+  if(b) { b.textContent=isAdmin ? 'Odjava' : 'Prijava vlasnika'; updateAdminAccess(b); }
   document.querySelectorAll('#sortFilter option[value^="personal-"]').forEach(option => {option.hidden = !isAdmin;option.disabled = !isAdmin;});
   if(!isAdmin && sortBy.startsWith('personal-')) {sortBy='default';document.querySelector('#sortFilter').value='default';}
   if(db) void refreshCatalog(); else {render();openSharedPerfume();}
+}
+function updateAdminAccess(button) {
+  const visible = isAdmin || new URLSearchParams(window.location.search).get('admin') === '1';
+  button.hidden = !visible;
+  button.style.display = visible ? '' : 'none';
+}
+function bindOwnerGesture(button) {
+  const target = document.querySelector('.mark-text b');
+  if (!target) return;
+  let clicks = 0;
+  let startedAt = 0;
+  const activate = () => {
+    if (isAdmin) return;
+    const now = performance.now();
+    if (!clicks || now - startedAt > 3000) { clicks = 0; startedAt = now; }
+    clicks += 1;
+    if (clicks < 5) return;
+    clicks = 0;
+    if (typeof button.onclick === 'function') button.click();
+    else toast('Prijava se još učitava. Pokušaj ponovno za trenutak.');
+  };
+  target.setAttribute('role', 'button');
+  target.tabIndex = 0;
+  target.style.touchAction = 'manipulation';
+  target.style.userSelect = 'none';
+  target.addEventListener('click', activate);
+  target.addEventListener('keydown', event => {
+    if (event.repeat || !['Enter', ' '].includes(event.key)) return;
+    event.preventDefault();
+    activate();
+  });
 }
 async function initCloud() {
   const button=document.createElement('button');
   button.id='adminAccess'; button.className='btn simple'; button.type='button';
   button.textContent='Prijava vlasnika';
+  updateAdminAccess(button);
   document.querySelector('.tools').append(button);
+  bindOwnerGesture(button);
   const settings=window.MIRISNI_CONFIG || {};
   if(!settings.supabaseUrl || !settings.supabaseAnonKey || !window.supabase) {
     button.title='Povezivanje se aktivira kada popuniš js/config.js i izvršiš SQL skriptu';

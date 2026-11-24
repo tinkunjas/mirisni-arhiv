@@ -1,5 +1,5 @@
 'use strict';
-const CACHE = 'mirisni-arhiv-pwa-20261124-oriza-01';
+const CACHE = 'mirisni-arhiv-pwa-20261124-five-clicks-01';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './css/catalog.css', './js/data.js', './js/ui.js', './js/presentation.js', './js/fragrantica-enrichment.js', './js/app.js', './js/config.js', './assets/icon-192.png', './assets/icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => Promise.allSettled(SHELL.map(path => cache.add(path)))));
