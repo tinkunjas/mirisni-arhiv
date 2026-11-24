@@ -11,20 +11,22 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <meta name="color-scheme" content="dark">
-  <link rel="stylesheet" href="css/base.css?v=20261119-final-clean-01">
-  <link rel="stylesheet" href="css/theme.css?v=20261119-final-clean-01">
-  <link rel="stylesheet" href="css/atelier.css?v=20261119-final-clean-01">
-  <script src="js/data.js?v=20261119-final-clean-01" defer></script>
+  <link rel="stylesheet" href="css/catalog.css?v=20261121-fragrantica-01">
+  <script src="js/data.js?v=20261121-fragrantica-01" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
-  <script src="js/config.js?v=20261119-final-clean-01" defer></script>
-  <script src="js/app.js?v=20261119-final-clean-01" defer></script>
+  <script src="js/config.js?v=20261121-fragrantica-01" defer></script>
+  <script src="js/ui.js?v=20261121-fragrantica-01" defer></script>
+  <script src="js/presentation.js?v=20261121-fragrantica-01" defer></script>
+  <script src="js/fragrantica-enrichment.js?v=20261121-fragrantica-01" defer></script>
+  <script src="js/app.js?v=20261121-fragrantica-01" defer></script>
 </head>
-<body>
+<body class="viewer-mode">
+  <a class="skip-link" href="#main">Preskoči na kolekciju</a>
   <div class="app">
     <aside class="sidebar" aria-label="Bočna navigacija">
       <div class="mark">
         <span class="mark-symbol" aria-hidden="true">M<span class="mark-slash">/</span>A</span>
-        <div class="mark-text"><b>Mirisni arhiv</b><span>PARFEMI / TESTERI / ARHIVA</span></div>
+        <div class="mark-text"><b>Mirisni arhiv</b><span>OSOBNA KOLEKCIJA</span></div>
       </div>
       <div class="navcaption">PREGLED</div>
       <nav class="nav" aria-label="Stranice kolekcije">
@@ -44,7 +46,7 @@
       </div>
     </aside>
 
-    <main class="main" id="main">
+    <main class="main" id="main" tabindex="-1">
       <header class="toolbar">
         <div class="breadcrumbs">KOLEKCIJA <span id="crumb"> / MOJI PARFEMI</span></div>
         <div class="tools">
@@ -62,10 +64,11 @@
 
       <section class="collection-section" aria-label="Mirisi">
         <header class="section-head">
-          <div><h2 id="sectionTitle">Moji parfemi</h2><p id="shownCount">Prikaz</p><p class="inventory-summary" id="inventorySummary" aria-live="polite"></p></div>
+          <div><div class="section-kicker">Mirisni arhiv</div><h1 id="sectionTitle" tabindex="-1">Moji parfemi</h1><p id="shownCount" role="status" aria-live="polite" aria-atomic="true">Prikaz</p><p class="inventory-summary" id="inventorySummary" aria-live="polite"></p></div>
           <button type="button" class="btn simple admin-only" id="resetBtn" title="Vrati početne podatke">Reset</button>
         </header>
 
+        <div class="catalog-controls">
         <div class="filters">
           <label class="search" aria-label="Pretraži">
             <span id="searchIcon"></span>
@@ -73,8 +76,18 @@
           </label>
           <select id="sortFilter" class="filter" aria-label="Poredaj"></select>
         </div>
-        <div class="collection-quick-view" id="offerViewBar"><button type="button" class="offer-toggle" id="offerToggle" aria-pressed="false">Prodaja/zamjena</button><button type="button" id="copyOffersBtn" class="offer-toggle offer-copy" title="Kopiraj popis parfema za WhatsApp ili Facebook">Copy</button></div>
+        <div class="collection-quick-view" id="offerViewBar"><button type="button" class="offer-toggle" id="offerToggle" aria-pressed="false">Prodaja/zamjena</button><button type="button" id="copyOffersBtn" class="offer-toggle offer-copy" title="Kopiraj popis parfema za WhatsApp ili Facebook">Kopiraj ponudu</button></div>
+        </div>
 
+        <div class="browse-bar">
+          <div class="browse-label">Istraži po mirisnoj skupini</div>
+          <div class="view-switch" role="group" aria-label="Način prikaza">
+            <button type="button" data-layout="grid" aria-pressed="true">Kartice</button>
+            <button type="button" data-layout="list" aria-pressed="false">Popis</button>
+          </div>
+        </div>
+        <div class="family-filters" id="familyFilters" role="group" aria-label="Filtriraj po mirisnoj skupini"></div>
+        <button type="button" id="clearFiltersBtn" class="clear-filters" hidden>Poništi filtre</button>
         <div class="cards" id="cards"></div>
       </section>
 
@@ -89,7 +102,7 @@
     </main>
   </div>
 
-  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Uredi parfem">
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
     <div class="modal" role="document">
       <div class="modal-top">
         <div>
@@ -105,7 +118,7 @@
 
   <div class="detail-overlay" id="detailOverlay" aria-hidden="true">
     <div class="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
-      <button type="button" class="detail-share" id="detailShare" title="Kopiraj poveznicu na parfem">Kopiraj poveznicu</button><button class="detail-close" type="button" id="detailClose" aria-label="Zatvori detalje">×</button>
+      <div class="detail-toolbar"><button type="button" class="detail-share" id="detailShare" title="Kopiraj poveznicu na parfem">Kopiraj poveznicu</button><button class="detail-close" type="button" id="detailClose" aria-label="Zatvori detalje">×</button></div>
       <div id="detailBody"></div>
     </div>
   </div>

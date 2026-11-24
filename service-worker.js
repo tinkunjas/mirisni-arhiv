@@ -1,15 +1,42 @@
-const CACHE='mirisni-arhiv-pwa-20261119-final-clean-01';
-const SHELL=['./','./index.html','./manifest.webmanifest','./css/base.css','./css/theme.css','./css/atelier.css','./js/data.js','./js/app.js','./js/config.js','./assets/icon-192.png','./assets/icon-512.png'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(SHELL.map(p=>c.add(p)))));self.skipWaiting();});
-self.addEventListener('activate',e=>{e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('mirisni-arhiv-pwa-')&&k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()]));});
-self.addEventListener('fetch',e=>{
- const req=e.request;if(req.method!=='GET')return;
- const url=new URL(req.url);if(url.origin!==self.location.origin||!url.pathname.startsWith(new URL(self.registration.scope).pathname))return;
- if(req.mode==='navigate'||/\.(?:js|css)$/.test(url.pathname)){
-  e.respondWith(fetch(req).then(res=>{if(res.ok){const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));}return res;}).catch(()=>caches.match(req).then(r=>r||caches.match('./index.html'))));return;
- }
- if(/\.(?:png|jpg|jpeg|webp|svg|ico)$/.test(url.pathname)){
-  e.respondWith(caches.match(req).then(hit=>hit||fetch(req).then(res=>{if(res.ok){const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));}return res;})));return;
- }
- e.respondWith(fetch(req).catch(()=>caches.match(req)));
+'use strict';
+const CACHE = 'mirisni-arhiv-pwa-20261124-oriza-01';
+const SHELL = ['./', './index.html', './manifest.webmanifest', './css/catalog.css', './js/data.js', './js/ui.js', './js/presentation.js', './js/fragrantica-enrichment.js', './js/app.js', './js/config.js', './assets/icon-192.png', './assets/icon-512.png'];
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(CACHE).then(cache => Promise.allSettled(SHELL.map(path => cache.add(path)))));
+  self.skipWaiting();
+});
+self.addEventListener('activate', event => {
+  event.waitUntil(Promise.all([
+    caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('mirisni-arhiv-pwa-') && key !== CACHE).map(key => caches.delete(key)))),
+    self.clients.claim()
+  ]));
+});
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  const url = new URL(request.url);
+  if (request.method !== 'GET' || url.origin !== self.location.origin || !url.pathname.startsWith(new URL(self.registration.scope).pathname)) return;
+  const isShell = request.mode === 'navigate' || /\.(?:js|css)$/.test(url.pathname);
+  const isImage = /\.(?:png|jpg|jpeg|webp|svg|ico)$/.test(url.pathname);
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE);
+    const cached = await cache.match(request, {ignoreSearch: true});
+    if (isImage && cached) return cached;
+    try {
+      const response = await fetch(request);
+      if (response.ok && (isShell || isImage)) {
+        const copy = response.clone();
+        const key = new URL(request.url);
+        key.search = '';
+        event.waitUntil(cache.put(key.href, copy));
+      }
+      return response;
+    } catch {
+      if (cached) return cached;
+      if (request.mode === 'navigate') {
+        const fallback = await cache.match('./index.html');
+        if (fallback) return fallback;
+      }
+      return Response.error();
+    }
+  })());
 });
