@@ -27,7 +27,7 @@ const statuses = ['U kolekciji', 'Prodaja/zamjena'];
 const families = Object.keys(familyColors);
 const UPDATED_RECORDS = new Set(["b001", "b002", "b003", "b004", "b005", "b006", "b007", "b009", "b010", "b011", "b012", "b013", "b014", "b015", "b016", "b017", "b018", "b019", "b020", "b021", "b022", "b023", "b024", "b025", "b026", "b027", "b028", "b029", "b030", "b032", "b033", "b034", "b035", "b036", "b039", "b040", "b041", "b042", "b043", "b044", "b045", "b046", "h017", "t002", "t003", "t004", "t017", "t018", "t019", "t020", "t021", "t022", "t023", "t024", "t025", "t026", "t027", "t054", "t055", "t059", "t060"]);
 const initial = structuredClone(SEED_DATA);
-initial.deletedIds = [];
+initial.deletedIds = Array.isArray(initial.deletedIds) ? initial.deletedIds : [];
 let isAdmin = false;
 let db = null;
 let connected = false;
@@ -37,6 +37,7 @@ let catalog = clone(initial), tab = tabFromHash(), search = '', filterFamily = '
 let offersOnly = false;
 
 let searchDebounce = null;
+let searchIndex = new WeakMap();
 function saleStatus(item) {
   if (item.kind !== 'bottle' || item.ownership !== 'owned') return '';
   return ['Za prodaju', 'Za zamjenu', 'Moguća zamjena', 'Prodaja/zamjena'].includes(item.status) ? 'Prodaja/zamjena' : '';
@@ -55,7 +56,6 @@ function setAutomaticTrade(item, oldItem = null) {
 function normalizeSearch(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('hr').trim();
 }
-function resetPageSize() {}
 
 function escapeHtml(v) {return String(v ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));}
 function fmt(n) {return Number(n).toLocaleString('hr-HR', {maximumFractionDigits: 2});}
@@ -64,7 +64,7 @@ function numOrNull(v) {if (v == null || String(v).trim() === '') return null; co
 function safeUrl(url) {const s = String(url || '').trim(); return /^(https:\/\/|assets\/|\.\/assets\/|images\/|\.\/images\/|data:image\/(jpeg|png|webp);base64,)/i.test(s) ? s : '';}
 function renderImage(item) {let src = safeUrl(item.image); if (src) return `<div class="bottle-art" aria-hidden="true"><span>✦</span></div><img class="perfume-image" loading="lazy" decoding="async" width="340" height="260" src="${escapeHtml(src)}" alt="${escapeHtml(item.brand + ' ' + item.name)}" onerror="this.closest('.art').classList.remove('has-image');this.remove()">`; return `<div class="bottle-art" aria-hidden="true"><span>✦</span></div>`;}
 function clone(obj) {return structuredClone(obj);}
-function normalizeItem(i, seed) {const j = {...seed, ...i}; j.ownership = ['owned', 'past', 'wish'].includes(j.ownership) ? j.ownership : 'owned'; j.image = Object.prototype.hasOwnProperty.call(i, 'image') ? safeUrl(i.image) : (safeUrl(seed?.image) || ''); j.count = Math.max(1, Number(j.count) || 1); return j;}
+function normalizeItem(i, seed) {const j = fillFragranticaGaps({...seed, ...i}); j.ownership = ['owned', 'past', 'wish'].includes(j.ownership) ? j.ownership : 'owned'; j.image = Object.prototype.hasOwnProperty.call(i, 'image') ? safeUrl(i.image) : (safeUrl(seed?.image) || ''); j.count = Math.max(1, Number(j.count) || 1); return j;}
 function mergeCatalog(input, previous = false) {
   const base = clone(initial);
   const deleted = new Set(Array.isArray(input?.deletedIds) ? input.deletedIds.filter(x => typeof x === 'string') : []);
@@ -143,6 +143,7 @@ function statData() {
   return [['Lista želja', data.length, 'mirisa koje razmatraš'], ['Bočice', bottles.length, 'koje želiš nabaviti'], ['Testeri', testers.length, 'koje želiš isprobati'], ['Ciljana cijena', euro(bottles.reduce((n, x) => n + (x.targetPrice || 0), 0)), 'ukupno upisanih budžeta']];
 }
 function render() {
+  searchIndex = new WeakMap();
   const ownedB = catalog.bottles.filter(x => x.ownership === 'owned').length, ownedT = catalog.testers.filter(x => x.ownership === 'owned').length;
   const past = all().filter(x => x.ownership === 'past').length, wish = all().filter(x => x.ownership === 'wish').length;
   for (const [id, val] of Object.entries({bcount: ownedB, tcount: ownedT, hcount: past, wcount: wish})) document.getElementById(id).textContent = val;
@@ -156,8 +157,13 @@ function compareOptionalNumbers(a, b, direction) {
   return direction === 'asc' ? a - b : b - a;
 }
 function renderCards() {
+  renderFamilyFilters();
   let data = active().filter(x => {
-    const term = normalizeSearch([x.brand, x.name, x.description, x.review, x.family, x.category, x.status, ...(x.flatNotes||[]), ...(x.topNotes||[]), ...(x.heartNotes||[]), ...(x.baseNotes||[])].join(' '));
+    let term = searchIndex.get(x);
+    if (term == null) {
+      term = normalizeSearch([x.brand, x.name, x.description, x.review, x.family, x.category, x.status, ...(x.flatNotes || []), ...(x.topNotes || []), ...(x.heartNotes || []), ...(x.baseNotes || [])].join(' '));
+      searchIndex.set(x, term);
+    }
     return (!search || term.includes(search)) && (!filterFamily || x.family === filterFamily) && (!offersOnly || (tab === 'bottles' && x.kind === 'bottle' && x.ownership === 'owned' && Boolean(saleStatus(x))));
   });
   const sorters = {
@@ -181,28 +187,25 @@ function renderCards() {
   }
 
   const el = document.querySelector('#cards');
-  if (!data.length) {el.innerHTML = '<div class="empty"><b>Nema mirisa za ove filtre.</b><span>Probaj drugi naziv, notu ili mirisnu skupinu.</span><button type="button" class="btn" id="emptyReset">Prikaži sve</button></div>'; el.querySelector('#emptyReset').addEventListener('click',resetFilters); return;}
-  el.innerHTML = data.map((i, ix) => {
-    const isBottle = i.kind === 'bottle', src = safeUrl(i.image), rating = isAdmin && i.personalRating != null ? fmt(i.personalRating) : 'Nije upisana', fRating = i.frRating == null ? '—' : fmt(i.frRating), price = suggested(i);
+  if (!data.length) {el.innerHTML = '<div class="empty"><b>Nema mirisa za ove filtre.</b><span>Probaj drugi naziv, notu ili mirisnu skupinu.</span><button type="button" class="btn" id="emptyReset">Prikaži sve</button></div>'; return;}
+  el.innerHTML = data.map(i => {
+    const isBottle = i.kind === 'bottle', src = safeUrl(i.image), rating = isAdmin && i.personalRating != null ? fmt(i.personalRating) : 'Nije upisana', fRating = i.frRating == null ? '—' : fmt(i.frRating);
     const isOwned = i.ownership === 'owned', offerStatus = saleStatus(i), offer = `<div class="info-footer">${offerStatus ? `<span class="availability-tag">${escapeHtml(offerStatus)}</span>` : ''}<button class="editlink admin-only" type="button" data-edit="${escapeHtml(i.id)}">${ICONS.edit} Uredi</button><button class="editlink admin-only" type="button" data-delete="${escapeHtml(i.id)}">Obriši</button></div>`;
     const hasPrices = isBottle && isOwned && [i.price2,i.price5,i.price10].some(v=>v!=null);
     const prices = hasPrices ? `<div class="meta decant-prices">${i.price2!=null ? `<span class="pill dim">2 ml · ${euro(i.price2)}</span>` : ''}${i.price5!=null ? `<span class="pill dim">5 ml · ${euro(i.price5)}</span>` : ''}${i.price10!=null ? `<span class="pill dim">10 ml · ${euro(i.price10)}</span>` : ''}</div>` : (i.kind==='tester' && isOwned && i.samplePrice!=null ? `<div class="meta decant-prices"><span class="pill dim">Tvornički uzorak · ${euro(i.samplePrice)}</span></div>` : '');
     return `<article class="card" style="--rgb:${familyColors[i.family] || '155,160,155'}">
-   <div class="art ${src ? 'has-image' : ''}">${renderImage(i)}<span class="art-tag">${escapeHtml(i.category || 'Miris')}</span><span class="art-number">${String(ix + 1).padStart(2, '0')}</span>${!isOwned ? `<span class="badge-own">${escapeHtml(ownershipLabels[i.ownership])}</span>` : ''}</div>
-   <div class="card-content"><div class="brand">${escapeHtml(i.brand)}</div><h3 class="card-title"><button type="button" class="detail-open" data-detail="${escapeHtml(i.id)}" aria-label="Detalji: ${escapeHtml(i.brand + ' ' + i.name)}">${escapeHtml(i.name)}</button></h3><p class="card-desc">${escapeHtml(i.description || 'Opis još nije upisan.')}</p>
-   ${i.flatNotes?.length ? `<details class="notes-panel"><summary>Mirisne note · Fragrantica</summary><p>${escapeHtml(i.flatNotes.join(', '))}</p></details>` : (i.topNotes?.length || i.heartNotes?.length || i.baseNotes?.length) ? `<details class="notes-panel"><summary>Mirisne note · Fragrantica</summary>${i.topNotes?.length ? `<p><b>Gornje:</b> ${escapeHtml(i.topNotes.join(', '))}</p>` : ''}${i.heartNotes?.length ? `<p><b>Srednje:</b> ${escapeHtml(i.heartNotes.join(', '))}</p>` : ''}${i.baseNotes?.length ? `<p><b>Bazne:</b> ${escapeHtml(i.baseNotes.join(', '))}</p>` : ''}</details>` : ''}
-   <div class="meta"><span class="pill gold">${escapeHtml(amMl(i))}</span><span class="pill">${escapeHtml(i.family || 'Nepoznato')}</span></div>
+   <div class="art ${src ? 'has-image' : ''}"><button type="button" class="image-open" data-detail="${escapeHtml(i.id)}" aria-label="Otvori fotografiju i detalje: ${escapeHtml(i.brand + ' ' + i.name)}">${renderImage(i)}</button><span class="art-tag">${escapeHtml(i.category || 'Miris')}</span>${!isOwned ? `<span class="badge-own">${escapeHtml(ownershipLabels[i.ownership])}</span>` : ''}</div>
+   <div class="card-content"><div class="brand">${escapeHtml(i.brand)}</div><h2 class="card-title"><button type="button" class="detail-open" data-detail="${escapeHtml(i.id)}" aria-label="Detalji: ${escapeHtml(i.brand + ' ' + i.name)}">${escapeHtml(i.name)}</button></h2><p class="card-desc">${escapeHtml(i.description || 'Opis još nije upisan.')}</p>${renderNotePreview(i)}
+   ${i.flatNotes?.length ? `<details class="notes-panel"><summary>${i.notesSourceType === 'manufacturer' ? 'Mirisne note · proizvođač' : i.notesVerified === false ? 'Mirisne note' : 'Mirisne note · Fragrantica'}</summary><p>${escapeHtml(i.flatNotes.join(', '))}</p></details>` : (i.topNotes?.length || i.heartNotes?.length || i.baseNotes?.length) ? `<details class="notes-panel"><summary>${i.notesSourceType === 'manufacturer' ? 'Mirisne note · proizvođač' : i.notesVerified === false ? 'Mirisne note' : 'Mirisne note · Fragrantica'}</summary>${i.topNotes?.length ? `<p><b>Gornje:</b> ${escapeHtml(i.topNotes.join(', '))}</p>` : ''}${i.heartNotes?.length ? `<p><b>Srednje:</b> ${escapeHtml(i.heartNotes.join(', '))}</p>` : ''}${i.baseNotes?.length ? `<p><b>Bazne:</b> ${escapeHtml(i.baseNotes.join(', '))}</p>` : ''}</details>` : ''}
+   <div class="meta"><span class="pill gold">${escapeHtml(amMl(i))}</span><span class="pill">${escapeHtml(i.family || 'Nepoznato')}</span></div>${renderFillLevel(i)}
    <div class="ratings"><a class="ratingbox" href="${escapeHtml(fragUrl(i))}" target="_blank" rel="noopener noreferrer" title="Fragrantica (otvara profil ili pretragu)"><small>Fragrantica ↗</small><strong class="goldtxt">${fRating} <em>/ 5</em></strong></a>
    <div class="ratingbox admin-only"><small>Moja ocjena</small><strong>${rating} <em>/ 10</em></strong></div></div>
-   ${prices}<button type="button" class="detail-view-btn" data-detail="${escapeHtml(i.id)}">Pogledaj detalje <span aria-hidden="true">→</span></button>${offer}
+   ${prices}<button type="button" class="detail-view-btn" data-detail="${escapeHtml(i.id)}">Pogledaj detalje</button>${offer}
    <div class="move-row admin-only"><label for="move-${escapeHtml(i.id)}">Premjesti u</label><select class="move-select" id="move-${escapeHtml(i.id)}" aria-label="Premjesti ${escapeHtml(i.name)}" data-move="${escapeHtml(i.id)}"><option value="owned" ${i.ownership === 'owned' ? 'selected' : ''}>Imam</option><option value="past" ${i.ownership === 'past' ? 'selected' : ''}>Arhiva</option><option value="wish" ${i.ownership === 'wish' ? 'selected' : ''}>Želim</option></select>
    ${i.kind === 'tester' ? `<button class="editlink admin-only" type="button" data-rate="${escapeHtml(i.id)}">Ocijeni 0–10</button>` : '<span class="sub" style="font-size:10px;color:#80968a">Spremi promjenu</span>'}</div>
    </div></article>`;
   }).join('');
-  el.querySelectorAll('[data-detail]').forEach(btn => btn.addEventListener('click', () => openDetails(btn.dataset.detail)));
-  el.querySelectorAll('[data-edit],[data-rate]').forEach(btn => btn.addEventListener('click', () => openEdit(btn.dataset.edit || btn.dataset.rate)));
-  el.querySelectorAll('[data-move]').forEach(sel => sel.addEventListener('change', () => moveItem(sel.dataset.move, sel.value)));
-  el.querySelectorAll('[data-delete]').forEach(btn => btn.addEventListener('click', () => {const item = all().find(x=>x.id===btn.dataset.delete);if(item) void deleteItem(item);}));
+
 }
 
 function updateOfferToggle() {
@@ -222,11 +225,11 @@ function openDetails(id) {
   const noteHtml = notes.length ? notes.map(([title, values]) => `<section class="detail-note-group"><h4>${escapeHtml(title)}</h4><div class="detail-tags">${values.map(n => `<span>${escapeHtml(n)}</span>`).join('')}</div></section>`).join('') : '<p class="detail-muted">Mirisne note nisu upisane.</p>';
   const prices = item.kind === 'bottle' && [item.price2,item.price5,item.price10].some(v => v != null) ? `<div class="detail-prices">${[[2,item.price2],[5,item.price5],[10,item.price10]].filter(([,v])=>v!=null).map(([ml,v])=>`<span>${ml} ml <strong>${euro(v)}</strong></span>`).join('')}</div>` : item.samplePrice != null ? `<div class="detail-prices"><span>Uzorak <strong>${euro(item.samplePrice)}</strong></span></div>` : '';
   const image = safeUrl(item.image) ? `<img src="${escapeHtml(safeUrl(item.image))}" alt="${escapeHtml(item.brand+' '+item.name)}" loading="eager">` : '<span class="detail-placeholder">M / A</span>';
-  document.querySelector('#detailBody').innerHTML = `<div class="detail-layout"><div class="detail-image">${image}</div><div class="detail-information"><div class="detail-brand">${escapeHtml(item.brand)}</div><h2 id="detailTitle">${escapeHtml(item.name)}</h2><p class="detail-description">${escapeHtml(item.description || 'Opis još nije upisan.')}</p><div class="detail-facts"><div><small>Količina</small><strong>${escapeHtml(amMl(item))}</strong></div><div><small>Fragrantica</small><strong>${item.frRating == null ? '—' : fmt(item.frRating)+' / 5'}</strong></div>${isAdmin ? `<div><small>Moja ocjena</small><strong>${item.personalRating == null ? 'Nije upisana' : fmt(item.personalRating)+' / 10'}</strong></div>` : ''}<div><small>Skupina</small><strong>${escapeHtml(item.family || '—')}</strong></div></div><h3 class="detail-section-title">Mirisne note</h3>${noteHtml}${prices}${item.review ? `<div class="detail-review"><h3>Moja bilješka</h3><p>${escapeHtml(item.review)}</p></div>` : ''}<a class="detail-frag-link" href="${escapeHtml(fragUrl(item))}" target="_blank" rel="noopener noreferrer">Otvori na Fragrantici ↗</a></div></div>`;
+  document.querySelector('#detailBody').innerHTML = `<div class="detail-layout"><div class="detail-visual"><div class="detail-image">${image}</div>${renderFillLevel(item)}</div><div class="detail-information"><div class="detail-brand">${escapeHtml(item.brand)}</div><h2 id="detailTitle">${escapeHtml(item.name)}</h2><p class="detail-description">${escapeHtml(item.description || 'Opis još nije upisan.')}</p><div class="detail-facts"><div><small>Količina</small><strong>${escapeHtml(amMl(item))}</strong></div><div><small>Fragrantica</small><strong>${item.frRating == null ? '—' : fmt(item.frRating)+' / 5'}</strong></div>${isAdmin ? `<div><small>Moja ocjena</small><strong>${item.personalRating == null ? 'Nije upisana' : fmt(item.personalRating)+' / 10'}</strong></div>` : ''}<div><small>Skupina</small><strong>${escapeHtml(item.family || '—')}</strong></div></div>${item.frFamily ? `<p class="detail-muted">Fragrantica klasifikacija: ${escapeHtml(item.frFamily)}</p>` : ''}<h3 class="detail-section-title">Mirisne note</h3>${noteHtml}${item.notesVerified === false && item.notesSource ? `<p class="detail-muted">Izvor nota: ${escapeHtml(item.notesSource)}</p>` : ''}${item.frNote && item.notesVerified === false ? `<p class="detail-muted">${escapeHtml(item.frNote)}</p>` : ''}${item.frEnrichment ? `<p class="detail-muted">Dopuna prema Fragrantici · ${escapeHtml(item.frEnrichment.checkedAt)}</p>` : ''}${prices}${item.review ? `<div class="detail-review"><h3>Moja bilješka</h3><p>${escapeHtml(item.review)}</p></div>` : ''}<a class="detail-frag-link" href="${escapeHtml(fragUrl(item))}" target="_blank" rel="noopener noreferrer">Otvori na Fragrantici</a></div></div>`;
   const overlay = document.getElementById('detailOverlay');
   overlay.classList.add('visible'); overlay.setAttribute('aria-hidden','false');
   document.body.classList.add('detail-opened');
-  document.getElementById('detailClose').focus();
+  CatalogUI.open(overlay, document.getElementById('detailClose'));
 }
 function closeDetails() {
   const overlay = document.getElementById('detailOverlay');
@@ -234,6 +237,7 @@ function closeDetails() {
   overlay.classList.remove('visible'); overlay.setAttribute('aria-hidden','true');
   document.body.classList.remove('detail-opened');
   currentDetailId = null;
+  CatalogUI.close(overlay);
 }
 
 function perfumeLink(item) {
@@ -284,7 +288,8 @@ function openSharedPerfume() {
   if(item){const target=item.ownership==='past'?'past':item.ownership==='wish'?'wish':item.kind==='tester'?'testers':'bottles';if(tab!==target)switchTab(target);openDetails(id);}
 }
 function resetFilters() {
-  search = ''; filterFamily = ''; sortBy = 'default'; offersOnly = false; resetPageSize(); updateOfferToggle();
+  clearTimeout(searchDebounce);
+  search = ''; filterFamily = ''; sortBy = 'default'; offersOnly = false;  updateOfferToggle();
   document.querySelector('#searchInput').value = '';
 
   document.querySelector('#sortFilter').value = 'default';
@@ -308,19 +313,30 @@ async function moveItem(id, newOwnership) {
 }
 function switchTab(next, updateHash = true) {
   if (!tabInfo[next]) return; tab = next; const info = tabInfo[tab]; if (updateHash && location.hash !== '#' + info.hash) history.replaceState(null, '', '#' + info.hash);
-  for (const [k, v] of Object.entries(tabInfo)) document.getElementById(v.nav).classList.toggle('active', k === tab);
+  for (const [k, v] of Object.entries(tabInfo)) {
+    const button = document.getElementById(v.nav);
+    button.classList.toggle('active', k === tab);
+    if (k === tab) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  }
 
 
 
   document.querySelector('#sectionTitle').textContent = info.heading;
   document.querySelector('#crumb').textContent = ' / ' + info.heading.toUpperCase();
 
-  if (tab !== 'bottles') offersOnly = false; resetPageSize();
+  if (tab !== 'bottles') offersOnly = false; 
   updateOfferToggle();
   resetFilters(); render();
 }
 function toast(msg) {let el = document.querySelector('#toast'); el.textContent = msg; el.classList.add('show'); clearTimeout(toastTimeout); toastTimeout = setTimeout(() => el.classList.remove('show'), 2700);}
-function closeModal() {document.querySelector('#overlay').classList.remove('open'); document.querySelector('#overlay').setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';}
+function closeModal() {
+  const overlay = document.querySelector('#overlay');
+  if (!overlay.classList.contains('open')) return;
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden', 'true');
+  CatalogUI.close(overlay);
+}
 function optionTags(values, selected) {return values.map(x => `<option value="${escapeHtml(x)}" ${x === selected ? 'selected' : ''}>${escapeHtml(x)}</option>`).join('');}
 function ownershipChoices(v) {return `<option value="owned" ${v === 'owned' ? 'selected' : ''}>Imam</option><option value="past" ${v === 'past' ? 'selected' : ''}>Arhiva</option><option value="wish" ${v === 'wish' ? 'selected' : ''}>Želim</option>`;}
 function newItem() {let kind = tab === 'testers' ? 'tester' : 'bottle'; return {kind, brand: '', name: '', description: '', ml: null, capacity: null, count: 1, price2: null, price5: null, price10: null, salePrice: null, saleRange: '', targetPrice: null, frRating: null, frUrl: '', category: 'Niche', family: 'Svježi', ownership: tab === 'past' ? 'past' : tab === 'wish' ? 'wish' : 'owned', status: tab === 'testers' ? 'Za isprobati' : tab === 'past' ? 'Imao' : tab === 'wish' ? 'Želim' : 'U kolekciji', review: '', personalRating: null, image: ''};}
@@ -392,8 +408,13 @@ function openEdit(id) {
     if (idx < 0) arr.unshift(updated); else arr[idx] = updated;
     if (await persist()) {render(); closeModal(); toast('Miris je spremljen online');} else {await refreshCatalog(); render();}
   };
-  document.querySelector('#overlay').classList.add('open'); document.querySelector('#overlay').setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
-  form.querySelector('[name="brand"]').focus();
+  document.querySelector('#overlay').classList.add('open'); document.querySelector('#overlay').setAttribute('aria-hidden', 'false');
+  form.querySelectorAll('.field').forEach((field, index) => {
+    const label = field.querySelector('label');
+    const input = field.querySelector('input,select,textarea');
+    if (label && input) { input.id ||= `edit-field-${index}`; label.htmlFor = input.id; }
+  });
+  CatalogUI.open(document.querySelector('#overlay'), form.querySelector('[name="brand"]'));
 }
 async function deleteItem(item) { if (!isAdmin) return;if (!confirm('Trajno izbrisati ' + item.brand + ' ' + item.name + '? Ako ga želiš samo maknuti iz kolekcije, odaberi „Arhiva”.')) return; const k = item.kind === 'bottle' ? 'bottles' : 'testers'; catalog[k] = catalog[k].filter(x => x.id !== item.id); catalog.deletedIds = [...new Set([...(catalog.deletedIds || []), item.id])]; if (await persist()) {render(); closeModal(); toast('Miris izbrisan');} else {await refreshCatalog(); render();} }
 function downloadFile(name, text, mime) {const blob = new Blob([text], {type: mime}), url = URL.createObjectURL(blob), a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 3500);}
@@ -404,13 +425,45 @@ function exportCSV() {
   let rows = [head.map(v => '"' + v.replace(/"/g, '""') + '"').join(';')]; for (const i of active()) rows.push(cols.map(k => '"' + String(k === 'image' && String(i.image || '').startsWith('data:') ? '[slika je u JSON backupu]' : i[k] ?? '').replace(/"/g, '""') + '"').join(';'));
   downloadFile(tabInfo[tab].hash + '.csv', '\ufeff' + rows.join('\r\n'), 'text/csv;charset=utf-8'); toast('CSV preuzet');
 }
+function mergeAdditions(current, incoming) {
+  const result = clone(current);
+  const keyOf = item => normalizeSearch(item.brand + ' ' + item.name).replace(/[^a-z0-9]/g, '');
+  for (const key of ['bottles', 'testers']) {
+    const ids = new Set(result[key].map(item => item.id));
+    const names = new Set(result[key].filter(item => item.ownership === 'owned').map(keyOf));
+    for (const item of incoming[key]) {
+      if (!item || !item.id || ids.has(item.id) || names.has(keyOf(item))) continue;
+      if (result.deletedIds?.includes(item.id)) continue;
+      result[key].push(normalizeItem(item, {}));
+      ids.add(item.id);
+      names.add(keyOf(item));
+    }
+  }
+  return result;
+}
 function importBackup(ev) { if (!isAdmin) return;
   const file = ev.target.files?.[0]; ev.target.value = ''; if (!file) return;
-  const reader = new FileReader(); reader.onload = async () => {try {let data = JSON.parse(reader.result); if (!Array.isArray(data.bottles) || !Array.isArray(data.testers)) throw new Error('Neispravan format backupa.'); if (!confirm('Uvoz će zamijeniti trenutni popis u ovom pregledniku. Nastaviti?')) return; catalog = mergeCatalog(data, !data.version || data.version < 4); if (await persist()) {render(); toast('Backup uspješno objavljen');} else {await refreshCatalog(); render();} } catch (err) {alert('Ne mogu uvesti backup: ' + err.message);} }; reader.readAsText(file);
+  const reader = new FileReader(); reader.onload = async () => {try {let data = JSON.parse(reader.result); if (!Array.isArray(data.bottles) || !Array.isArray(data.testers)) throw new Error('Neispravan format backupa.'); const additionsOnly = data.mode === 'additions'; if (!confirm(additionsOnly ? 'Dodati samo nove parfeme i sačuvati postojeće količine i ocjene?' : 'Uvoz će zamijeniti trenutni popis u ovom pregledniku. Nastaviti?')) return; catalog = additionsOnly ? mergeAdditions(catalog, data) : mergeCatalog(data, !data.version || data.version < 4); if (await persist()) {render(); toast('Backup uspješno objavljen');} else {await refreshCatalog(); render();} } catch (err) {alert('Ne mogu uvesti backup: ' + err.message);} }; reader.readAsText(file);
 }
 async function resetCatalog() { if (!isAdmin) return;if (!confirm('Vratiti početni arhiv? Ovo će izbrisati sve tvoje naknadne unose, fotografije, ocjene i izmjene ako nemaš backup.')) return; if (!confirm('Jesi li siguran?')) return; catalog = clone(initial); if (await persist()) {render(); toast('Početni arhiv objavljen');} else {await refreshCatalog(); render();} }
 async function copyList() {const text = active().map(i => `${i.brand} ${i.name} · ${amMl(i)}${i.kind === 'bottle' ? ` · 2/5/10 ml: ${euro(i.price2)}/${euro(i.price5)}/${euro(i.price10)}` : ''}`).join('\n'); try {await navigator.clipboard.writeText(text); toast('Popis kopiran');} catch (_) {const t = document.createElement('textarea'); t.value = text; document.body.append(t); t.select(); document.execCommand('copy'); t.remove(); toast('Popis kopiran');} }
 function init() {
+  setupPresentation();
+  const cards = document.getElementById('cards');
+  cards.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (!button || !cards.contains(button)) return;
+    if (button.id === 'emptyReset') return resetFilters();
+    if (button.dataset.detail) return openDetails(button.dataset.detail);
+    if (button.dataset.edit || button.dataset.rate) return openEdit(button.dataset.edit || button.dataset.rate);
+    if (button.dataset.delete) {
+      const item = all().find(item => item.id === button.dataset.delete);
+      if (item) void deleteItem(item);
+    }
+  });
+  cards.addEventListener('change', event => {
+    if (event.target.matches('[data-move]')) void moveItem(event.target.dataset.move, event.target.value);
+  });
   for (const [name, meta, label, icon, count] of [['bottles', tabInfo.bottles, 'Parfemi', ICONS.bottle, 'bcount'], ['testers', tabInfo.testers, 'Testeri', ICONS.vial, 'tcount'], ['past', tabInfo.past, 'Arhiva', ICONS.history, 'hcount'], ['wish', tabInfo.wish, 'Želim', ICONS.heart, 'wcount']]) {
     const el = document.getElementById(meta.nav); el.dataset.view = name; el.innerHTML = icon + `<span>${label}</span><em id="${count}">0</em>`; el.addEventListener('click', () => switchTab(name));
   }
@@ -420,10 +473,10 @@ function init() {
   document.querySelector('#searchIcon').innerHTML = ICONS.search;
 
   document.querySelector('#sortFilter').innerHTML = '<option value="default">Početni redoslijed</option><option value="name-asc">Naziv A–Z</option><option value="name-desc">Naziv Z–A</option><option value="fr-desc">Fragrantica ↓</option><option value="fr-asc">Fragrantica ↑</option><option value="personal-desc">Moja ocjena ↓</option><option value="personal-asc">Moja ocjena ↑</option><option value="ml-desc">Količina ↓</option><option value="ml-asc">Količina ↑</option>';
-  document.querySelector('#searchInput').addEventListener('input', ev => {const value = normalizeSearch(ev.target.value); clearTimeout(searchDebounce); searchDebounce = setTimeout(() => {search=value; resetPageSize(); renderCards();}, 160);});
+  document.querySelector('#searchInput').addEventListener('input', ev => {const value = normalizeSearch(ev.target.value); clearTimeout(searchDebounce); searchDebounce = setTimeout(() => {search=value;  renderCards();}, 160);});
 
-  document.querySelector('#sortFilter').addEventListener('change', ev => {sortBy = ev.target.value; resetPageSize(); renderCards();});
-  document.querySelector('#offerToggle').addEventListener('click', () => {offersOnly = !offersOnly; resetPageSize(); updateOfferToggle(); renderCards();});
+  document.querySelector('#sortFilter').addEventListener('change', ev => {sortBy = ev.target.value;  renderCards();});
+  document.querySelector('#offerToggle').addEventListener('click', () => {offersOnly = !offersOnly;  updateOfferToggle(); renderCards();});
   document.querySelector('#detailClose').addEventListener('click', closeDetails);
   document.querySelector('#detailShare').addEventListener('click', shareCurrentPerfume);
   document.querySelector('#detailOverlay').addEventListener('click', ev => {if (ev.target.id === 'detailOverlay') closeDetails();});
@@ -441,6 +494,7 @@ function init() {
   window.addEventListener('keydown', ev => {if (ev.key === 'Escape') {closeDetails(); closeModal();}});
   window.addEventListener('hashchange', () => switchTab(tabFromHash(), false));
   document.body.classList.add('viewer-mode');
+  document.querySelectorAll('#sortFilter option[value^="personal-"]').forEach(option => { option.hidden = true; option.disabled = true; });
   switchTab(tab, false);
   openSharedPerfume();
   initCloud();
